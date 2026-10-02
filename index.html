@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>theusmondigital — Telegram bot, Mini App, AI yordamchi va landing sayt</title>
-<meta name="description" content="Biznesingiz uchun Telegram bot va Mini App — $250. Ovozli AI yordamchi — $1000 dan. Landing sayt — $1000. Aksiya narxlari cheklangan muddatda.">
+<meta name="description" content="Biznesingiz uchun Telegram bot va Mini App — $250. Ovozli AI yordamchi — $1000. Landing sayt — $1000. Aksiya narxlari cheklangan muddatda.">
 <meta property="og:title" content="theusmondigital — Telegram bot, Mini App va landing sayt">
 <meta property="og:description" content="Telegram bot + Mini App $250 (eski narx $500). Landing sayt $1000 (eski narx $1500).">
 <meta name="theme-color" content="#070504">
@@ -614,7 +614,7 @@
         <div class="ai-feat reveal d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8M8 13h5"/></svg></div><div><b>Mijozlar bilan jonli ovozli suhbat</b><span>Mijoz Telegram’da AI bilan qo‘ng‘iroqdagidek gaplashadi yoki ovozli xabar yuboradi</span></div></div>
       </div>
       <div class="ai-price reveal d2">
-        <span class="now">$1000<small>dan</small></span>
+        <span class="now">$1000</span>
         <span class="save" style="background:rgba(255,90,31,.12);color:var(--lime)">+$15 har bir qo‘shimcha funksiya</span>
       </div>
       <div class="hero-cta reveal d3">
@@ -709,7 +709,7 @@
         <div class="plan-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0M12 17v5M8 22h8"/></svg></div>
         <h3>AI yordamchi</h3>
         <p class="sub">Savdoingizni ovoz bilan boshqaring va mijozlar bilan ovozli gaplashing</p>
-        <div class="prices"><span class="now">$1000</span><span class="from">dan</span></div>
+        <div class="prices"><span class="now">$1000</span></div>
         <div class="addon">Har bir qo‘shimcha funksiya: <b>+$15</b></div>
         <hr>
         <ul class="checks">
@@ -760,7 +760,6 @@
         <hr>
         <div class="sum"><span class="now" id="sumNow">$250</span><span class="old" id="sumOld">$500</span></div>
         <div class="saved" id="saved">Siz $250 tejaysiz</div>
-        <div class="ai-note" id="aiNote">AI yordamchi narxi $1000 dan boshlanadi. Yakuniy narx loyiha hajmiga qarab aniqlanadi.</div>
         <a href="#buyurtma" class="btn btn-cta" id="calcOrder">Buyurtma berish <svg><use href="#i-arrow"/></svg></a>
         <p class="fine">Yakuniy narx texnik topshiriq kelishilgandan keyin tasdiqlanadi.</p>
       </aside>
@@ -888,7 +887,7 @@
             <label for="f-service">Xizmat</label>
             <select id="f-service" name="service">
               <option value="bot">Telegram bot + Mini App — $250</option>
-              <option value="ai">AI yordamchi — $1000 dan</option>
+              <option value="ai">AI yordamchi — $1000</option>
               <option value="landing">Landing sayt — $1000</option>
             </select>
           </div>
@@ -944,7 +943,7 @@
   const FORM_ENDPOINT = "";
 
   const SKILL_PRICE = 15;
-  // old === now means no discount (no strike-through); from: price "dan" (starting at)
+  // old === now means no discount (no strike-through)
   const SERVICES = {
     bot: { name: "Telegram bot + Mini App", now: 250, old: 500, skills: [
       ["To‘lov tizimi", "Click / Payme"],
@@ -958,7 +957,7 @@
       ["Statistika", "Savdo va mijozlar hisoboti"],
       ["Bonus / keshbek", "Doimiy mijozlar uchun"]
     ] },
-    ai: { name: "AI yordamchi", now: 1000, old: 1000, from: true, skills: [
+    ai: { name: "AI yordamchi", now: 1000, old: 1000, skills: [
       ["Ko‘p tillilik", "O‘zbek, rus, ingliz"],
       ["Google Sheets / Excel", "Jadvallardan ma’lumot olish"],
       ["CRM ulash", "amoCRM, Bitrix24 va boshqalar"],
@@ -1077,7 +1076,7 @@
       const nSkills = Object.values(skills).reduce((n, a) => n + a.length, 0);
       const now = services.reduce((t, k) => t + SERVICES[k].now, 0) + nSkills * SKILL_PRICE;
       const old = services.reduce((t, k) => t + SERVICES[k].old, 0) + nSkills * SKILL_PRICE;
-      return { services, skills, nSkills, now, old, from: services.includes("ai") };
+      return { services, skills, nSkills, now, old, from: services.some((k) => SERVICES[k].from) };
     }
     function render() {
       const st = state();
@@ -1092,7 +1091,6 @@
       $("#sumOld").textContent = money(st.old);
       $("#sumOld").style.display = st.old > st.now ? "" : "none";
       $("#saved").textContent = st.old > st.now ? "Siz " + money(st.old - st.now) + " tejaysiz" : "";
-      $("#aiNote").classList.toggle("on", st.from);
       $("#calcOrder").classList.toggle("disabled", !st.services.length);
       $("#mPrice").textContent = money(st.now) + (st.from ? "+" : "");
     }
