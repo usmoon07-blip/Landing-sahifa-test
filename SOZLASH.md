@@ -1,6 +1,10 @@
 # Arizalarni Telegram botga ulash
 
-Saytdagi forma arizani **Cloudflare Worker** orqali Telegram botingizga yuboradi.
+**Hozirgi holat:** forma to'ldirilgach, tashrif buyuruvchining Telegram'ida @usmairways bilan chat
+ariza matni tayyor holda ochiladi va u "Yuborish" ni bosadi. Hech qanday sozlash kerak emas.
+
+Arizalar odam "Yuborish" ni bosishini kutmasdan, botga **avtomatik** kelishini xohlasangiz, quyidagini qiling.
+Forma arizani **Cloudflare Worker** orqali Telegram botingizga yuboradi.
 Bot tokeni sayt kodida emas, Worker ichida yashirin saqlanadi, shuning uchun uni hech kim o'g'irlay olmaydi.
 Hammasi bepul va taxminan 10 daqiqa vaqt oladi.
 

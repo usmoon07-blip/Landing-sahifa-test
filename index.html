@@ -1100,10 +1100,9 @@
 
         <div class="success" id="success" role="status" aria-live="polite">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-          <h3>Arizangiz qabul qilindi!</h3>
-          <p>Rahmat. Tez orada siz bilan bog‘lanamiz. Kutishni xohlamasangiz, hoziroq Telegram’da yozing.</p>
-          <a class="btn btn-primary" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram’da yozish <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
-          <p class="demo-flag" id="demoFlag">Demo rejim: forma hali Telegram botga ulanmagan, ariza hech qayerga yuborilmadi. Sozlash uchun SOZLASH.md fayliga qarang.</p>
+          <h3 id="successTitle">Arizangiz qabul qilindi!</h3>
+          <p id="successText">Rahmat. Tez orada siz bilan bog‘lanamiz. Kutishni xohlamasangiz, hoziroq Telegram’da yozing.</p>
+          <a class="btn btn-primary" id="successTg" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram’da yozish <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -1135,11 +1134,12 @@
 
 <script>
   /* ================= SOZLAMALAR =================
-     Arizalar Telegram botga yetib borishi uchun Cloudflare Worker manzilini shu yerga qo'ying.
-     Batafsil: SOZLASH.md fayli.
-     Masalan: const FORM_ENDPOINT = "https://ariza.sizning-nomingiz.workers.dev";
-     Bo'sh qolsa, forma demo rejimda ishlaydi (hech narsa yuborilmaydi). */
+     Hozir: ariza to'ldirilgach, Telegram'da TG_USERNAME ga tayyor matn bilan chat ochiladi,
+     tashrif buyuruvchi faqat "Yuborish" ni bosadi.
+     Arizalar botga avtomatik kelishi uchun Cloudflare Worker manzilini FORM_ENDPOINT ga qo'ying
+     (batafsil: SOZLASH.md). Masalan: const FORM_ENDPOINT = "https://ariza.sizning-nomingiz.workers.dev"; */
   const FORM_ENDPOINT = "";
+  const TG_USERNAME = "usmairways";
 
   (function () {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1228,7 +1228,7 @@
       });
     });
 
-    // Form → Cloudflare Worker → Telegram bot
+    // Form → Telegram chat with prefilled text (or Cloudflare Worker → bot when FORM_ENDPOINT is set)
     const form = document.getElementById("applyForm");
     const err = document.getElementById("formError");
     const btn = document.getElementById("submitBtn");
@@ -1252,7 +1252,13 @@
           });
           if (!res.ok) throw new Error("HTTP " + res.status);
         } else {
-          document.getElementById("demoFlag").classList.add("on");
+          // Open a Telegram chat with the application text prefilled (no await before this, so popups are allowed)
+          const url = "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(applicationText(data));
+          window.open(url, "_blank", "noopener");
+          document.getElementById("successTg").href = url;
+          document.getElementById("successTitle").textContent = "Deyarli tayyor!";
+          document.getElementById("successText").textContent = "Telegram ochildi: arizangiz matni tayyor turibdi. Uni yuborish uchun “Yuborish” tugmasini bosing. Telegram ochilmagan bo‘lsa, quyidagi tugmani bosing.";
+          document.getElementById("successTg").firstChild.textContent = "Arizani Telegram’da yuborish ";
         }
         form.style.display = "none";
         document.getElementById("success").classList.add("on");
@@ -1262,6 +1268,19 @@
         btn.disabled = false; btn.style.opacity = ""; lbl.textContent = "Ariza yuborish";
       }
     });
+    function applicationText(d) {
+      const v = (x) => String(x || "").trim() || "—";
+      return [
+        "Assalomu alaykum! Saytdan ariza:",
+        "",
+        "Ism: " + v(d.name),
+        "Telefon: " + v(d.phone),
+        "Telegram: " + v(d.telegram),
+        "Tarif: " + v(d.tier),
+        "Daraja: " + v(d.level),
+        "Maqsad: " + v(d.goal)
+      ].join("\n");
+    }
     function showError(msg, focusId) {
       err.textContent = msg; err.classList.add("on");
       if (focusId) document.getElementById(focusId).focus();
