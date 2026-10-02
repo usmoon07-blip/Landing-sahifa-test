@@ -4,425 +4,410 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>theusmondigital — Claude AI bilan dasturlash mentorligi</title>
-<meta name="description" content="Usmon bilan yakka tartibda onlayn mentorlik: Claude AI yordamida dasturlashni va bizneslarni avtomatlashtirishni o‘rganing.">
+<meta name="description" content="Usmon bilan yakka tartibda onlayn mentorlik: Claude AI yordamida dasturlashni va bizneslarni avtomatlashtirishni o‘rganing. 25 ta dars, sertifikat.">
 <meta property="og:title" content="theusmondigital — Claude AI bilan dasturlash mentorligi">
-<meta property="og:description" content="Claude AI bilan dasturlashni o‘rganing va bizneslarni avtomatlashtirib daromad qiling. Yakka tartibda, onlayn.">
-<meta name="theme-color" content="#0c0b0a">
+<meta property="og:description" content="Claude AI bilan dasturlang va biznesni avtomatlashtiring. Yakka mentorlik, 100% onlayn, sertifikat.">
+<meta name="theme-color" content="#070504">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0c0b0a;
-    --bg-2: #12100e;
-    --surface: #171512;
-    --surface-2: #1e1b17;
-    --line: rgba(255, 240, 225, 0.08);
-    --line-2: rgba(255, 240, 225, 0.14);
-    --text: #f5efe7;
-    --muted: #a69d92;
-    --dim: #6f675e;
-    --accent: #e8774a;
-    --accent-2: #f3b46e;
-    --accent-ink: #1a0e07;
-    --ok: #7ad19a;
-    --silver: linear-gradient(135deg, #f3f5f8 0%, #a9b0bb 45%, #e6e9ee 70%, #8d95a1 100%);
+    --bg: #070504;
+    --bg-2: #0d0807;
+    --surface: #120b09;
+    --surface-2: #1a0f0b;
+    --line: rgba(255, 255, 255, 0.07);
+    --line-2: rgba(255, 255, 255, 0.13);
+    --grid: rgba(255, 255, 255, 0.045);
+    --text: #ffffff;
+    --soft: #e9e2de;
+    --muted: #a8988f;
+    --dim: #6e605a;
+    --accent: #ff5a1f;
+    --accent-2: #ff8a3d;
+    --accent-deep: #c73a0a;
+    --glow: rgba(255, 90, 31, 0.55);
+    --ok: #4ade80;
+    --silver: linear-gradient(135deg, #ffffff 0%, #a9b0bb 45%, #eef0f3 70%, #8d95a1 100%);
     --gold: linear-gradient(135deg, #fff1c1 0%, #e5b84f 40%, #fbe39a 65%, #b9862b 100%);
     --brilliant: linear-gradient(120deg, #a5f3fc 0%, #c4b5fd 30%, #f9a8d4 55%, #fde68a 80%, #a5f3fc 100%);
-    --radius: 22px;
-    --display: "Unbounded", "Manrope", system-ui, sans-serif;
-    --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --wrap: 1180px;
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font); font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   img, svg { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
   button, input, select, textarea { font: inherit; color: inherit; }
-  ::selection { background: var(--accent); color: var(--accent-ink); }
+  ::selection { background: var(--accent); color: #fff; }
 
   .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
   section { position: relative; padding: 120px 0; }
 
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--accent-2);
+  /* Grid background like the reference posters */
+  .gridbg::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%);
   }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; opacity: .7; }
-  h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; margin: 0; line-height: 1.12; }
-  h2 { font-size: clamp(30px, 4.4vw, 52px); margin-top: 18px; max-width: 18ch; }
-  .lead { color: var(--muted); font-size: clamp(17px, 1.6vw, 19px); max-width: 60ch; margin: 22px 0 0; }
-  .grad {
-    background: linear-gradient(100deg, var(--accent) 10%, var(--accent-2) 90%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+  .glow-tr::after, .glow-bl::after {
+    content: ""; position: absolute; pointer-events: none; width: 760px; height: 760px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255, 90, 31, .30), rgba(255, 90, 31, 0) 70%);
   }
+  .glow-tr::after { right: -320px; top: -300px; }
+  .glow-bl::after { left: -340px; bottom: -320px; }
+
+  /* Typography */
+  h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  h2 { font-size: clamp(32px, 4.6vw, 56px); font-weight: 800; }
+  .o { color: var(--accent); }
+  .lead { color: var(--muted); font-size: clamp(16px, 1.5vw, 18px); max-width: 60ch; margin: 20px 0 0; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 7px; background: var(--accent); color: #fff;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
+    box-shadow: 0 8px 26px -10px var(--glow);
+  }
+  .tag.ghost { background: rgba(255, 90, 31, .12); color: var(--accent-2); box-shadow: none; border: 1px solid rgba(255, 90, 31, .35); }
+  .head-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .head-center h2 { margin-top: 20px; }
+  .head-center .lead { text-align: center; }
+  .curly { display: inline-block; width: 0.75em; height: 0.75em; vertical-align: -0.02em; margin-left: .12em; color: var(--accent); }
 
   /* Buttons */
   .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 16px 26px; border-radius: 999px; border: 1px solid transparent;
-    font-weight: 700; font-size: 16px; cursor: pointer; white-space: nowrap;
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 15px 18px 15px 28px; border-radius: 999px; border: 1px solid transparent;
+    font-weight: 600; font-size: 16px; cursor: pointer; white-space: nowrap;
     transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
   }
-  .btn svg { width: 18px; height: 18px; transition: transform .25s ease; }
-  .btn:hover svg { transform: translateX(3px); }
-  .btn-primary {
-    background: linear-gradient(100deg, var(--accent), var(--accent-2));
-    color: var(--accent-ink);
-    box-shadow: 0 10px 40px -10px rgba(232, 119, 74, .65), inset 0 1px 0 rgba(255,255,255,.35);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -12px rgba(232, 119, 74, .8), inset 0 1px 0 rgba(255,255,255,.35); }
-  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.02); }
-  .btn-ghost:hover { border-color: rgba(255,240,225,.32); background: rgba(255,255,255,.05); }
-  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--accent-2); outline-offset: 3px;
-  }
+  .btn .arr { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); transition: transform .25s ease, background .25s; }
+  .btn .arr svg { width: 15px; height: 15px; }
+  .btn:hover .arr { transform: rotate(45deg); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 14px 40px -12px var(--glow), inset 0 1px 0 rgba(255,255,255,.25); }
+  .btn-primary:hover { transform: translateY(-2px); background: #ff6a32; box-shadow: 0 20px 50px -12px rgba(255,90,31,.75), inset 0 1px 0 rgba(255,255,255,.25); }
+  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.03); color: #fff; }
+  .btn-ghost .arr { background: var(--accent); }
+  .btn-ghost:hover { border-color: rgba(255,90,31,.6); background: rgba(255,90,31,.08); }
+  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
 
   /* Nav */
-  .nav {
-    position: fixed; inset: 0 0 auto 0; z-index: 50;
-    transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
-    border-bottom: 1px solid transparent;
-  }
-  .nav.scrolled { background: rgba(12, 11, 10, .72); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-  .logo { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
-  .logo-mark {
-    width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: var(--accent-ink); font-size: 17px; font-weight: 800;
-    box-shadow: 0 6px 24px -6px rgba(232,119,74,.7);
-  }
-  .logo span em { font-style: normal; color: var(--accent-2); }
-  .nav-links { display: flex; gap: 34px; font-size: 15px; font-weight: 600; color: var(--muted); }
+  .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s; }
+  .nav.scrolled { background: rgba(7,5,4,.78); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+  .logo b { color: var(--accent); font-weight: 600; }
+  .logo-mark { width: 40px; height: 40px; border-radius: 9px; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; }
+  .logo-mark svg { width: 24px; height: 24px; }
+  .nav-links { display: flex; gap: 32px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
   .nav-links a { transition: color .2s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav .btn { padding: 11px 20px; font-size: 15px; }
+  .nav-links a:hover { color: #fff; }
+  .nav .btn { padding: 9px 10px 9px 20px; font-size: 14.5px; }
+  .nav .btn .arr { width: 26px; height: 26px; }
 
   /* Hero */
-  .hero { padding: 168px 0 110px; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .hero-bg::before {
-    content: ""; position: absolute; width: 900px; height: 900px; right: -260px; top: -320px;
-    background: radial-gradient(closest-side, rgba(232,119,74,.28), rgba(232,119,74,0) 70%);
-    filter: blur(10px);
+  .hero { padding: 150px 0 40px; overflow: hidden; text-align: center; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-kicker { font-size: clamp(24px, 3.2vw, 38px); font-weight: 600; letter-spacing: -0.01em; }
+  .hero h1 { margin-top: 2px; }
+  .hero h1 .big {
+    display: block; font-size: clamp(60px, 12vw, 148px); font-weight: 800; letter-spacing: -0.035em; line-height: .98;
+    color: var(--accent); text-shadow: 0 10px 60px rgba(255,90,31,.35);
   }
-  .hero-bg::after {
-    content: ""; position: absolute; inset: 0;
-    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
-    opacity: .55;
-  }
-  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 64px; align-items: center; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px;
-    border: 1px solid var(--line-2); border-radius: 999px; background: rgba(255,255,255,.03);
-    font-size: 14px; font-weight: 600; color: var(--muted);
-  }
-  .pill b { background: rgba(122,209,154,.14); color: var(--ok); padding: 3px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .04em; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(122,209,154,.6); animation: ping 2s infinite; display: inline-block; }
-  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(122,209,154,.55); } 80%, 100% { box-shadow: 0 0 0 10px rgba(122,209,154,0); } }
-  .hero h1 { font-size: clamp(38px, 5.6vw, 70px); margin-top: 26px; }
-  .hero .lead { margin-top: 26px; }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
-  .hero-stats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 54px; border-top: 1px solid var(--line); padding-top: 28px; }
-  .hero-stats div { padding-right: 34px; margin-right: 34px; border-right: 1px solid var(--line); }
-  .hero-stats div:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
-  .hero-stats strong { display: block; font-family: var(--display); font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
-  .hero-stats span { color: var(--muted); font-size: 14px; }
+  .hero h1 .sub { display: block; font-size: clamp(22px, 3.4vw, 42px); font-weight: 600; margin-top: 10px; letter-spacing: -0.01em; }
+  .hero h1 .sub strong { font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; }
+  .hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .hero .lead { margin: 26px auto 0; max-width: 58ch; }
+  .hero-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 
-  /* Terminal */
-  .stage { position: relative; }
-  .terminal {
-    position: relative; border-radius: 20px; border: 1px solid var(--line-2);
-    background: linear-gradient(180deg, rgba(30,27,23,.92), rgba(18,16,14,.96));
-    box-shadow: 0 40px 120px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.02) inset;
-    overflow: hidden; transform: rotate(-1.2deg);
+  /* Hero stage: ribbons + laptop */
+  .stage { position: relative; margin: 10px auto 0; max-width: 1100px; height: 580px; }
+  .ribbon-svg { position: absolute; left: 50%; top: -40px; width: 1400px; height: 640px; max-width: none; transform: translateX(-50%); pointer-events: none; }
+  .ribbon-svg .flow { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: draw 2.6s cubic-bezier(.6,.1,.2,1) .3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .laptop { position: absolute; left: 50%; bottom: 40px; width: min(760px, 92%); transform: translateX(-50%); z-index: 2; filter: drop-shadow(0 50px 60px rgba(0,0,0,.8)); }
+  .screen { position: relative; border-radius: 18px 18px 0 0; padding: 12px 12px 0; background: linear-gradient(180deg, #2b2b2e, #18181a); border: 1px solid #3a3a3e; border-bottom: 0; }
+  .screen-in {
+    position: relative; border-radius: 8px 8px 0 0; overflow: hidden; aspect-ratio: 16 / 9.4; text-align: left;
+    background:
+      repeating-radial-gradient(circle at 70% 120%, rgba(255,255,255,.035) 0 2px, transparent 2px 38px),
+      radial-gradient(70% 90% at 75% 110%, rgba(255,90,31,.22), transparent 60%),
+      #0b0908;
   }
-  .term-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
-  .term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a342e; }
-  .term-bar i:nth-child(1) { background: #ef6b5b; } .term-bar i:nth-child(2) { background: #f2bd4f; } .term-bar i:nth-child(3) { background: #62c76c; }
-  .term-bar span { margin-left: 10px; font-size: 13px; color: var(--dim); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
-  .term-body { padding: 22px 22px 26px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; line-height: 1.75; min-height: 330px; }
-  .term-line { opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
+  .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; font-size: 10px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .site-nav .l { display: flex; align-items: center; gap: 7px; color: #fff; font-weight: 600; font-size: 11.5px; }
+  .site-nav .l i { width: 14px; height: 14px; border-radius: 3px; background: var(--accent); display: block; }
+  .site-nav .m { display: flex; gap: 14px; }
+  .site-nav .m span:first-child { color: var(--accent); }
+  .site-nav .r { background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 999px; font-weight: 600; }
+  .term { padding: 18px 22px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.75; }
+  .term-title { font-family: var(--font); font-size: clamp(16px, 2.6vw, 28px); font-weight: 500; line-height: 1.15; margin-bottom: 14px; color: #fff; }
+  .term-title b { color: var(--accent); font-weight: 700; }
+  .term-line { opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; color: var(--muted); }
   .term-line.on { opacity: 1; transform: none; }
-  .term-prompt { color: var(--accent-2); }
-  .term-user { color: var(--text); }
-  .term-ok { color: var(--ok); }
-  .term-muted { color: var(--dim); }
-  .caret { display: inline-block; width: 8px; height: 16px; background: var(--accent-2); vertical-align: -3px; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+  .t-p { color: var(--accent-2); } .t-u { color: #fff; } .t-ok { color: var(--ok); }
+  .caret { display: inline-block; width: 7px; height: 14px; background: var(--accent); vertical-align: -2px; animation: blink 1s steps(1) infinite; margin-left: 2px; }
   @keyframes blink { 50% { opacity: 0; } }
+  .base { position: relative; height: 22px; margin: 0 -7%; border-radius: 2px 2px 14px 14px; background: linear-gradient(180deg, #4a4a4f 0%, #2a2a2d 40%, #141416 100%); }
+  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 18%; height: 8px; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: #1d1d20; }
   .float-card {
-    position: absolute; left: -38px; bottom: -70px; width: 300px;
-    padding: 16px 18px; border-radius: 16px;
-    background: rgba(28,25,21,.92); border: 1px solid var(--line-2);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 24px 60px -20px rgba(0,0,0,.8);
-    display: flex; gap: 14px; align-items: center;
-    opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .6s ease, transform .6s ease;
+    position: absolute; z-index: 3; right: -1%; top: 22%;
+    padding: 14px 16px; border-radius: 16px; display: flex; gap: 12px; align-items: center; text-align: left;
+    background: rgba(20,12,9,.9); border: 1px solid rgba(255,90,31,.35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,.9), 0 0 40px -10px rgba(255,90,31,.4);
+    opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease;
   }
   .float-card.on { opacity: 1; transform: none; }
-  .float-card .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(122,209,154,.14); color: var(--ok); }
+  .float-card .ic { flex: none; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--accent); color: #fff; }
   .float-card .ic svg { width: 20px; height: 20px; }
-  .float-card b { display: block; font-size: 14px; }
-  .float-card small { color: var(--muted); font-size: 13px; }
-  .float-chip {
-    position: absolute; right: -14px; top: -20px; padding: 10px 16px; border-radius: 999px;
-    background: linear-gradient(100deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
-    font-weight: 800; font-size: 13px; box-shadow: 0 14px 40px -12px rgba(232,119,74,.8); transform: rotate(3deg); z-index: 2;
-  }
+  .float-card b { display: block; font-size: 14px; font-weight: 600; }
+  .float-card small { color: var(--muted); font-size: 12.5px; }
+  .float-card.left { left: -1%; right: auto; top: auto; bottom: 9%; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 900px; margin: 10px auto 0; border: 1px solid var(--line); border-radius: 20px; background: rgba(18,11,9,.6); backdrop-filter: blur(6px); }
+  .hero-stats div { padding: 22px 16px; border-right: 1px solid var(--line); }
+  .hero-stats div:last-child { border-right: 0; }
+  .hero-stats strong { display: block; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .hero-stats strong em { font-style: normal; color: var(--accent); }
+  .hero-stats span { color: var(--muted); font-size: 13.5px; }
 
   /* Marquee */
-  .strip { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); overflow: hidden; }
-  .marquee { display: flex; width: max-content; animation: slide 38s linear infinite; }
-  .marquee span { display: inline-flex; align-items: center; gap: 28px; padding: 22px 14px; font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--muted); white-space: nowrap; }
-  .marquee span::after { content: "✦"; color: var(--accent); font-size: 14px; margin-left: 14px; }
+  .strip { padding: 0; background: var(--accent); overflow: hidden; transform: rotate(-1.5deg); margin: 70px -20px 0; box-shadow: 0 20px 60px -20px var(--glow); }
+  .marquee { display: flex; width: max-content; animation: slide 36s linear infinite; }
+  .marquee span { display: inline-flex; align-items: center; padding: 18px 22px; font-weight: 700; font-size: 18px; color: #fff; white-space: nowrap; text-transform: uppercase; letter-spacing: .02em; }
+  .marquee span::after { content: "✦"; margin-left: 44px; font-size: 14px; opacity: .75; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
-  /* Why */
+  /* Mountain / core section */
+  .core { overflow: hidden; padding-bottom: 60px; }
+  .core .wrap { position: relative; z-index: 1; }
+  .core-stage { position: relative; height: 640px; margin-top: 30px; }
+  .mountain { position: absolute; left: 50%; bottom: 0; width: 820px; max-width: none; transform: translateX(-50%); }
+  .core-item { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 230px; }
+  .core-item .ic { width: 58px; height: 58px; color: var(--accent); }
+  .core-item .ic svg { width: 100%; height: 100%; }
+  .core-item h3 { font-size: 24px; font-weight: 500; line-height: 1.2; }
+  .ci-1 { left: 2%; top: 26%; }
+  .ci-2 { left: 50%; top: 0; margin-left: -115px; }
+  .ci-3 { right: 2%; top: 26%; }
+  .core-cta { display: flex; justify-content: center; margin-top: -40px; position: relative; z-index: 2; }
+
+  /* Compare */
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .why-grid h2 { margin-top: 20px; }
   .compare { display: grid; gap: 14px; }
   .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .compare-cell { padding: 20px 22px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
-  .compare-cell small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+  .compare-cell small { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
   .compare-cell.old { color: var(--muted); }
   .compare-cell.old small { color: var(--dim); }
-  .compare-cell.new { border-color: rgba(232,119,74,.35); background: linear-gradient(160deg, rgba(232,119,74,.12), rgba(232,119,74,.02)); }
-  .compare-cell.new small { color: var(--accent-2); }
+  .compare-cell.new { border-color: rgba(255,90,31,.45); background: linear-gradient(160deg, rgba(255,90,31,.16), rgba(255,90,31,.03)); }
+  .compare-cell.new small { color: var(--accent); }
 
-  /* Learn */
+  /* Learn cards */
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
+  .section-head h2 { margin-top: 20px; }
   .section-head .lead { max-width: 44ch; margin: 0; }
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .card {
-    position: relative; padding: 30px; border-radius: var(--radius);
-    background: var(--surface); border: 1px solid var(--line);
-    transition: transform .35s ease, border-color .35s ease, background .35s ease;
-    overflow: hidden;
-  }
-  .card::before {
-    content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(232,119,74,.14), transparent 45%);
-  }
-  .card:hover { transform: translateY(-4px); border-color: var(--line-2); }
+  .card { position: relative; padding: 30px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; transition: transform .35s ease, border-color .35s ease; }
+  .card::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255,90,31,.16), transparent 45%); }
+  .card::after { content: ""; position: absolute; left: 30px; right: 30px; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,90,31,.7), transparent); opacity: .5; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(255,90,31,.35); }
   .card:hover::before { opacity: 1; }
   .card > * { position: relative; }
-  .card .num { font-family: var(--display); font-size: 13px; color: var(--dim); font-weight: 600; }
-  .card .icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; background: rgba(232,119,74,.12); color: var(--accent-2); margin: 22px 0 22px; }
-  .card .icon svg { width: 24px; height: 24px; }
-  .card h3 { font-size: 20px; line-height: 1.3; }
-  .card p { color: var(--muted); font-size: 15.5px; margin: 12px 0 0; }
+  .card .top { display: flex; justify-content: space-between; align-items: center; }
+  .card .num { font-size: 13px; color: var(--dim); font-weight: 600; }
+  .card .icon { width: 52px; height: 52px; color: var(--accent); }
+  .card .icon svg { width: 100%; height: 100%; }
+  .card h3 { font-size: 20px; line-height: 1.3; margin-top: 26px; font-weight: 600; }
+  .card p { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
 
   /* Audience */
   .aud { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .aud-card { padding: 40px; border-radius: 26px; border: 1px solid var(--line); background: var(--surface); }
-  .aud-card.hl { background: linear-gradient(160deg, rgba(232,119,74,.16), rgba(23,21,18,1) 60%); border-color: rgba(232,119,74,.3); }
-  .aud-tag { display: inline-block; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.05); color: var(--muted); border: 1px solid var(--line); }
-  .aud-card h3 { font-size: clamp(22px, 2.4vw, 28px); margin-top: 22px; }
+  .aud-card.hl { background: radial-gradient(90% 80% at 100% 0%, rgba(255,90,31,.25), transparent 60%), var(--surface); border-color: rgba(255,90,31,.4); }
+  .aud-card h3 { font-size: clamp(22px, 2.4vw, 28px); margin-top: 22px; font-weight: 700; }
   .checks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
-  .checks li { display: flex; gap: 12px; align-items: flex-start; color: #ddd5cb; font-size: 16px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--soft); font-size: 15.5px; }
   .checks li::before {
     content: ""; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%;
-    background: rgba(232,119,74,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3b46e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat;
+    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat;
   }
 
+  /* Portfolio */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .work { position: relative; display: grid; grid-template-columns: 1fr 230px; gap: 26px; align-items: center; padding: 34px; border-radius: 28px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+  .work::before { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.3), transparent 70%); }
+  .work > * { position: relative; }
+  .work .client { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+  .work h3 { font-size: 26px; margin-top: 8px; font-weight: 700; }
+  .work p { color: var(--muted); font-size: 15px; margin: 12px 0 0; }
+  .work .checks { margin-top: 18px; gap: 10px; }
+  .work .checks li { font-size: 14.5px; }
+  .phone { width: 230px; border-radius: 34px; padding: 9px; background: linear-gradient(160deg, #3a3a3e, #151517); box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
+  .phone-in { border-radius: 26px; overflow: hidden; background: #0e1621; height: 430px; display: flex; flex-direction: column; }
+  .tg-head { display: flex; gap: 10px; align-items: center; padding: 14px 12px 10px; background: #17212b; }
+  .tg-ava { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #fff; background: var(--accent); flex: none; }
+  .tg-head b { font-size: 13px; display: block; line-height: 1.2; }
+  .tg-head small { font-size: 11px; color: #7f91a4; }
+  .tg-body { flex: 1; padding: 12px 10px; display: flex; flex-direction: column; gap: 7px; font-size: 11.5px; line-height: 1.45; justify-content: flex-end;
+    background: radial-gradient(circle at 30% 20%, rgba(255,90,31,.06), transparent 50%), #0e1621; }
+  .msg { max-width: 86%; padding: 7px 10px; border-radius: 12px; }
+  .msg.bot { background: #182533; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .msg.me { background: #2b5278; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .kb { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  .kb span { background: rgba(255,255,255,.08); border-radius: 7px; padding: 6px 4px; text-align: center; font-size: 10.5px; font-weight: 500; }
+
   /* Steps */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: s; position: relative; }
-  .step { padding: 28px 26px 30px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-2); position: relative; }
-  .step-n {
-    width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
-    font-family: var(--display); font-weight: 700; font-size: 16px;
-    border: 1px solid rgba(232,119,74,.45); color: var(--accent-2); background: rgba(232,119,74,.08);
-  }
-  .step h3 { font-size: 18px; margin-top: 22px; line-height: 1.3; }
-  .step p { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
+  .steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 52px; height: 1px; background: repeating-linear-gradient(90deg, rgba(255,90,31,.6) 0 8px, transparent 8px 16px); }
+  .step { position: relative; padding: 28px 24px 30px; border-radius: 22px; border: 1px solid var(--line); background: var(--bg-2); }
+  .step-n { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 17px; background: var(--accent); color: #fff; box-shadow: 0 0 0 6px rgba(255,90,31,.15), 0 10px 30px -8px var(--glow); }
+  .step h3 { font-size: 18px; margin-top: 22px; line-height: 1.3; font-weight: 600; }
+  .step p { color: var(--muted); font-size: 14.5px; margin: 8px 0 0; }
 
   /* Mentor */
   .mentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
-  .portrait {
-    position: relative; aspect-ratio: 4/5; border-radius: 30px; overflow: hidden;
-    background:
-      radial-gradient(120% 80% at 80% 0%, rgba(243,180,110,.35), transparent 55%),
-      radial-gradient(90% 70% at 0% 100%, rgba(232,119,74,.35), transparent 60%),
-      linear-gradient(160deg, #241f1a, #12100e);
-    border: 1px solid var(--line-2);
-  }
+  .mentor h2 { margin-top: 20px; }
+  .portrait { position: relative; aspect-ratio: 4/5; border-radius: 30px; overflow: hidden; border: 1px solid rgba(255,90,31,.3);
+    background: repeating-radial-gradient(circle at 50% 110%, rgba(255,255,255,.04) 0 2px, transparent 2px 40px), radial-gradient(90% 70% at 50% 100%, rgba(255,90,31,.45), transparent 65%), #0e0807; }
   .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .portrait .mono {
-    position: absolute; inset: 0; display: grid; place-items: center;
-    font-family: var(--display); font-weight: 800; font-size: clamp(120px, 16vw, 210px); letter-spacing: -0.05em;
-    color: rgba(255,240,225,.92); text-shadow: 0 20px 80px rgba(232,119,74,.5);
-  }
-  .portrait .badge {
-    position: absolute; left: 20px; right: 20px; bottom: 20px; padding: 16px 18px; border-radius: 16px;
-    background: rgba(12,11,10,.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--line-2); display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  }
-  .portrait .badge b { font-family: var(--display); font-size: 18px; display: block; }
+  .portrait .mono { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: clamp(130px, 17vw, 220px); letter-spacing: -0.05em; color: #fff; text-shadow: 0 20px 80px rgba(255,90,31,.7); }
+  .portrait .badge { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 14px 18px; border-radius: 16px; background: rgba(7,5,4,.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line-2); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .portrait .badge b { font-size: 18px; display: block; font-weight: 700; }
   .portrait .badge small { color: var(--muted); font-size: 13px; }
-  .portrait .badge .live { font-size: 12px; font-weight: 700; color: var(--ok); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
-  .mentor-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 38px; }
-  .fact { padding: 22px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
-  .fact strong { display: block; font-family: var(--display); font-size: 30px; letter-spacing: -0.02em; }
-  .fact span { color: var(--muted); font-size: 14px; line-height: 1.4; display: block; margin-top: 4px; }
-  .quote { margin: 34px 0 0; padding: 4px 0 4px 22px; border-left: 2px solid var(--accent); color: #ddd5cb; font-size: 18px; font-style: italic; }
+  .mentor-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+  .fact { padding: 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .fact strong { display: block; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); line-height: 1.15; }
+  .fact span { color: var(--muted); font-size: 13.5px; line-height: 1.4; display: block; margin-top: 4px; }
+  .quote { margin: 30px 0 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--accent); color: var(--soft); font-size: 18px; font-style: italic; }
+  .socials { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+
+  /* Testimonials */
+  .tests { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .test { grid-column: span 2; display: flex; flex-direction: column; padding: 30px; border-radius: 24px; border: 1px solid var(--line); background: var(--surface); position: relative; overflow: hidden; }
+  .test:nth-child(4), .test:nth-child(5) { grid-column: span 3; }
+  .test .qm { position: absolute; right: 22px; top: 6px; font-size: 110px; font-weight: 800; line-height: 1; color: rgba(255,90,31,.13); }
+  .stars { display: flex; gap: 3px; color: var(--accent); }
+  .stars svg { width: 17px; height: 17px; }
+  .test .tag { align-self: flex-start; margin-top: 16px; font-size: 11px; padding: 5px 11px; }
+  .test p { color: var(--soft); font-size: 15.5px; margin: 16px 0 24px; position: relative; }
+  .who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
+  .who .av { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 18px; background: linear-gradient(135deg, var(--accent-2), var(--accent-deep)); color: #fff; flex: none; }
+  .who b { display: block; font-weight: 600; }
+  .who small { color: var(--muted); font-size: 13px; }
 
   /* Pricing */
   .pricing { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
-  .pricing::before {
-    content: ""; position: absolute; left: 50%; top: 0; width: 1000px; height: 600px; transform: translateX(-50%);
-    background: radial-gradient(closest-side, rgba(232,119,74,.13), transparent 70%); pointer-events: none;
-  }
-  .pricing .section-head { flex-direction: column; align-items: center; text-align: center; }
-  .pricing .section-head h2 { max-width: 22ch; }
-  .pricing .section-head .lead { text-align: center; max-width: 54ch; }
-  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; position: relative; }
-  .tier {
-    position: relative; display: flex; flex-direction: column;
-    padding: 34px 30px 30px; border-radius: 28px;
-    background: var(--surface); border: 1px solid var(--line);
-    transition: transform .35s ease, box-shadow .35s ease;
-  }
+  .pricing .wrap { position: relative; z-index: 1; }
+  .pricing .head-center { margin-bottom: 64px; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .tier { position: relative; display: flex; flex-direction: column; padding: 34px 30px 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); transition: transform .35s ease, box-shadow .35s ease; }
   .tier:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9); }
-  .tier-name {
-    font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+  .tier-gem { width: 46px; height: 46px; margin-bottom: 20px; }
+  .tier-name { font-size: 15px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; -webkit-background-clip: text; background-clip: text; color: transparent; }
   .tier.silver .tier-name { background-image: var(--silver); }
   .tier.gold .tier-name { background-image: var(--gold); }
   .tier.brilliant .tier-name { background-image: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; }
   @keyframes shimmer { to { background-position: -200% 0; } }
-  .tier-gem { width: 44px; height: 44px; margin-bottom: 22px; }
-  .tier-sub { color: var(--muted); font-size: 15px; margin-top: 8px; min-height: 48px; }
-  .price { display: flex; align-items: flex-start; gap: 4px; margin-top: 22px; font-family: var(--display); }
-  .price sup { font-size: 24px; font-weight: 600; margin-top: 10px; color: var(--muted); }
-  .price strong { font-size: 64px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
-  .price-note { color: var(--dim); font-size: 14px; margin-top: 10px; }
-  .tier-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 4px; }
-  .tier-meta span { font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: #ddd5cb; }
+  .tier-sub { color: var(--muted); font-size: 14.5px; margin-top: 6px; min-height: 46px; }
+  .price { display: flex; align-items: flex-start; gap: 4px; margin-top: 18px; }
+  .price sup { font-size: 24px; font-weight: 600; margin-top: 10px; color: var(--accent); }
+  .price strong { font-size: 66px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .price-note { color: var(--dim); font-size: 13.5px; margin-top: 8px; }
+  .tier-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0 4px; }
+  .tier-meta span { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 7px; background: rgba(255,90,31,.12); border: 1px solid rgba(255,90,31,.3); color: var(--accent-2); }
   .tier hr { border: 0; height: 1px; background: var(--line); margin: 22px 0; }
   .tier .checks { margin: 0 0 30px; gap: 12px; }
-  .tier .checks li { font-size: 15px; }
-  .tier .checks li.plus { font-weight: 700; color: var(--text); }
+  .tier .checks li { font-size: 14.5px; }
+  .tier .checks li.plus { font-weight: 600; color: #fff; }
   .tier .btn { width: 100%; margin-top: auto; }
-  .tier.silver .checks li::before { background-color: rgba(200,206,214,.12); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d5dae1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
-  .tier.gold {
-    border-color: transparent;
-    background: linear-gradient(var(--surface-2), var(--surface-2)) padding-box, var(--gold) border-box;
-    border: 1.5px solid transparent;
-    box-shadow: 0 30px 90px -30px rgba(229,184,79,.35);
-  }
-  .tier.gold .checks li::before { background-color: rgba(229,184,79,.14); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0cb6e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
-  .tier.gold .btn-primary { background: var(--gold); color: #2a1d05; box-shadow: 0 12px 40px -12px rgba(229,184,79,.7), inset 0 1px 0 rgba(255,255,255,.5); }
-  .tier.brilliant {
-    background:
-      radial-gradient(120% 60% at 100% 0%, rgba(196,181,253,.12), transparent 60%),
-      radial-gradient(100% 60% at 0% 100%, rgba(165,243,252,.08), transparent 60%),
-      var(--surface);
-    border-color: rgba(196,181,253,.25);
-  }
-  .tier.brilliant .checks li::before { background-color: rgba(196,181,253,.14); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d9cffe' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
-  .tier.brilliant .btn-primary { background: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; color: #1b1330; box-shadow: 0 12px 40px -12px rgba(196,181,253,.6), inset 0 1px 0 rgba(255,255,255,.5); }
-  .ribbon {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    padding: 7px 16px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
-    background: var(--gold); color: #2a1d05; box-shadow: 0 10px 30px -10px rgba(229,184,79,.8);
-  }
+  .tier.gold { border: 1.5px solid var(--accent); background: radial-gradient(100% 60% at 50% 0%, rgba(255,90,31,.2), transparent 60%), var(--surface-2); box-shadow: 0 30px 90px -30px rgba(255,90,31,.45); }
+  .tier.brilliant { background: radial-gradient(120% 60% at 100% 0%, rgba(196,181,253,.10), transparent 60%), var(--surface); border-color: rgba(196,181,253,.22); }
+  .tier .tag.best { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); }
   .pricing-foot { text-align: center; color: var(--muted); font-size: 15px; margin-top: 40px; }
-  .pricing-foot a { color: var(--accent-2); font-weight: 700; border-bottom: 1px solid rgba(243,180,110,.4); }
+  .pricing-foot a { color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255,90,31,.5); }
 
   /* FAQ */
   .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+  .faq-grid h2 { margin-top: 20px; }
   .faq-list { display: grid; gap: 12px; }
   details { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); transition: border-color .25s, background .25s; }
-  details[open] { border-color: var(--line-2); background: var(--surface-2); }
-  summary { list-style: none; cursor: pointer; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 700; font-size: 17px; }
+  details[open] { border-color: rgba(255,90,31,.4); background: var(--surface-2); }
+  summary { list-style: none; cursor: pointer; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 600; font-size: 16.5px; }
   summary::-webkit-details-marker { display: none; }
-  summary .pm { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-2); position: relative; transition: transform .3s ease, background .3s; }
-  summary .pm::before, summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.6px; background: var(--text); transform: translate(-50%, -50%); border-radius: 2px; }
+  summary .pm { flex: none; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,90,31,.12); position: relative; transition: background .3s; }
+  summary .pm::before, summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--accent); transform: translate(-50%, -50%); border-radius: 2px; }
   summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s ease; }
-  details[open] summary .pm { background: var(--accent); border-color: var(--accent); }
-  details[open] summary .pm::before, details[open] summary .pm::after { background: var(--accent-ink); }
+  details[open] summary .pm { background: var(--accent); }
+  details[open] summary .pm::before, details[open] summary .pm::after { background: #fff; }
   details[open] summary .pm::after { transform: translate(-50%, -50%) rotate(0deg); }
-  details p { margin: 0; padding: 0 24px 24px; color: var(--muted); font-size: 16px; }
+  details p { margin: 0; padding: 0 24px 22px; color: var(--muted); font-size: 15.5px; }
 
   /* Apply */
-  .apply-box {
-    position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px;
-    padding: 64px; border-radius: 34px; overflow: hidden;
-    border: 1px solid rgba(232,119,74,.3);
-    background:
-      radial-gradient(80% 90% at 0% 0%, rgba(232,119,74,.22), transparent 60%),
-      radial-gradient(60% 70% at 100% 100%, rgba(243,180,110,.10), transparent 60%),
-      var(--surface);
-  }
-  .apply-box h2 { max-width: 14ch; }
-  .apply-points { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 18px; }
-  .apply-points li { display: flex; gap: 14px; align-items: center; color: #ddd5cb; }
-  .apply-points .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--accent-2); }
+  .apply-box { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px; padding: 64px; border-radius: 34px; overflow: hidden; border: 1px solid rgba(255,90,31,.4);
+    background: repeating-radial-gradient(circle at 0% 100%, rgba(255,255,255,.03) 0 2px, transparent 2px 44px), radial-gradient(80% 90% at 0% 0%, rgba(255,90,31,.28), transparent 60%), var(--surface); }
+  .apply-box h2 { margin-top: 20px; max-width: 13ch; }
+  .apply-points { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 16px; }
+  .apply-points li { display: flex; gap: 14px; align-items: center; color: var(--soft); }
+  .apply-points .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,90,31,.14); color: var(--accent); }
   .apply-points .ic svg { width: 20px; height: 20px; }
   form { display: grid; gap: 16px; align-content: start; }
-  .field { display: grid; gap: 8px; }
+  .field { display: grid; gap: 7px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  label { font-size: 14px; font-weight: 700; color: #ddd5cb; }
-  label .opt { color: var(--dim); font-weight: 600; }
-  input, select, textarea {
-    width: 100%; padding: 15px 16px; border-radius: 14px;
-    background: rgba(12,11,10,.65); border: 1px solid var(--line-2);
-    font-size: 16px; transition: border-color .2s, background .2s, box-shadow .2s;
-  }
+  label { font-size: 13.5px; font-weight: 600; color: var(--soft); }
+  label .opt { color: var(--dim); font-weight: 500; }
+  input, select, textarea { width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(7,5,4,.7); border: 1px solid var(--line-2); font-size: 16px; transition: border-color .2s, box-shadow .2s; }
   input::placeholder, textarea::placeholder { color: var(--dim); }
-  input:hover, select:hover, textarea:hover { border-color: rgba(255,240,225,.24); }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(232,119,74,.15); }
-  select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a69d92' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
-  select option { background: #1e1b17; }
-  textarea { min-height: 110px; resize: vertical; }
+  input:hover, select:hover, textarea:hover { border-color: rgba(255,255,255,.24); }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255,90,31,.18); }
+  select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
+  select option { background: #1a0f0b; }
+  textarea { min-height: 100px; resize: vertical; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .tier-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .tier-pick input { position: absolute; opacity: 0; pointer-events: none; }
-  .tier-pick label {
-    cursor: pointer; text-align: center; padding: 14px 8px; border-radius: 14px; border: 1px solid var(--line-2);
-    background: rgba(12,11,10,.65); transition: border-color .2s, background .2s, transform .2s; display: grid; gap: 2px;
-  }
-  .tier-pick label b { font-family: var(--display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-  .tier-pick label span { color: var(--muted); font-weight: 600; font-size: 14px; }
-  .tier-pick input:checked + label { border-color: var(--accent); background: rgba(232,119,74,.12); }
+  .tier-pick label { cursor: pointer; text-align: center; padding: 12px 6px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(7,5,4,.7); transition: border-color .2s, background .2s; display: grid; gap: 1px; }
+  .tier-pick label b { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+  .tier-pick label span { color: var(--muted); font-weight: 500; font-size: 14px; }
+  .tier-pick input:checked + label { border-color: var(--accent); background: rgba(255,90,31,.15); }
+  .tier-pick input:checked + label span { color: var(--accent-2); }
   .tier-pick input:focus-visible + label { outline: 2px solid var(--accent-2); outline-offset: 2px; }
-  .form-note { color: var(--dim); font-size: 13px; text-align: center; margin: 4px 0 0; }
-  .form-error { color: #ff9d85; font-size: 14px; display: none; }
+  form .btn { padding: 16px 18px 16px 28px; }
+  .form-note { color: var(--dim); font-size: 12.5px; text-align: center; margin: 2px 0 0; }
+  .form-error { color: #ff9d85; font-size: 14px; display: none; margin: 0; }
   .form-error.on { display: block; }
-  .success { display: none; text-align: center; padding: 40px 10px; align-content: center; }
+  .success { display: none; text-align: center; padding: 30px 10px; align-content: center; }
   .success.on { display: grid; justify-items: center; }
-  .success .ic { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; background: rgba(122,209,154,.14); color: var(--ok); margin-bottom: 24px; }
+  .success .ic { width: 78px; height: 78px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; margin-bottom: 24px; box-shadow: 0 0 0 10px rgba(255,90,31,.15), 0 20px 50px -10px var(--glow); }
   .success .ic svg { width: 34px; height: 34px; }
-  .success h3 { font-size: 26px; }
-  .success p { color: var(--muted); margin: 14px 0 0; max-width: 36ch; }
-  .demo-flag { display: none; margin-top: 18px; font-size: 13px; color: var(--accent-2); border: 1px dashed rgba(243,180,110,.45); border-radius: 12px; padding: 10px 14px; }
+  .success h3 { font-size: 26px; font-weight: 700; }
+  .success p { color: var(--muted); margin: 12px 0 0; max-width: 38ch; }
+  .success .btn { margin-top: 24px; }
+  .demo-flag { display: none; font-size: 13px; color: var(--accent-2) !important; border: 1px dashed rgba(255,138,61,.5); border-radius: 12px; padding: 10px 14px; margin-top: 20px !important; }
   .demo-flag.on { display: block; }
 
   /* Footer */
-  footer { padding: 56px 0 40px; border-top: 1px solid var(--line); }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-  footer p { color: var(--dim); font-size: 14px; margin: 0; }
-  footer nav { display: flex; gap: 26px; font-size: 14px; font-weight: 600; color: var(--muted); flex-wrap: wrap; }
-  footer nav a:hover { color: var(--text); }
+  footer { padding: 70px 0 40px; border-top: 1px solid var(--line); }
+  .foot-top { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
+  .foot-contacts { display: flex; align-items: center; gap: 18px; font-size: 18px; font-weight: 500; flex-wrap: wrap; }
+  .foot-contacts a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
+  .foot-contacts a:hover { color: var(--accent); }
+  .foot-contacts a svg { width: 20px; height: 20px; color: var(--accent); }
+  .foot-contacts .sep { width: 2px; height: 22px; background: var(--line-2); }
+  .foot-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .foot-bottom p { color: var(--dim); font-size: 13.5px; margin: 0; }
+  .foot-bottom nav { display: flex; gap: 24px; font-size: 13.5px; color: var(--muted); flex-wrap: wrap; }
+  .foot-bottom nav a:hover { color: #fff; }
 
-  /* Mobile sticky CTA */
   .m-cta { display: none; }
 
   /* Reveal */
@@ -433,213 +418,394 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     .reveal, .term-line, .float-card { opacity: 1; transform: none; }
+    .ribbon-svg .flow { stroke-dashoffset: 0; }
   }
 
   /* Responsive */
   @media (max-width: 1080px) {
-    .hero .wrap { grid-template-columns: 1fr; gap: 80px; }
-    .stage { max-width: 600px; margin: 0 auto; width: 100%; }
+    .stage { height: 560px; }
+    .float-card { display: none; }
     .cards { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
-    .tiers { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 30px; }
+    .steps::before { display: none; }
+    .tiers { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 34px; }
     .why-grid, .mentor, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
     .portrait { max-width: 460px; }
     .apply-box { grid-template-columns: 1fr; padding: 44px; gap: 40px; }
+    .works { grid-template-columns: 1fr; }
+    .tests { grid-template-columns: 1fr 1fr; }
+    .test, .test:nth-child(4) { grid-column: span 1; }
+    .test:nth-child(5) { grid-column: span 2; }
+    .core-stage { height: 600px; }
+    .core-item { width: 190px; }
+    .ci-2 { margin-left: -95px; }
+    .core-item h3 { font-size: 20px; }
   }
   @media (max-width: 760px) {
-    body { font-size: 16px; }
+    body { font-size: 15.5px; }
     .wrap { padding: 0 16px; }
     section { padding: 84px 0; }
     .nav-links { display: none; }
     .nav .wrap { height: 66px; }
-    .nav .btn { padding: 10px 16px; font-size: 14px; }
-    .logo { font-size: 15px; }
-    .hero { padding: 124px 0 80px; }
+    .logo { font-size: 16px; gap: 10px; }
+    .logo-mark { width: 34px; height: 34px; }
+    .nav .btn { padding: 8px 8px 8px 14px; font-size: 13.5px; gap: 8px; }
+    .nav .btn .arr { width: 22px; height: 22px; }
+    .hero { padding: 116px 0 30px; }
+    .hero h1 .sub strong { display: block; }
+    .hero-tags { gap: 8px; }
+    .hero-tags .tag { font-size: 11px; padding: 6px 10px; }
     .hero-cta .btn { flex: 1 1 100%; }
-    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .hero-stats div { padding-right: 10px; margin-right: 10px; }
-    .hero-stats strong { font-size: 21px; }
-    .hero-stats span { font-size: 12.5px; line-height: 1.35; display: block; margin-top: 4px; }
-    .pill { font-size: 13px; }
-    .pill b { display: none; }
-    .terminal { transform: none; }
-    .term-body { font-size: 12.5px; padding: 18px; min-height: 300px; }
-    .float-card { left: 8px; right: 8px; width: auto; bottom: -56px; }
-    .float-chip { right: 8px; }
+    .stage { height: 330px; margin-top: 30px; }
+    .ribbon-svg { width: 900px; height: 412px; top: -30px; }
+    .laptop { bottom: 10px; width: 100%; }
+    .screen { padding: 7px 7px 0; border-radius: 12px 12px 0 0; }
+    .site-nav { padding: 8px 10px; font-size: 7px; }
+    .site-nav .m { display: none; }
+    .site-nav .l { font-size: 9px; }
+    .term { padding: 10px 12px; font-size: 8.5px; line-height: 1.6; }
+    .term-title { margin-bottom: 8px; }
+    .base { height: 14px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stats div:nth-child(2) { border-right: 0; }
+    .hero-stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .hero-stats strong { font-size: 24px; }
+    .strip { margin-top: 50px; }
+    .marquee span { font-size: 15px; padding: 14px 18px; }
+    .core-stage { height: auto; display: grid; gap: 12px; }
+    .core-item { position: static; margin: 0 !important; width: auto; flex-direction: row; text-align: left; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+    .core-item .ic { width: 42px; height: 42px; flex: none; }
+    .core-item h3 { font-size: 17px; }
+    .mountain { position: relative; left: auto; transform: none; width: 100%; max-width: 100%; margin-top: 10px; }
+    .core-cta { margin-top: 10px; }
     .cards, .aud, .steps { grid-template-columns: 1fr; }
     .compare-row { grid-template-columns: 1fr; gap: 8px; }
     .compare-row + .compare-row { margin-top: 10px; }
-    .aud-card { padding: 30px 24px; }
-    .card { padding: 26px 24px; }
-    .mentor-facts { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-    .fact { padding: 16px 14px; }
+    .aud-card { padding: 30px 22px; }
+    .card { padding: 26px 22px; }
+    .work { grid-template-columns: 1fr; padding: 28px 20px; }
+    .phone { margin: 0 auto; }
+    .tests { grid-template-columns: 1fr; }
+    .test, .test:nth-child(4), .test:nth-child(5) { grid-column: span 1; }
+    .test { padding: 26px 22px; }
+    .mentor-facts { gap: 10px; }
+    .fact { padding: 16px 12px; }
     .fact strong { font-size: 22px; }
-    .fact span { font-size: 12.5px; }
-    .tier { padding: 30px 24px 26px; }
-    .apply-box { padding: 30px 20px; border-radius: 26px; }
+    .fact span { font-size: 12px; }
+    .tier { padding: 30px 22px 26px; }
+    .apply-box { padding: 30px 18px; border-radius: 26px; }
     .field-row { grid-template-columns: 1fr; }
-    .tier-pick label { padding: 12px 4px; }
-    .tier-pick label b { font-size: 11px; }
-    footer .wrap { flex-direction: column; align-items: flex-start; }
-    .m-cta {
-      display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
-      transform: translateY(140%); transition: transform .35s ease;
-    }
+    .tier-pick label b { font-size: 10.5px; letter-spacing: .06em; }
+    .foot-contacts { font-size: 16px; }
+    .foot-contacts .sep { display: none; }
+    .m-cta { display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; transform: translateY(140%); transition: transform .35s ease; }
     .m-cta.on { transform: none; }
-    .m-cta .btn { width: 100%; box-shadow: 0 20px 50px -10px rgba(0,0,0,.8), 0 10px 40px -10px rgba(232,119,74,.65); }
+    .m-cta .btn { width: 100%; box-shadow: 0 20px 50px -10px rgba(0,0,0,.85), 0 10px 40px -10px var(--glow); }
   }
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.1l-5.6 3 1.1-6.3L2.9 9.4l6.3-.9z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3l-3.2 15.1c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor"/></g></symbol>
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M5 4v9a7 7 0 0014 0V4" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M12 10l4.5 8h-9z" fill="#ff5a1f"/></symbol>
+  </defs>
+</svg>
+
 <!-- ====== NAV ====== -->
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="theusmondigital bosh sahifa">
-      <span class="logo-mark">U</span>
-      <span>theusmon<em>digital</em></span>
+      <span class="logo-mark"><svg><use href="#i-logo"/></svg></span>
+      <span>theusmon<b>digital</b></span>
     </a>
     <nav class="nav-links" aria-label="Asosiy menyu">
       <a href="#dastur">Dastur</a>
+      <a href="#loyihalar">Loyihalar</a>
       <a href="#mentor">Mentor</a>
+      <a href="#fikrlar">Fikrlar</a>
       <a href="#tariflar">Tariflar</a>
-      <a href="#savollar">Savollar</a>
     </nav>
-    <a href="#ariza" class="btn btn-primary">Ariza qoldirish</a>
+    <a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
   </div>
 </header>
 
 <main id="top">
 
 <!-- ====== HERO ====== -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+<section class="hero gridbg glow-tr glow-bl">
   <div class="wrap">
-    <div>
-      <span class="pill reveal"><span class="dot"></span> Yakka mentorlik · Onlayn <b>QABUL OCHIQ</b></span>
-      <h1 class="reveal d1">Claude AI bilan dasturlashni o‘rganing va <span class="grad">bizneslarni avtomatlashtirib</span> daromad qiling</h1>
-      <p class="lead reveal d2">5 yillik tajribaga ega AI engineer Usmon bilan yakkama-yakka ishlaysiz. Noldan boshlab real loyihalar qurasiz, keyin bu ko‘nikmani pulli xizmatga aylantirasiz.</p>
-      <div class="hero-cta reveal d3">
-        <a href="#ariza" class="btn btn-primary">Ariza qoldirish
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#tariflar" class="btn btn-ghost">Tariflarni ko‘rish</a>
-      </div>
-      <div class="hero-stats reveal d4">
-        <div><strong>5+ yil</strong><span>dasturlash va AI tajribasi</span></div>
-        <div><strong>1 : 1</strong><span>faqat yakka tartibda</span></div>
-        <div><strong>100%</strong><span>onlayn, istalgan joydan</span></div>
-      </div>
+    <div class="hero-kicker reveal">Claude AI bilan</div>
+    <h1 class="reveal d1">
+      <span class="big">Dasturlang</span>
+      <span class="sub">va biznesni <strong>avtomatlashtiring</strong></span>
+    </h1>
+    <div class="hero-tags reveal d2">
+      <span class="tag">Yakka mentorlik</span>
+      <span class="tag">100% onlayn</span>
+      <span class="tag">25 ta dars</span>
+      <span class="tag">Sertifikat</span>
+    </div>
+    <p class="lead reveal d3">5 yillik tajribaga ega AI engineer Usmon bilan yakkama-yakka ishlaysiz. Noldan boshlab real loyihalar qurasiz va bu ko‘nikmani pulli xizmatga aylantirasiz.</p>
+    <div class="hero-cta reveal d4">
+      <a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      <a href="#tariflar" class="btn btn-ghost">Tariflarni ko‘rish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
     </div>
 
-    <div class="stage reveal d2" aria-hidden="true">
-      <div class="float-chip">Claude AI ✦</div>
-      <div class="terminal">
-        <div class="term-bar"><i></i><i></i><i></i><span>~/biznes-avtomatlashtirish</span></div>
-        <div class="term-body" id="term">
-          <div class="term-line"><span class="term-prompt">❯ claude</span></div>
-          <div class="term-line"><span class="term-muted">› </span><span class="term-user" id="typed"></span><span class="caret" id="caret"></span></div>
-          <div class="term-line">&nbsp;</div>
-          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">bot.py yaratildi</span></div>
-          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Telegram API ulandi</span></div>
-          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Google Sheets bilan sinxronlandi</span></div>
-          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Testlar o‘tdi (12/12)</span></div>
-          <div class="term-line">&nbsp;</div>
-          <div class="term-line"><span class="term-prompt">●</span> Bot ishga tushdi. Vaqt: <span class="term-ok">4 daqiqa</span></div>
+    <div class="stage" aria-hidden="true">
+      <svg class="ribbon-svg" viewBox="0 0 1400 640" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1b1b1d"/><stop offset=".22" stop-color="#e9e9ec"/><stop offset=".4" stop-color="#4b4b50"/>
+            <stop offset=".58" stop-color="#f4f4f6"/><stop offset=".78" stop-color="#2c2c30"/><stop offset="1" stop-color="#cfcfd4"/>
+          </linearGradient>
+          <linearGradient id="orangeTube" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5a1602"/><stop offset=".25" stop-color="#ff7a2f"/><stop offset=".42" stop-color="#ffd2b0"/>
+            <stop offset=".58" stop-color="#ff5a1f"/><stop offset=".8" stop-color="#7a2004"/><stop offset="1" stop-color="#ff9a5c"/>
+          </linearGradient>
+          <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+        <path d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="#ff5a1f" stroke-width="60" opacity=".35" filter="url(#soft)"/>
+        <g>
+          <path class="flow" d="M-40 300 C 120 140, 300 120, 360 260 S 330 520, 520 520 S 760 260, 700 160 S 520 120, 560 300 S 900 560, 1100 420 S 1300 160, 1460 230" fill="none" stroke="#0b0b0c" stroke-width="40" stroke-linecap="round"/>
+          <path class="flow" d="M-40 300 C 120 140, 300 120, 360 260 S 330 520, 520 520 S 760 260, 700 160 S 520 120, 560 300 S 900 560, 1100 420 S 1300 160, 1460 230" fill="none" stroke="url(#chrome)" stroke-width="32" stroke-linecap="round"/>
+          <path class="flow" d="M-40 292 C 120 132, 300 112, 360 252 S 330 512, 520 512 S 760 252, 700 152 S 520 112, 560 292 S 900 552, 1100 412 S 1300 152, 1460 222" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        </g>
+        <g>
+          <path class="flow" d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="#1a0601" stroke-width="44" stroke-linecap="round"/>
+          <path class="flow" d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="url(#orangeTube)" stroke-width="36" stroke-linecap="round"/>
+          <path class="flow" d="M-40 461 C 180 461, 260 151, 470 161 S 640 461, 820 371 S 980 81, 1130 161 S 1300 411, 1460 321" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" opacity=".6"/>
+        </g>
+      </svg>
+
+      <div class="laptop">
+        <div class="screen">
+          <div class="screen-in">
+            <div class="site-nav">
+              <span class="l"><i></i>theusmondigital</span>
+              <span class="m"><span>Bosh sahifa</span><span>Dastur</span><span>Tariflar</span><span>Aloqa</span></span>
+              <span class="r">Ariza ↗</span>
+            </div>
+            <div class="term" id="term">
+              <div class="term-title">Bizneslarni <b>Claude AI</b> bilan<br>avtomatlashtiramiz</div>
+              <div class="term-line"><span class="t-p">❯ claude</span></div>
+              <div class="term-line"><span>› </span><span class="t-u" id="typed"></span><span class="caret" id="caret"></span></div>
+              <div class="term-line"><span class="t-ok">✓</span> bot.py yaratildi</div>
+              <div class="term-line"><span class="t-ok">✓</span> Telegram API ulandi · Google Sheets sinxronlandi</div>
+              <div class="term-line"><span class="t-p">●</span> <span class="t-u">Bot ishga tushdi.</span> Vaqt: <span class="t-ok">4 daqiqa</span></div>
+            </div>
+          </div>
         </div>
+        <div class="base"></div>
       </div>
+
       <div class="float-card" id="floatCard">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div>
         <div><b>Yangi buyurtma #1042</b><small>Avtomatik Sheets’ga yozildi</small></div>
       </div>
+      <div class="float-card left" id="floatCard2">
+        <div class="ic"><svg><use href="#i-tg"/></svg></div>
+        <div><b>Mijozga javob berildi</b><small>AI yordamchi · 3 soniyada</small></div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div><strong>5<em>+</em></strong><span>yillik tajriba</span></div>
+      <div><strong>25</strong><span>yakka dars</span></div>
+      <div><strong>1<em>:</em>1</strong><span>faqat yakka tartibda</span></div>
+      <div><strong>100<em>%</em></strong><span>onlayn</span></div>
+    </div>
+  </div>
+
+  <div class="strip" aria-hidden="true">
+    <div class="marquee">
+      <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
+      <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
     </div>
   </div>
 </section>
 
-<!-- ====== STRIP ====== -->
-<div class="strip" aria-hidden="true">
-  <div class="marquee">
-    <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
-    <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
+<!-- ====== CORE / MOUNTAIN ====== -->
+<section class="core gridbg">
+  <div class="wrap">
+    <div class="head-center">
+      <h2 class="reveal"><span class="o">Natijaga</span> olib<br>boradigan yo‘l<svg class="curly" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10c10-8 24-4 22 8-1 6-8 7-9 2-1-6 10-8 14 2 2 5 0 10-3 13"/><path d="M24 31l6 4 3-7"/></svg></h2>
+      <p class="lead reveal d1">Aqlli yechimlar. Real natijalar.</p>
+    </div>
+    <div class="core-stage">
+      <div class="core-item ci-1 reveal d1">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.6 9.4L37 19l-9.4 3.6L24 32l-3.6-9.4L11 19l9.4-3.6z" fill="currentColor" fill-opacity=".2"/><path d="M38 30l1.6 4.4L44 36l-4.4 1.6L38 42l-1.6-4.4L32 36l4.4-1.6z"/></svg></div>
+        <h3>Claude AI bilan dasturlash</h3>
+      </div>
+      <div class="core-item ci-2 reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="26" rx="3" fill="currentColor" fill-opacity=".15"/><path d="M18 42h12M24 34v8M19 17l-4 4 4 4M29 17l4 4-4 4"/></svg></div>
+        <h3>Biznesni avtomatlashtirish</h3>
+      </div>
+      <div class="core-item ci-3 reveal d2">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 40l12-14 9 7 15-19"/><path d="M32 14h10v10"/></svg></div>
+        <h3>Barqaror daromad</h3>
+      </div>
+
+      <svg class="mountain" viewBox="0 0 820 470" aria-hidden="true">
+        <defs>
+          <radialGradient id="mt" cx="50%" cy="10%" r="90%">
+            <stop offset="0" stop-color="#ff7a45"/><stop offset=".35" stop-color="#d23c10"/><stop offset=".75" stop-color="#4a1003"/><stop offset="1" stop-color="#160402"/>
+          </radialGradient>
+          <linearGradient id="mtShade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/>
+          </linearGradient>
+          <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset=".6" stop-color="#070504" stop-opacity="0"/><stop offset="1" stop-color="#070504"/></linearGradient>
+          <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <path d="M0 470 L120 360 L170 380 L250 280 L300 300 L360 190 L392 150 L410 112 L432 150 L470 175 L520 250 L560 240 L640 330 L700 320 L820 470 Z" fill="url(#mt)"/>
+        <path d="M0 470 L120 360 L170 380 L250 280 L300 300 L360 190 L392 150 L410 112 L432 150 L470 175 L520 250 L560 240 L640 330 L700 320 L820 470 Z" fill="url(#mtShade)"/>
+        <path d="M410 112 L400 200 L360 280 L380 340 L330 470 M410 112 L450 230 L430 320 L500 470 M250 280 L280 360 L220 470 M640 330 L610 400 L650 470" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
+        <g id="particles"></g>
+        <rect x="0" y="0" width="820" height="470" fill="url(#fade)"/>
+        <rect x="408.25" y="10" width="3.5" height="104" fill="#ff7a45" filter="url(#glowF)"/>
+        <path d="M411 14 C 445 6, 470 26, 515 16 L 508 54 C 470 64, 445 44, 411 52 Z" fill="#ff5a1f" filter="url(#glowF)"/>
+        <text x="460" y="41" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="16" fill="#fff" transform="rotate(-3 460 41)">NATIJA</text>
+      </svg>
+    </div>
+    <div class="core-cta reveal"><a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
   </div>
-</div>
+</section>
 
 <!-- ====== WHY ====== -->
 <section>
   <div class="wrap why-grid">
     <div>
-      <span class="eyebrow reveal">Nega aynan hozir</span>
-      <h2 class="reveal d1">Kod yozishning qoidalari <span class="grad">o‘zgardi</span></h2>
-      <p class="lead reveal d2">Ilgari dasturchi bo‘lish uchun yillar kerak edi. Bugun Claude AI kodni siz bilan birga yozadi. Sizdan esa muammoni to‘g‘ri tushunish, AI’ni boshqarish va natijani biznesga sotish talab qilinadi. Aynan shuni o‘rgataman.</p>
+      <span class="tag reveal">Nega aynan hozir</span>
+      <h2 class="reveal d1">Kod yozish qoidalari <span class="o">o‘zgardi</span></h2>
+      <p class="lead reveal d2">Ilgari dasturchi bo‘lish uchun yillar kerak edi. Bugun Claude AI kodni siz bilan birga yozadi. Sizdan muammoni to‘g‘ri tushunish, AI’ni boshqarish va natijani biznesga sotish talab qilinadi. Aynan shuni o‘rgataman.</p>
       <p class="lead reveal d3">Har bir biznesda takrorlanadigan qo‘l mehnati bor: buyurtmalarni yozish, mijozlarga javob berish, hisobot tayyorlash. Buni avtomatlashtira oladigan odamga talab katta.</p>
     </div>
     <div class="compare">
       <div class="compare-row reveal d1">
         <div class="compare-cell old"><small>Eski yo‘l</small>Yillab sintaksis yodlash</div>
-        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Claude bilan birinchi haftadan ishlaydigan loyiha</div>
+        <div class="compare-cell new"><small>Bizning yo‘l</small>Claude bilan birinchi haftadan ishlaydigan loyiha</div>
       </div>
       <div class="compare-row reveal d2">
         <div class="compare-cell old"><small>Eski yo‘l</small>Video kurslar, savolga javob yo‘q</div>
-        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Mentor bilan yakkama-yakka, jonli muloqot</div>
+        <div class="compare-cell new"><small>Bizning yo‘l</small>Mentor bilan yakkama-yakka, jonli muloqot</div>
       </div>
       <div class="compare-row reveal d3">
         <div class="compare-cell old"><small>Eski yo‘l</small>“O‘quv” loyihalar, real hayotdan uzoq</div>
-        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Real biznes muammolarini avtomatlashtirish</div>
+        <div class="compare-cell new"><small>Bizning yo‘l</small>Real biznes muammolarini avtomatlashtirish</div>
       </div>
       <div class="compare-row reveal d4">
         <div class="compare-cell old"><small>Eski yo‘l</small>Bilim bor, daromad yo‘q</div>
-        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Xizmatni narxlash va birinchi mijozni topish</div>
+        <div class="compare-cell new"><small>Bizning yo‘l</small>Xizmatni narxlash va birinchi mijozni topish</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ====== WHAT YOU LEARN ====== -->
-<section id="dastur" style="padding-top: 40px;">
+<section id="dastur" style="padding-top: 30px;">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow reveal">Nimani o‘rganasiz</span>
-        <h2 class="reveal d1">Noldan pulli xizmatgacha</h2>
+        <span class="tag reveal">Dastur</span>
+        <h2 class="reveal d1"><span class="o">25 ta darsda</span><br>nimani o‘rganasiz</h2>
       </div>
-      <p class="lead reveal d2">Dastur sizning darajangiz va maqsadingizga moslashtiriladi. Asosiy yo‘nalishlar quyidagicha:</p>
+      <p class="lead reveal d2">Dastur sizning darajangiz va maqsadingizga moslashtiriladi. Asosiy yo‘nalishlar:</p>
     </div>
     <div class="cards">
       <article class="card reveal">
-        <span class="num">01</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.6 9.4L37 19l-9.4 3.6L24 32l-3.6-9.4L11 19l9.4-3.6z" fill="currentColor" fill-opacity=".2"/><path d="M38 30l1.6 4.4L44 36l-4.4 1.6L38 42l-1.6-4.4L32 36l4.4-1.6z"/></svg></div><span class="num">01</span></div>
         <h3>Claude AI va Claude Code asoslari</h3>
         <p>Claude bilan to‘g‘ri ishlash, aniq vazifa (prompt) yozish va AI yordamida kod yaratish, tushunish hamda tuzatish.</p>
       </article>
       <article class="card reveal d1">
-        <span class="num">02</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="30" rx="4" fill="currentColor" fill-opacity=".15"/><path d="M16 19l-5 5 5 5M32 19l5 5-5 5M27 16l-6 16"/></svg></div><span class="num">02</span></div>
         <h3>Dasturlash poydevori</h3>
         <p>Kod qanday ishlashini tushunish: o‘zgaruvchilar, funksiyalar, API, ma’lumotlar bazasi. AI yozgan kodni nazorat qila olish uchun.</p>
       </article>
       <article class="card reveal d2">
-        <span class="num">03</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M10 13l4-4"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M42 7L6 21l14 5 5 14z" fill="currentColor" fill-opacity=".18"/><path d="M20 26l8-8"/></svg></div><span class="num">03</span></div>
         <h3>Telegram botlar</h3>
-        <p>Buyurtma qabul qiladigan, mijozlarga javob beradigan va xabarnoma yuboradigan botlarni yaratish va serverga joylash.</p>
+        <p>Buyurtma qabul qiladigan, mijozlarga javob beradigan va xabarnoma yuboradigan botlar yaratish va serverga joylash.</p>
       </article>
       <article class="card reveal">
-        <span class="num">04</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h5a4 4 0 014 4v5M6 9v9"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6" fill="currentColor" fill-opacity=".2"/><circle cx="36" cy="36" r="6" fill="currentColor" fill-opacity=".2"/><path d="M18 12h10a8 8 0 018 8v10M12 18v24"/></svg></div><span class="num">04</span></div>
         <h3>Biznes jarayonlarini avtomatlashtirish</h3>
         <p>Google Sheets, CRM, to‘lov tizimlari va boshqa servislarni bir-biriga ulab, qo‘l mehnatini yo‘qotish.</p>
       </article>
       <article class="card reveal d1">
-        <span class="num">05</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M9 17h6"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="6" fill="currentColor" fill-opacity=".15"/><path d="M24 6v8M18 26h.01M30 26h.01M18 33h12"/></svg></div><span class="num">05</span></div>
         <h3>AI agentlar</h3>
         <p>Biznes uchun mustaqil ishlaydigan AI yordamchilar: mijozlar bilan suhbat, hujjatlarni tahlil qilish, hisobotlar.</p>
       </article>
       <article class="card reveal d2">
-        <span class="num">06</span>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18" fill="currentColor" fill-opacity=".15"/><path d="M24 12v24M30 17h-8.5a4.5 4.5 0 000 9h5a4.5 4.5 0 010 9H17"/></svg></div><span class="num">06</span></div>
         <h3>Xizmatni sotish</h3>
         <p>Portfolio yig‘ish, xizmatni to‘g‘ri narxlash, birinchi mijozni topish va u bilan ishlash.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PORTFOLIO ====== -->
+<section id="loyihalar" class="gridbg" style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag reveal">Loyihalar</span>
+        <h2 class="reveal d1"><span class="o">Brendlar</span> uchun<br>yaratilgan botlar</h2>
+      </div>
+      <p class="lead reveal d2">Mentorlikda o‘rgatadigan usullarim real bizneslarda ishlab turibdi. Siz ham aynan shunday loyihalarni qurishni o‘rganasiz.</p>
+    </div>
+    <div class="works">
+      <article class="work reveal">
+        <div>
+          <span class="client">Restoran</span>
+          <h3>Resto</h3>
+          <p>Restoran uchun Telegram bot: mijozlar menyuni ko‘rib, to‘g‘ridan-to‘g‘ri bot orqali buyurtma beradi.</p>
+          <ul class="checks">
+            <li>Elektron menyu va savatcha</li>
+            <li>Buyurtmalarni avtomatik qabul qilish</li>
+            <li>Har bir buyurtma haqida adminga xabar</li>
+          </ul>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone-in">
+            <div class="tg-head"><span class="tg-ava">R</span><div><b>Resto Bot</b><small>bot</small></div></div>
+            <div class="tg-body">
+              <div class="msg bot">Assalomu alaykum! 🍽 Menyudan tanlang:</div>
+              <div class="kb"><span>🍛 Taomlar</span><span>🥗 Salatlar</span><span>🥤 Ichimliklar</span><span>🛒 Savatcha</span></div>
+              <div class="msg me">Osh × 2, Choy × 1</div>
+              <div class="msg bot">✅ Buyurtmangiz qabul qilindi! Tez orada operator bog‘lanadi.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="work reveal d1">
+        <div>
+          <span class="client">Kiyim do‘koni</span>
+          <h3>Barno Abayas</h3>
+          <p>Abaya brendi uchun Telegram bot: katalog, o‘lcham tanlash va buyurtma rasmiylashtirish bir joyda.</p>
+          <ul class="checks">
+            <li>Mahsulotlar katalogi</li>
+            <li>O‘lcham va rang tanlash</li>
+            <li>Buyurtmalar menejerga avtomatik yetadi</li>
+          </ul>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone-in">
+            <div class="tg-head"><span class="tg-ava">B</span><div><b>Barno Abayas</b><small>bot</small></div></div>
+            <div class="tg-body">
+              <div class="msg bot">✨ Yangi kolleksiya! Qaysi model yoqdi?</div>
+              <div class="kb"><span>👗 Katalog</span><span>📏 O‘lchamlar</span><span>🎨 Ranglar</span><span>📦 Buyurtma</span></div>
+              <div class="msg me">Qora abaya, M o‘lcham</div>
+              <div class="msg bot">✅ Qabul qilindi! Menejerimiz siz bilan bog‘lanadi.</div>
+            </div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
@@ -650,13 +816,13 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow reveal">Kimlar uchun</span>
-        <h2 class="reveal d1">Bu mentorlik aynan siz uchun, agar…</h2>
+        <span class="tag reveal">Kimlar uchun</span>
+        <h2 class="reveal d1">Bu mentorlik <span class="o">siz uchun</span>, agar…</h2>
       </div>
     </div>
     <div class="aud">
       <div class="aud-card reveal">
-        <span class="aud-tag">Yangi boshlovchilar</span>
+        <span class="tag ghost">Yangi boshlovchilar</span>
         <h3>Dasturlashni noldan boshlamoqchisiz</h3>
         <ul class="checks">
           <li>Hech qachon kod yozmagansiz, lekin IT sohasiga kirishni xohlaysiz</li>
@@ -666,7 +832,7 @@
         </ul>
       </div>
       <div class="aud-card hl reveal d1">
-        <span class="aud-tag">Daromadini oshirmoqchilar</span>
+        <span class="tag">Daromadini oshirmoqchilar</span>
         <h3>Yangi daromad manbai qidiryapsiz</h3>
         <ul class="checks">
           <li>Asosiy ishingiz bor, lekin qo‘shimcha daromad xohlaysiz</li>
@@ -684,82 +850,132 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow reveal">Qanday ishlaydi</span>
-        <h2 class="reveal d1">Arizadan natijagacha 4 qadam</h2>
+        <span class="tag reveal">Qanday ishlaydi</span>
+        <h2 class="reveal d1">Arizadan natijagacha <span class="o">4 qadam</span></h2>
       </div>
     </div>
     <div class="steps">
       <div class="step reveal"><div class="step-n">1</div><h3>Ariza qoldirasiz</h3><p>Formani to‘ldirasiz. Bir daqiqa ham ketmaydi.</p></div>
       <div class="step reveal d1"><div class="step-n">2</div><h3>Tanishuv suhbati</h3><p>Siz bilan bog‘lanib, maqsadingiz va darajangizni aniqlaymiz.</p></div>
-      <div class="step reveal d2"><div class="step-n">3</div><h3>Shaxsiy reja</h3><p>Aynan sizning maqsadingizga mos o‘quv rejasi tuziladi.</p></div>
-      <div class="step reveal d3"><div class="step-n">4</div><h3>Mentorlik va natija</h3><p>Yakka darslar, real loyihalar va doimiy qo‘llab-quvvatlash.</p></div>
+      <div class="step reveal d2"><div class="step-n">3</div><h3>Shaxsiy reja</h3><p>Maqsadingizga mos 25 darslik o‘quv rejasi tuziladi.</p></div>
+      <div class="step reveal d3"><div class="step-n">4</div><h3>Mentorlik va sertifikat</h3><p>Yakka darslar, real loyihalar va yakunda sertifikat.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ====== MENTOR ====== -->
-<section id="mentor" style="padding-top: 40px;">
+<section id="mentor">
   <div class="wrap mentor">
     <div class="portrait reveal">
       <!-- Rasm qo‘shish uchun: <img src="usmon.jpg" alt="Usmon"> qatorini shu yerga qo‘ying -->
       <div class="mono" aria-hidden="true">U</div>
       <div class="badge">
         <div><b>Usmon</b><small>Dasturchi va AI engineer</small></div>
-        <span class="live"><span class="dot"></span>Mentor</span>
+        <span class="tag">Mentor</span>
       </div>
     </div>
     <div>
-      <span class="eyebrow reveal">Mentoringiz</span>
-      <h2 class="reveal d1">Salom, men <span class="grad">Usmon</span></h2>
+      <span class="tag reveal">Mentoringiz</span>
+      <h2 class="reveal d1">Salom, men <span class="o">Usmon</span></h2>
       <p class="lead reveal d2">Men 5 yildan beri dasturchi va AI engineer bo‘lib ishlayman. Shu vaqt ichida ko‘plab taniqli brendlar bilan ishladim va ularning jarayonlarini AI yordamida avtomatlashtirdim.</p>
       <p class="lead reveal d3">Endi bu tajribani sizga o‘rgataman. Nazariya emas, real loyihalarda ishlatiladigan usullarni. Har bir o‘quvchim bilan yakka ishlayman, shuning uchun siz o‘z sur’atingizda va o‘z maqsadingiz sari harakat qilasiz.</p>
       <div class="mentor-facts">
         <div class="fact reveal d2"><strong>5+</strong><span>yillik amaliy tajriba</span></div>
         <div class="fact reveal d3"><strong>AI</strong><span>engineer va dasturchi</span></div>
-        <div class="fact reveal d4"><strong>Top</strong><span>taniqli brendlar bilan ish</span></div>
+        <div class="fact reveal d4"><strong>Top</strong><span>brendlar bilan ish</span></div>
       </div>
       <blockquote class="quote reveal d4">“Maqsadim siz dasturlashni o‘rganishingiz emas, balki bu bilim bilan daromad qila boshlashingiz.”</blockquote>
+      <div class="socials reveal d5">
+        <a class="btn btn-ghost" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
+        <a class="btn btn-ghost" href="https://instagram.com/theusmondigital" target="_blank" rel="noopener">Instagram <span class="arr"><svg><use href="#i-ig"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<!-- Eslatma: quyidagi fikrlar namuna sifatida yozilgan. Saytni ishga tushirishdan oldin ularni haqiqiy o‘quvchilar fikrlari bilan almashtiring. -->
+<section id="fikrlar" style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="head-center" style="margin-bottom:56px;">
+      <span class="tag reveal">O‘quvchilar fikri</span>
+      <h2 class="reveal d1"><span class="o">Ular</span> allaqachon boshladi</h2>
+      <p class="lead reveal d2">Noldan birinchi daromadgacha, qo‘shimcha ishdan asosiy kasbgacha.</p>
+    </div>
+    <div class="tests">
+      <article class="test reveal">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <span class="tag">0 → birinchi daromad</span>
+        <p>Mentorlikka kelganimda na ishim, na daromadim bor edi. Kod yozishni umuman bilmasdim. Usmon aka har bir qadamni sabr bilan tushuntirdi. Kurs tugamasdanoq mahalladagi do‘konga buyurtma qabul qiladigan bot yasab berdim va hayotimdagi birinchi pulni dasturlash orqali topdim. Hozir har oy yangi mijozlarim bor.</p>
+        <div class="who"><span class="av">S</span><div><b>Sardor</b><small>Telegram bot dasturchisi</small></div></div>
+      </article>
+      <article class="test reveal d1">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <span class="tag">0 → birinchi daromad</span>
+        <p>Talaba edim, ota-onamdan pul so‘rashdan charchagandim. Claude bilan ishlashni o‘rgangach, freelance’da biznes avtomatlashtirish buyurtmalarini ola boshladim. Endi o‘qishim va xarajatlarimni o‘zim qoplayman. Eng muhimi, o‘zimga ishonch paydo bo‘ldi.</p>
+        <div class="who"><span class="av">K</span><div><b>Komil</b><small>Talaba, freelancer</small></div></div>
+      </article>
+      <article class="test reveal d2">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
+        <p>Savdo menejeri bo‘lib ishlardim, darslarga kechqurun qatnadim. Avvaliga qo‘shimcha daromad uchun kichik loyihalar oldim. Bir necha oydan keyin bu daromad asosiy maoshimdan oshib ketdi va ishdan bemalol ketdim. Endi to‘liq vaqt avtomatlashtirish bilan shug‘ullanaman.</p>
+        <div class="who"><span class="av">I</span><div><b>Ilyos</b><small>Avtomatlashtirish mutaxassisi</small></div></div>
+      </article>
+      <article class="test reveal">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
+        <p>Buxgalter edim va kun bo‘yi bir xil hisobotlarni qo‘lda tayyorlardim. Avval o‘z ishimni avtomatlashtirdim, keyin tanish kompaniyalarga ham shunday xizmat taklif qildim. Hozir bu mening asosiy kasbim. Yakka mentorlikning kuchi shundaki, savolingiz hech qachon javobsiz qolmaydi.</p>
+        <div class="who"><span class="av">R</span><div><b>Rustam</b><small>Biznes jarayonlarini avtomatlashtiruvchi</small></div></div>
+      </article>
+      <article class="test reveal d1">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
+        <p>Dasturlashni “keyinroq” deb yillab orqaga surganman. Asosiy ishimdan keyin, kechqurun o‘qib, birinchi botimni yasadim. Keyin ikkinchisini, uchinchisini… Bugun bizneslar uchun AI yordamchilar yarataman va bu mening asosiy ishim. Qani endi buni oldinroq boshlaganimda!</p>
+        <div class="who"><span class="av">D</span><div><b>Davron</b><small>AI yordamchilar dasturchisi</small></div></div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ====== PRICING ====== -->
-<section id="tariflar" class="pricing">
+<section id="tariflar" class="pricing gridbg glow-tr">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow reveal">Tariflar</span>
-      <h2 class="reveal d1">O‘zingizga mos yo‘lni tanlang</h2>
-      <p class="lead reveal d2">Barcha tariflarda darslar yakka tartibda va onlayn o‘tadi. Farqi chuqurlik, davomiylik va qo‘llab-quvvatlash darajasida.</p>
+    <div class="head-center">
+      <span class="tag reveal">Tariflar</span>
+      <h2 class="reveal d1"><span class="o">O‘zingizga mos</span><br>yo‘lni tanlang</h2>
+      <p class="lead reveal d2">Barcha tariflarda 25 ta yakka dars, onlayn format va sertifikat bor. Farqi qo‘llab-quvvatlash va natijaga hamrohlik darajasida.</p>
     </div>
 
     <div class="tiers">
-      <!-- SILVER -->
       <article class="tier silver reveal">
         <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
-          <defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f5f8"/><stop offset=".5" stop-color="#9aa2ad"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs>
-          <circle cx="24" cy="24" r="18" fill="none" stroke="url(#gs)" stroke-width="2.5"/>
-          <circle cx="24" cy="24" r="9" fill="url(#gs)" opacity=".9"/>
+          <defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#9aa2ad"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs>
+          <circle cx="24" cy="24" r="18" fill="none" stroke="url(#gs)" stroke-width="2.5"/><circle cx="24" cy="24" r="9" fill="url(#gs)"/>
         </svg>
         <div class="tier-name">Silver</div>
         <p class="tier-sub">Claude AI bilan dasturlashga ishonchli start</p>
         <div class="price"><sup>$</sup><strong>150</strong></div>
         <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>1 oy</span><span>4 ta yakka dars</span></div>
+        <div class="tier-meta"><span>25 ta yakka dars</span><span>Sertifikat</span></div>
         <hr>
         <ul class="checks">
-          <li>Haftasiga 1 marta, 60 daqiqalik yakka dars</li>
           <li>Claude AI va Claude Code bilan ishlash asoslari</li>
           <li>To‘g‘ri prompt yozish va AI bilan kod yaratish</li>
-          <li>1 ta amaliy loyiha: o‘z Telegram botingiz</li>
+          <li>Telegram botlar yaratish</li>
           <li>Barcha darslar yozuvi</li>
           <li>Kurs davomida Telegram orqali savol-javob</li>
+          <li>theusmondigital sertifikati</li>
         </ul>
-        <a href="#ariza" class="btn btn-ghost" data-tier="silver">Silver’ni tanlash</a>
+        <a href="#ariza" class="btn btn-ghost" data-tier="silver">Silver’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
       </article>
 
-      <!-- GOLD -->
       <article class="tier gold reveal d1">
-        <span class="ribbon">Eng ko‘p tanlanadi</span>
+        <span class="tag best">Eng ko‘p tanlanadi</span>
         <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
           <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c1"/><stop offset=".45" stop-color="#e5b84f"/><stop offset="1" stop-color="#b9862b"/></linearGradient></defs>
           <path d="M24 5l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L24 33.7 12.8 39.6l2.1-12.5-9.1-8.9 12.6-1.8z" fill="url(#gg)"/>
@@ -768,7 +984,7 @@
         <p class="tier-sub">Bilimni daromadga aylantirish uchun to‘liq dastur</p>
         <div class="price"><sup>$</sup><strong>250</strong></div>
         <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>2 oy</span><span>8 ta yakka dars</span></div>
+        <div class="tier-meta"><span>25 ta yakka dars</span><span>Sertifikat</span></div>
         <hr>
         <ul class="checks">
           <li class="plus">Silver tarifidagi hamma narsa</li>
@@ -777,12 +993,10 @@
           <li>3 ta real portfolio loyiha</li>
           <li>Xizmatni narxlash va birinchi mijozni topish strategiyasi</li>
           <li>Uy vazifalarini tekshirish va batafsil fikr-mulohaza</li>
-          <li>theusmondigital sertifikati</li>
         </ul>
-        <a href="#ariza" class="btn btn-primary" data-tier="gold">Gold’ni tanlash</a>
+        <a href="#ariza" class="btn btn-primary" data-tier="gold">Gold’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
       </article>
 
-      <!-- BRILLIANT -->
       <article class="tier brilliant reveal d2">
         <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
           <defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a5f3fc"/><stop offset=".35" stop-color="#c4b5fd"/><stop offset=".7" stop-color="#f9a8d4"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs>
@@ -793,7 +1007,7 @@
         <p class="tier-sub">Natijaga qadar shaxsiy hamrohlik</p>
         <div class="price"><sup>$</sup><strong>500</strong></div>
         <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>3 oy</span><span>12 ta yakka dars</span></div>
+        <div class="tier-meta"><span>25 ta yakka dars</span><span>Sertifikat</span></div>
         <hr>
         <ul class="checks">
           <li class="plus">Gold tarifidagi hamma narsa</li>
@@ -802,9 +1016,9 @@
           <li>Shaxsiy rivojlanish va daromad rejasi</li>
           <li>Kodingizni cheksiz tekshirish (code review)</li>
           <li>Savollarga ustuvor javob</li>
-          <li>Mentorlik tugaganidan keyin 1 oy qo‘llab-quvvatlash</li>
+          <li>Kurs tugaganidan keyin 1 oy qo‘llab-quvvatlash</li>
         </ul>
-        <a href="#ariza" class="btn btn-primary" data-tier="brilliant">Brilliant’ni tanlash</a>
+        <a href="#ariza" class="btn btn-ghost" data-tier="brilliant">Brilliant’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
       </article>
     </div>
 
@@ -816,9 +1030,9 @@
 <section id="savollar">
   <div class="wrap faq-grid">
     <div>
-      <span class="eyebrow reveal">Savol-javob</span>
-      <h2 class="reveal d1">Ko‘p beriladigan savollar</h2>
-      <p class="lead reveal d2">Javobini topa olmagan savolingizni arizada yozib qoldiring. Shaxsan javob beraman.</p>
+      <span class="tag reveal">Savol-javob</span>
+      <h2 class="reveal d1"><span class="o">Ko‘p</span> beriladigan savollar</h2>
+      <p class="lead reveal d2">Javobini topa olmagan savolingizni arizada yozib qoldiring yoki <a href="https://t.me/usmairways" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">Telegram’da</a> yozing.</p>
     </div>
     <div class="faq-list">
       <details class="reveal">
@@ -827,23 +1041,23 @@
       </details>
       <details class="reveal d1">
         <summary>Darslar qanday o‘tadi?<span class="pm"></span></summary>
-        <p>Barcha darslar onlayn, video qo‘ng‘iroq orqali, yakkama-yakka o‘tadi. Ekranni ulashib, kodni birga yozamiz. Dars vaqti sizning jadvalingizga moslashtiriladi.</p>
+        <p>Barcha 25 ta dars onlayn, video qo‘ng‘iroq orqali, yakkama-yakka o‘tadi. Ekranni ulashib, kodni birga yozamiz. Dars vaqti sizning jadvalingizga moslashtiriladi.</p>
       </details>
       <details class="reveal d2">
+        <summary>Sertifikat beriladimi?<span class="pm"></span></summary>
+        <p>Ha. Mentorlikni muvaffaqiyatli yakunlagan har bir o‘quvchiga theusmondigital sertifikati beriladi. Bu barcha tariflarga tegishli.</p>
+      </details>
+      <details class="reveal d3">
         <summary>Qaysi tarifni tanlashim kerak?<span class="pm"></span></summary>
         <p>Sinab ko‘rmoqchi bo‘lsangiz, Silver yaxshi start. Daromad qilishni maqsad qilgan bo‘lsangiz, Gold eng muvozanatli tanlov. Natijaga to‘liq hamrohlik kerak bo‘lsa, Brilliant. Ikkilansangiz, tanishuv suhbatida birga hal qilamiz.</p>
       </details>
-      <details class="reveal d3">
+      <details class="reveal d4">
         <summary>Qanday kompyuter kerak?<span class="pm"></span></summary>
         <p>Internetga ulangan har qanday zamonaviy noutbuk yoki kompyuter (Windows yoki macOS) yetarli. Kerakli dasturlarni birinchi darsda birga o‘rnatamiz.</p>
       </details>
-      <details class="reveal d4">
+      <details class="reveal d5">
         <summary>Claude AI uchun alohida to‘lov kerakmi?<span class="pm"></span></summary>
         <p>Claude’ning bepul versiyasi bilan ham boshlash mumkin. Ba’zi vositalar uchun pullik obuna kerak bo‘lishi mumkin. Qachon va nima uchun kerakligini darsda aniq tushuntiraman.</p>
-      </details>
-      <details class="reveal d5">
-        <summary>To‘lov qanday amalga oshiriladi?<span class="pm"></span></summary>
-        <p>Ariza qoldirganingizdan so‘ng siz bilan bog‘lanamiz, tanishuv suhbatidan keyin qulay to‘lov usulini kelishib olamiz.</p>
       </details>
     </div>
   </div>
@@ -854,13 +1068,13 @@
   <div class="wrap">
     <div class="apply-box">
       <div>
-        <span class="eyebrow reveal">Ariza</span>
-        <h2 class="reveal d1">Birinchi qadamni <span class="grad">bugun</span> qo‘ying</h2>
+        <span class="tag reveal">Ariza</span>
+        <h2 class="reveal d1">Birinchi qadamni <span class="o">bugun</span> qo‘ying</h2>
         <p class="lead reveal d2">Formani to‘ldiring, siz bilan bog‘lanib, maqsadingizni muhokama qilamiz va mos tarifni tanlaymiz.</p>
         <ul class="apply-points">
-          <li class="reveal d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Tez orada siz bilan bog‘lanamiz</li>
-          <li class="reveal d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Tanishuv suhbati bepul va hech narsaga majburlamaydi</li>
-          <li class="reveal d4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>Ma’lumotlaringiz uchinchi shaxslarga berilmaydi</li>
+          <li class="reveal d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Tez orada siz bilan bog‘lanamiz</li>
+          <li class="reveal d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Tanishuv suhbatida savollaringizga javob beramiz</li>
+          <li class="reveal d4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>Ma’lumotlaringiz uchinchi shaxslarga berilmaydi</li>
         </ul>
       </div>
 
@@ -868,16 +1082,16 @@
         <form id="applyForm" novalidate>
           <div class="field">
             <label for="f-name">Ismingiz</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Masalan: Aziz" required>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Masalan: Aziz" maxlength="80" required>
           </div>
           <div class="field-row">
             <div class="field">
               <label for="f-phone">Telefon raqam</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67" required>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67" maxlength="30" required>
             </div>
             <div class="field">
               <label for="f-tg">Telegram <span class="opt">(ixtiyoriy)</span></label>
-              <input id="f-tg" name="telegram" type="text" placeholder="@username">
+              <input id="f-tg" name="telegram" type="text" placeholder="@username" maxlength="40">
             </div>
           </div>
           <div class="field">
@@ -899,20 +1113,20 @@
           </div>
           <div class="field">
             <label for="f-goal">Maqsadingiz <span class="opt">(ixtiyoriy)</span></label>
-            <textarea id="f-goal" name="goal" placeholder="Nimaga erishmoqchisiz? Masalan: freelance’da avtomatlashtirish xizmatini sotmoqchiman"></textarea>
+            <textarea id="f-goal" name="goal" maxlength="1000" placeholder="Nimaga erishmoqchisiz? Masalan: freelance’da avtomatlashtirish xizmatini sotmoqchiman"></textarea>
           </div>
+          <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <p class="form-error" id="formError" role="alert"></p>
-          <button type="submit" class="btn btn-primary" id="submitBtn">Ariza yuborish
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
+          <button type="submit" class="btn btn-primary" id="submitBtn"><span class="lbl">Ariza yuborish</span> <span class="arr"><svg><use href="#i-arrow"/></svg></span></button>
           <p class="form-note">Tugmani bosish orqali siz bilan bog‘lanishimizga rozilik bildirasiz.</p>
         </form>
 
         <div class="success" id="success" role="status" aria-live="polite">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
           <h3>Arizangiz qabul qilindi!</h3>
-          <p>Rahmat. Tez orada siz bilan bog‘lanamiz. Telefoningiz va Telegram’ingizni kuzatib turing.</p>
-          <p class="demo-flag" id="demoFlag">Demo rejim: forma hali ariza qabul qiluvchi servisga ulanmagan, ma’lumot hech qayerga yuborilmadi.</p>
+          <p>Rahmat. Tez orada siz bilan bog‘lanamiz. Kutishni xohlamasangiz, hoziroq Telegram’da yozing.</p>
+          <a class="btn btn-primary" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram’da yozish <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
+          <p class="demo-flag" id="demoFlag">Demo rejim: forma hali Telegram botga ulanmagan, ariza hech qayerga yuborilmadi. Sozlash uchun SOZLASH.md fayliga qarang.</p>
         </div>
       </div>
     </div>
@@ -923,25 +1137,30 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo"><span class="logo-mark">U</span><span>theusmon<em>digital</em></span></a>
-    <nav aria-label="Pastki menyu">
-      <a href="#dastur">Dastur</a>
-      <a href="#mentor">Mentor</a>
-      <a href="#tariflar">Tariflar</a>
-      <a href="#savollar">Savollar</a>
-      <a href="#ariza">Ariza</a>
-    </nav>
-    <p>© <span id="year">2026</span> theusmondigital. Barcha huquqlar himoyalangan.</p>
+    <div class="foot-top">
+      <a href="#top" class="logo"><span class="logo-mark"><svg><use href="#i-logo"/></svg></span><span>theusmon<b>digital</b></span></a>
+      <div class="foot-contacts">
+        <a href="https://t.me/usmairways" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>@usmairways</a>
+        <span class="sep"></span>
+        <a href="https://instagram.com/theusmondigital" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@theusmondigital</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="year">2026</span> theusmondigital. Barcha huquqlar himoyalangan.</p>
+      <nav aria-label="Pastki menyu">
+        <a href="#dastur">Dastur</a><a href="#loyihalar">Loyihalar</a><a href="#mentor">Mentor</a><a href="#tariflar">Tariflar</a><a href="#ariza">Ariza</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
-<div class="m-cta" id="mCta"><a href="#ariza" class="btn btn-primary">Ariza qoldirish</a></div>
+<div class="m-cta" id="mCta"><a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
 
 <script>
   /* ================= SOZLAMALAR =================
-     Arizalar qayerga borishini shu yerda belgilang.
-     Masalan, formspree.io'da bepul forma ochib, uning manzilini qo'ying:
-     const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxx";
+     Arizalar Telegram botga yetib borishi uchun Cloudflare Worker manzilini shu yerga qo'ying.
+     Batafsil: SOZLASH.md fayli.
+     Masalan: const FORM_ENDPOINT = "https://ariza.sizning-nomingiz.workers.dev";
      Bo'sh qolsa, forma demo rejimda ishlaydi (hech narsa yuborilmaydi). */
   const FORM_ENDPOINT = "";
 
@@ -952,14 +1171,13 @@
     // Nav background + mobile CTA
     const nav = document.getElementById("nav");
     const mCta = document.getElementById("mCta");
-    const apply = document.getElementById("ariza");
     let applyVisible = false;
     const onScroll = () => {
       const y = window.scrollY;
       nav.classList.toggle("scrolled", y > 20);
-      mCta.classList.toggle("on", y > 600 && !applyVisible);
+      mCta.classList.toggle("on", y > 700 && !applyVisible);
     };
-    new IntersectionObserver(([e]) => { applyVisible = e.isIntersecting; onScroll(); }, { threshold: 0.1 }).observe(apply);
+    new IntersectionObserver(([e]) => { applyVisible = e.isIntersecting; onScroll(); }, { threshold: 0.1 }).observe(document.getElementById("ariza"));
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
@@ -978,16 +1196,34 @@
       });
     });
 
+    // Mountain glowing particles
+    const g = document.getElementById("particles");
+    const ns = "http://www.w3.org/2000/svg";
+    let seed = 7;
+    const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    for (let i = 0; i < 160; i++) {
+      const y = 120 + rnd() * 330;
+      const spread = (y - 110) * 1.05;
+      const x = 410 + (rnd() - 0.5) * spread * 1.6;
+      const c = document.createElementNS(ns, "circle");
+      c.setAttribute("cx", x.toFixed(1));
+      c.setAttribute("cy", y.toFixed(1));
+      c.setAttribute("r", (0.6 + rnd() * 1.8).toFixed(2));
+      c.setAttribute("fill", rnd() > 0.5 ? "#ffb48a" : "#ff6a32");
+      c.setAttribute("opacity", (0.25 + rnd() * 0.6).toFixed(2));
+      g.appendChild(c);
+    }
+
     // Terminal animation
     const lines = Array.from(document.querySelectorAll("#term .term-line"));
     const typed = document.getElementById("typed");
     const caret = document.getElementById("caret");
-    const card = document.getElementById("floatCard");
-    const text = "Do‘konim uchun buyurtmalarni Google Sheets’ga yozadigan Telegram bot yarat";
+    const floats = [document.getElementById("floatCard"), document.getElementById("floatCard2")];
+    const text = "Do‘konim uchun buyurtmalarni Sheets’ga yozadigan bot yarat";
     function runTerminal() {
       if (reduce) {
         lines.forEach((l) => l.classList.add("on"));
-        typed.textContent = text; caret.style.display = "none"; card.classList.add("on");
+        typed.textContent = text; caret.style.display = "none"; floats.forEach((c) => c.classList.add("on"));
         return;
       }
       lines[0].classList.add("on");
@@ -999,13 +1235,13 @@
           if (i >= text.length) {
             clearInterval(t);
             caret.style.display = "none";
-            lines.slice(2).forEach((l, k) => setTimeout(() => l.classList.add("on"), 380 * (k + 1)));
-            setTimeout(() => card.classList.add("on"), 380 * (lines.length - 1) + 300);
+            lines.slice(2).forEach((l, k) => setTimeout(() => l.classList.add("on"), 420 * (k + 1)));
+            floats.forEach((c, k) => setTimeout(() => c.classList.add("on"), 420 * (lines.length - 1) + 300 + k * 500));
           }
-        }, 32);
+        }, 34);
       }, 600);
     }
-    setTimeout(runTerminal, 700);
+    setTimeout(runTerminal, 1200);
 
     // Preselect tier from pricing buttons
     document.querySelectorAll("[data-tier]").forEach((btn) => {
@@ -1015,24 +1251,26 @@
       });
     });
 
-    // Form
+    // Form → Cloudflare Worker → Telegram bot
     const form = document.getElementById("applyForm");
     const err = document.getElementById("formError");
     const btn = document.getElementById("submitBtn");
+    const lbl = btn.querySelector(".lbl");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       err.classList.remove("on");
       const data = Object.fromEntries(new FormData(form).entries());
+      if (data.website) return; // spam bot
       const phoneDigits = (data.phone || "").replace(/\D/g, "");
       if (!data.name.trim()) return showError("Iltimos, ismingizni kiriting.", "f-name");
       if (phoneDigits.length < 9) return showError("Iltimos, telefon raqamingizni to‘liq kiriting.", "f-phone");
 
-      btn.disabled = true; btn.style.opacity = ".7"; btn.firstChild.textContent = "Yuborilmoqda… ";
+      btn.disabled = true; btn.style.opacity = ".7"; lbl.textContent = "Yuborilmoqda…";
       try {
         if (FORM_ENDPOINT) {
           const res = await fetch(FORM_ENDPOINT, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
           });
           if (!res.ok) throw new Error("HTTP " + res.status);
@@ -1042,9 +1280,9 @@
         form.style.display = "none";
         document.getElementById("success").classList.add("on");
       } catch (_) {
-        showError("Yuborishda xatolik yuz berdi. Iltimos, birozdan keyin qayta urinib ko‘ring.");
+        showError("Yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring yoki Telegram’da yozing: @usmairways");
       } finally {
-        btn.disabled = false; btn.style.opacity = ""; btn.firstChild.textContent = "Ariza yuborish ";
+        btn.disabled = false; btn.style.opacity = ""; lbl.textContent = "Ariza yuborish";
       }
     });
     function showError(msg, focusId) {
