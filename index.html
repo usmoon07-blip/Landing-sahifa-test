@@ -253,20 +253,9 @@
   .work .checks { margin-top: 18px; gap: 10px; }
   .work .checks li { font-size: 14.5px; }
   .phone { width: 230px; border-radius: 34px; padding: 9px; background: linear-gradient(160deg, #3a3a3e, #151517); box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
-  .phone-in { border-radius: 26px; overflow: hidden; background: #0e1621; height: 430px; display: flex; flex-direction: column; }
+  .phone-in { border-radius: 26px; overflow: hidden; background: #fff; }
   .phone-in.shot { height: auto; background: #fff; }
   .phone-in.shot img { width: 100%; height: auto; }
-  .tg-head { display: flex; gap: 10px; align-items: center; padding: 14px 12px 10px; background: #17212b; }
-  .tg-ava { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #fff; background: var(--accent); flex: none; }
-  .tg-head b { font-size: 13px; display: block; line-height: 1.2; }
-  .tg-head small { font-size: 11px; color: #7f91a4; }
-  .tg-body { flex: 1; padding: 12px 10px; display: flex; flex-direction: column; gap: 7px; font-size: 11.5px; line-height: 1.45; justify-content: flex-end;
-    background: radial-gradient(circle at 30% 20%, rgba(255,90,31,.06), transparent 50%), #0e1621; }
-  .msg { max-width: 86%; padding: 7px 10px; border-radius: 12px; }
-  .msg.bot { background: #182533; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .msg.me { background: #2b5278; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .kb { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
-  .kb span { background: rgba(255,255,255,.08); border-radius: 7px; padding: 6px 4px; text-align: center; font-size: 10.5px; font-weight: 500; }
 
   /* Steps */
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
@@ -783,24 +772,19 @@
       </article>
       <article class="work reveal d1">
         <div>
-          <span class="client">Kiyim do‘koni</span>
+          <span class="client">Telegram Mini App</span>
           <h3>Barno Abayas</h3>
-          <p>Abaya brendi uchun Telegram bot: katalog, o‘lcham tanlash va buyurtma rasmiylashtirish bir joyda.</p>
+          <p>Abaya brendi uchun Telegram ichidagi onlayn do‘kon.</p>
           <ul class="checks">
-            <li>Mahsulotlar katalogi</li>
-            <li>O‘lcham va rang tanlash</li>
-            <li>Buyurtmalar menejerga avtomatik yetadi</li>
+            <li>Kategoriyalar bo‘yicha katalog va qidiruv</li>
+            <li>Yangi kolleksiyalar va yangi mahsulotlar</li>
+            <li>Savatcha va tez buyurtma</li>
+            <li>Buyurtmalar holatini kuzatish</li>
           </ul>
         </div>
-        <div class="phone" aria-hidden="true">
-          <div class="phone-in">
-            <div class="tg-head"><span class="tg-ava">B</span><div><b>Barno Abayas</b><small>bot</small></div></div>
-            <div class="tg-body">
-              <div class="msg bot">✨ Yangi kolleksiya! Qaysi model yoqdi?</div>
-              <div class="kb"><span>👗 Katalog</span><span>📏 O‘lchamlar</span><span>🎨 Ranglar</span><span>📦 Buyurtma</span></div>
-              <div class="msg me">Qora abaya, M o‘lcham</div>
-              <div class="msg bot">✅ Qabul qilindi! Menejerimiz siz bilan bog‘lanadi.</div>
-            </div>
+        <div class="phone">
+          <div class="phone-in shot">
+            <img src="img/barno-miniapp.jpg" width="460" height="994" loading="lazy" alt="Barno Abayas Telegram Mini App: katalog, qidiruv va savatcha">
           </div>
         </div>
       </article>
