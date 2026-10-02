@@ -254,6 +254,8 @@
   .work .checks li { font-size: 14.5px; }
   .phone { width: 230px; border-radius: 34px; padding: 9px; background: linear-gradient(160deg, #3a3a3e, #151517); box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
   .phone-in { border-radius: 26px; overflow: hidden; background: #0e1621; height: 430px; display: flex; flex-direction: column; }
+  .phone-in.shot { height: auto; background: #fff; }
+  .phone-in.shot img { width: 100%; height: auto; }
   .tg-head { display: flex; gap: 10px; align-items: center; padding: 14px 12px 10px; background: #17212b; }
   .tg-ava { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #fff; background: var(--accent); flex: none; }
   .tg-head b { font-size: 13px; display: block; line-height: 1.2; }
@@ -763,25 +765,19 @@
     <div class="works">
       <article class="work reveal">
         <div>
-          <span class="client">Restoran</span>
+          <span class="client">Telegram Mini App</span>
           <h3>Resto</h3>
-          <p>Mijoz buyurtma beradi, restoran vaqt va pul tejaydi.</p>
+          <p>Telegram ichidagi to‘liq restoran ilovasi. Mijoz bir necha bosishda buyurtma beradi.</p>
           <ul class="checks">
-            <li>24/7 buyurtma qabul qiladi</li>
-            <li>Operatorga ehtiyoj kamayadi</li>
-            <li>Buyurtma adashmaydi, darhol adminga yetadi</li>
-            <li>Menyu va narxlar bir zumda yangilanadi</li>
+            <li>Menyu, qidiruv va savat bir joyda</li>
+            <li>Manzil bo‘yicha yetkazib berish</li>
+            <li>Aksiyalar va promokodlar</li>
+            <li>Buyurtmalar tarixi va shaxsiy profil</li>
           </ul>
         </div>
-        <div class="phone" aria-hidden="true">
-          <div class="phone-in">
-            <div class="tg-head"><span class="tg-ava">R</span><div><b>Resto Bot</b><small>bot</small></div></div>
-            <div class="tg-body">
-              <div class="msg bot">Assalomu alaykum! 🍽 Menyudan tanlang:</div>
-              <div class="kb"><span>🍛 Taomlar</span><span>🥗 Salatlar</span><span>🥤 Ichimliklar</span><span>🛒 Savatcha</span></div>
-              <div class="msg me">Osh × 2, Choy × 1</div>
-              <div class="msg bot">✅ Buyurtmangiz qabul qilindi! Tez orada operator bog‘lanadi.</div>
-            </div>
+        <div class="phone">
+          <div class="phone-in shot">
+            <img src="img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App: menyu, qidiruv, aksiyalar va yetkazib berish">
           </div>
         </div>
       </article>
