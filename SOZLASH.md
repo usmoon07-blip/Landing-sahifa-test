@@ -1,10 +1,13 @@
-# Arizalarni Telegram botga ulash
+# Buyurtmalarni Telegram botga ulash
 
-**Hozirgi holat:** forma to'ldirilgach, tashrif buyuruvchining Telegram'ida @usmairways bilan chat
-ariza matni tayyor holda ochiladi va u "Yuborish" ni bosadi. Hech qanday sozlash kerak emas.
+**Hozirgi holat:** forma to'ldirilgach, mijozning Telegram'ida @usmairways bilan chat
+buyurtma matni tayyor holda ochiladi va u "Yuborish" ni bosadi. Hech qanday sozlash kerak emas.
 
-Arizalar odam "Yuborish" ni bosishini kutmasdan, botga **avtomatik** kelishini xohlasangiz, quyidagini qiling.
-Forma arizani **Cloudflare Worker** orqali Telegram botingizga yuboradi.
+**Aksiya muddati:** `index.html` pastidagi `OFFER_END` qatorida (hozir 31-oktabr 23:59, Toshkent vaqti).
+Muddat tugagach taymer va aksiya yozuvlari avtomatik yashiriladi. Yangi aksiya uchun sanani o'zgartiring.
+
+Buyurtmalar mijoz "Yuborish" ni bosishini kutmasdan, botga **avtomatik** kelishini xohlasangiz, quyidagini qiling.
+Forma buyurtmani **Cloudflare Worker** orqali Telegram botingizga yuboradi.
 Bot tokeni sayt kodida emas, Worker ichida yashirin saqlanadi, shuning uchun uni hech kim o'g'irlay olmaydi.
 Hammasi bepul va taxminan 10 daqiqa vaqt oladi.
 
@@ -48,15 +51,18 @@ va Worker manzilini qo'ying:
 const FORM_ENDPOINT = "https://ariza.sizning-nomingiz.workers.dev";
 ```
 
-Tayyor. Endi saytdagi har bir ariza Telegram'ga quyidagi ko'rinishda keladi:
+Tayyor. Endi saytdagi har bir buyurtma Telegram'ga quyidagi ko'rinishda keladi:
 
 ```
-🆕 Yangi ariza — theusmondigital
+🆕 Assalomu alaykum! Saytdan buyurtma:
 
-👤 Ism: Aziz
-📞 Telefon: +998 90 123 45 67
-✈️ Telegram: @aziz
-💎 Tarif: Gold ($250)
-📚 Daraja: Umuman bilmayman, noldan boshlayman
-🎯 Maqsad: ...
+Xizmat: Telegram bot + Mini App
+Funksiyalar (3): To‘lov tizimi, AI yordamchi, Yetkazib berish
+Aksiya narxi: $295
+
+Ism: Aziz
+Telefon: +998 90 123 45 67
+Biznes: restoran
+Telegram: @aziz
+Izoh: ...
 ```

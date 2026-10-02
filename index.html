@@ -3,495 +3,365 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>theusmondigital — Claude AI bilan dasturlash mentorligi</title>
-<meta name="description" content="Claude AI yordamida dasturlashni va bizneslarni avtomatlashtirishni o‘rganing: 25 ta video dars, Usmon bilan jonli uchrashuvlar, sertifikat.">
-<meta property="og:title" content="theusmondigital — Claude AI bilan dasturlash mentorligi">
-<meta property="og:description" content="Claude AI bilan dasturlang va biznesni avtomatlashtiring. 25 ta video dars, 100% onlayn, sertifikat.">
-<meta name="theme-color" content="#070504">
+<title>theusmondigital — Telegram bot, Mini App va landing sayt yasash</title>
+<meta name="description" content="Biznesingiz uchun Telegram bot va Mini App — $250 dan. Landing sayt — $1000. Aksiya narxlari cheklangan muddatda.">
+<meta property="og:title" content="theusmondigital — Telegram bot, Mini App va landing sayt">
+<meta property="og:description" content="Telegram bot + Mini App $250 (eski narx $500). Landing sayt $1000 (eski narx $1500).">
+<meta name="theme-color" content="#05070f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #070504;
-    --bg-2: #0d0807;
-    --surface: #120b09;
-    --surface-2: #1a0f0b;
-    --line: rgba(255, 255, 255, 0.07);
-    --line-2: rgba(255, 255, 255, 0.13);
-    --grid: rgba(255, 255, 255, 0.045);
-    --text: #ffffff;
-    --soft: #e9e2de;
-    --muted: #a8988f;
-    --dim: #6e605a;
-    --accent: #ff5a1f;
-    --accent-2: #ff8a3d;
-    --accent-deep: #c73a0a;
-    --glow: rgba(255, 90, 31, 0.55);
-    --ok: #4ade80;
-    --silver: linear-gradient(135deg, #ffffff 0%, #a9b0bb 45%, #eef0f3 70%, #8d95a1 100%);
-    --gold: linear-gradient(135deg, #fff1c1 0%, #e5b84f 40%, #fbe39a 65%, #b9862b 100%);
-    --brilliant: linear-gradient(120deg, #a5f3fc 0%, #c4b5fd 30%, #f9a8d4 55%, #fde68a 80%, #a5f3fc 100%);
-    --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --bg: #05070f;
+    --bg-2: #080c19;
+    --surface: #0d1325;
+    --surface-2: #121a33;
+    --line: rgba(150, 165, 255, 0.10);
+    --line-2: rgba(150, 165, 255, 0.18);
+    --text: #f3f5ff;
+    --soft: #d5daf0;
+    --muted: #97a0bf;
+    --dim: #5e6789;
+    --blue: #4f7cff;
+    --violet: #8b5cf6;
+    --grad: linear-gradient(100deg, #6f95ff 0%, #a98bff 100%);
+    --lime: #c6ff3d;
+    --lime-2: #a8f000;
+    --lime-ink: #0b1400;
+    --red: #ff5c7a;
+    --display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --wrap: 1180px;
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--text);
-    font-family: var(--font); font-size: 16px; line-height: 1.65;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden;
-  }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   img, svg { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
   button, input, select, textarea { font: inherit; color: inherit; }
-  ::selection { background: var(--accent); color: #fff; }
+  ::selection { background: var(--lime); color: var(--lime-ink); }
 
   .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
-  section { position: relative; padding: 120px 0; }
+  section { position: relative; padding: 110px 0; }
 
-  /* Grid background like the reference posters */
-  .gridbg::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%);
-  }
-  .glow-tr::after, .glow-bl::after {
-    content: ""; position: absolute; pointer-events: none; width: 760px; height: 760px; border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(255, 90, 31, .30), rgba(255, 90, 31, 0) 70%);
-  }
-  .glow-tr::after { right: -320px; top: -300px; }
-  .glow-bl::after { left: -340px; bottom: -320px; }
-
-  /* Typography */
-  h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-  h2 { font-size: clamp(32px, 4.6vw, 56px); font-weight: 800; }
-  .o { color: var(--accent); }
-  .lead { color: var(--muted); font-size: clamp(16px, 1.5vw, 18px); max-width: 60ch; margin: 20px 0 0; }
-  .tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 7px 14px; border-radius: 7px; background: var(--accent); color: #fff;
-    font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
-    box-shadow: 0 8px 26px -10px var(--glow);
-  }
-  .tag.ghost { background: rgba(255, 90, 31, .12); color: var(--accent-2); box-shadow: none; border: 1px solid rgba(255, 90, 31, .35); }
-  .head-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .head-center h2 { margin-top: 20px; }
-  .head-center .lead { text-align: center; }
-  .curly { display: inline-block; width: 0.75em; height: 0.75em; vertical-align: -0.02em; margin-left: .12em; color: var(--accent); }
+  h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; }
+  h2 { font-size: clamp(32px, 4.4vw, 54px); }
+  .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .l { color: var(--lime); }
+  .lead { color: var(--muted); font-size: clamp(16px, 1.5vw, 18px); max-width: 60ch; margin: 18px 0 0; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(79,124,255,.08); color: #b9c6ff; font-size: 13px; font-weight: 600; }
+  .eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px var(--lime); }
+  .center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .center .lead { text-align: center; }
+  .center h2 { margin-top: 18px; }
+  .head { margin-bottom: 56px; }
+  .head h2 { margin-top: 18px; }
 
   /* Buttons */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 15px 18px 15px 28px; border-radius: 999px; border: 1px solid transparent;
-    font-weight: 600; font-size: 16px; cursor: pointer; white-space: nowrap;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-  }
-  .btn .arr { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); transition: transform .25s ease, background .25s; }
-  .btn .arr svg { width: 15px; height: 15px; }
-  .btn:hover .arr { transform: rotate(45deg); }
-  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 14px 40px -12px var(--glow), inset 0 1px 0 rgba(255,255,255,.25); }
-  .btn-primary:hover { transform: translateY(-2px); background: #ff6a32; box-shadow: 0 20px 50px -12px rgba(255,90,31,.75), inset 0 1px 0 rgba(255,255,255,.25); }
-  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.03); color: #fff; }
-  .btn-ghost .arr { background: var(--accent); }
-  .btn-ghost:hover { border-color: rgba(255,90,31,.6); background: rgba(255,90,31,.08); }
-  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 14px; border: 1px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; }
+  .btn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn-cta { background: var(--lime); color: var(--lime-ink); box-shadow: 0 10px 40px -10px rgba(198,255,61,.55), inset 0 -2px 0 rgba(0,0,0,.15); }
+  .btn-cta:hover { transform: translateY(-2px); background: #d4ff63; box-shadow: 0 16px 50px -12px rgba(198,255,61,.7), inset 0 -2px 0 rgba(0,0,0,.15); }
+  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.03); color: var(--text); }
+  .btn-ghost:hover { border-color: rgba(150,165,255,.4); background: rgba(79,124,255,.08); }
+  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, .skill:focus-within { outline: 2px solid var(--lime); outline-offset: 3px; }
+
+  /* Promo bar */
+  .promo { position: fixed; inset: 0 0 auto 0; z-index: 60; height: 42px; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 0 16px; background: linear-gradient(90deg, #3b5bff, #7c4dff); color: #fff; font-size: 14px; font-weight: 600; }
+  .promo b { color: var(--lime); }
+  .promo .cd-mini { font-variant-numeric: tabular-nums; background: rgba(0,0,0,.25); padding: 3px 10px; border-radius: 8px; letter-spacing: .02em; }
+  .promo a { text-decoration: underline; text-underline-offset: 3px; }
+  body.no-promo .promo { display: none; }
 
   /* Nav */
-  .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s; }
-  .nav.scrolled { background: rgba(7,5,4,.78); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
-  .logo { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
-  .logo b { color: var(--accent); font-weight: 600; }
-  .logo-mark { width: 40px; height: 40px; border-radius: 9px; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; }
-  .logo-mark svg { width: 24px; height: 24px; }
-  .nav-links { display: flex; gap: 32px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
-  .nav-links a { transition: color .2s; }
-  .nav-links a:hover { color: #fff; }
-  .nav .btn { padding: 9px 10px 9px 20px; font-size: 14.5px; }
-  .nav .btn .arr { width: 26px; height: 26px; }
+  .nav { position: fixed; left: 0; right: 0; top: 42px; z-index: 50; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s; }
+  body.no-promo .nav { top: 0; }
+  .nav.scrolled { background: rgba(5,7,15,.8); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; }
+  .logo-mark { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--grad); color: #fff; font-weight: 700; box-shadow: 0 8px 24px -8px rgba(111,149,255,.8); }
+  .logo em { font-style: normal; color: var(--muted); font-weight: 500; }
+  .nav-links { display: flex; gap: 30px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav .btn { padding: 11px 18px; font-size: 14.5px; border-radius: 12px; }
 
   /* Hero */
-  .hero { padding: 150px 0 40px; overflow: hidden; text-align: center; }
-  .hero .wrap { position: relative; z-index: 1; }
-  .hero-kicker { font-size: clamp(24px, 3.2vw, 38px); font-weight: 600; letter-spacing: -0.01em; }
-  .hero h1 { margin-top: 2px; }
-  .hero h1 .big {
-    display: block; font-size: clamp(60px, 12vw, 148px); font-weight: 800; letter-spacing: -0.035em; line-height: .98;
-    color: var(--accent); text-shadow: 0 10px 60px rgba(255,90,31,.35);
-  }
-  .hero h1 .sub { display: block; font-size: clamp(22px, 3.4vw, 42px); font-weight: 600; margin-top: 10px; letter-spacing: -0.01em; }
-  .hero h1 .sub strong { font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; }
-  .hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .hero .lead { margin: 26px auto 0; max-width: 58ch; }
-  .hero-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .hero { padding: 200px 0 90px; overflow: hidden; }
+  .aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .aurora::before, .aurora::after { content: ""; position: absolute; border-radius: 50%; filter: blur(30px); }
+  .aurora::before { width: 900px; height: 700px; left: -200px; top: -250px; background: radial-gradient(closest-side, rgba(79,124,255,.35), transparent 70%); }
+  .aurora::after { width: 800px; height: 700px; right: -260px; top: 40px; background: radial-gradient(closest-side, rgba(139,92,246,.30), transparent 70%); }
+  .dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(150,165,255,.16) 1px, transparent 1px); background-size: 26px 26px; mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%); }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
+  .hero h1 { font-size: clamp(40px, 5.6vw, 72px); margin-top: 22px; }
+  .hero .lead { margin-top: 22px; }
+  .hero-price { display: inline-flex; align-items: center; gap: 16px; margin-top: 30px; padding: 14px 20px; border-radius: 18px; border: 1px solid var(--line-2); background: rgba(13,19,37,.7); backdrop-filter: blur(8px); flex-wrap: wrap; }
+  .hero-price .lbl { color: var(--muted); font-size: 14px; font-weight: 500; }
+  .hero-price .now { font-family: var(--display); font-size: 34px; font-weight: 700; color: var(--lime); line-height: 1; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .hero-trust { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; color: var(--muted); font-size: 14px; }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-trust svg { width: 18px; height: 18px; color: var(--lime); }
 
-  /* Hero stage: ribbons + laptop */
-  .stage { position: relative; margin: 10px auto 0; max-width: 1100px; height: 580px; }
-  .ribbon-svg { position: absolute; left: 50%; top: -40px; width: 1400px; height: 640px; max-width: none; transform: translateX(-50%); pointer-events: none; }
-  .ribbon-svg .flow { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: draw 2.6s cubic-bezier(.6,.1,.2,1) .3s forwards; }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
-  .laptop { position: absolute; left: 50%; bottom: 40px; width: min(760px, 92%); transform: translateX(-50%); z-index: 2; filter: drop-shadow(0 50px 60px rgba(0,0,0,.8)); }
-  .screen { position: relative; border-radius: 18px 18px 0 0; padding: 12px 12px 0; background: linear-gradient(180deg, #2b2b2e, #18181a); border: 1px solid #3a3a3e; border-bottom: 0; }
-  .screen-in {
-    position: relative; border-radius: 8px 8px 0 0; overflow: hidden; aspect-ratio: 16 / 9.4; text-align: left;
-    background:
-      repeating-radial-gradient(circle at 70% 120%, rgba(255,255,255,.035) 0 2px, transparent 2px 38px),
-      radial-gradient(70% 90% at 75% 110%, rgba(255,90,31,.22), transparent 60%),
-      #0b0908;
-  }
-  .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; font-size: 10px; color: var(--muted); border-bottom: 1px solid var(--line); }
-  .site-nav .l { display: flex; align-items: center; gap: 7px; color: #fff; font-weight: 600; font-size: 11.5px; }
-  .site-nav .l i { width: 14px; height: 14px; border-radius: 3px; background: var(--accent); display: block; }
-  .site-nav .m { display: flex; gap: 14px; }
-  .site-nav .m span:first-child { color: var(--accent); }
-  .site-nav .r { background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 999px; font-weight: 600; }
-  .term { padding: 18px 22px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.75; }
-  .term-title { font-family: var(--font); font-size: clamp(16px, 2.6vw, 28px); font-weight: 500; line-height: 1.15; margin-bottom: 14px; color: #fff; }
-  .term-title b { color: var(--accent); font-weight: 700; }
-  .term-line { opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; color: var(--muted); }
-  .term-line.on { opacity: 1; transform: none; }
-  .t-p { color: var(--accent-2); } .t-u { color: #fff; } .t-ok { color: var(--ok); }
-  .caret { display: inline-block; width: 7px; height: 14px; background: var(--accent); vertical-align: -2px; animation: blink 1s steps(1) infinite; margin-left: 2px; }
-  @keyframes blink { 50% { opacity: 0; } }
-  .base { position: relative; height: 22px; margin: 0 -7%; border-radius: 2px 2px 14px 14px; background: linear-gradient(180deg, #4a4a4f 0%, #2a2a2d 40%, #141416 100%); }
-  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 18%; height: 8px; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: #1d1d20; }
-  .float-card {
-    position: absolute; z-index: 3; right: -1%; top: 22%;
-    padding: 14px 16px; border-radius: 16px; display: flex; gap: 12px; align-items: center; text-align: left;
-    background: rgba(20,12,9,.9); border: 1px solid rgba(255,90,31,.35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 24px 60px -20px rgba(0,0,0,.9), 0 0 40px -10px rgba(255,90,31,.4);
-    opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease;
-  }
-  .float-card.on { opacity: 1; transform: none; }
-  .float-card .ic { flex: none; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--accent); color: #fff; }
-  .float-card .ic svg { width: 20px; height: 20px; }
-  .float-card b { display: block; font-size: 14px; font-weight: 600; }
-  .float-card small { color: var(--muted); font-size: 12.5px; }
-  .float-card.left { left: -1%; right: auto; top: auto; bottom: 9%; }
-  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 900px; margin: 10px auto 0; border: 1px solid var(--line); border-radius: 20px; background: rgba(18,11,9,.6); backdrop-filter: blur(6px); }
-  .hero-stats div { padding: 22px 16px; border-right: 1px solid var(--line); }
-  .hero-stats div:last-child { border-right: 0; }
-  .hero-stats strong { display: block; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
-  .hero-stats strong em { font-style: normal; color: var(--accent); }
-  .hero-stats span { color: var(--muted); font-size: 13.5px; }
+  /* Old price strike */
+  .old { position: relative; display: inline-block; color: var(--dim); font-weight: 600; }
+  .old::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 2.5px; background: var(--red); transform: rotate(-12deg); border-radius: 2px; box-shadow: 0 0 8px rgba(255,92,122,.6); }
+  .save { display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 8px; background: rgba(255,92,122,.14); color: #ff8fa3; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
 
-  /* Marquee */
-  .strip { padding: 0; background: var(--accent); overflow: hidden; transform: rotate(-1.5deg); margin: 70px -20px 0; box-shadow: 0 20px 60px -20px var(--glow); }
-  .marquee { display: flex; width: max-content; animation: slide 36s linear infinite; }
-  .marquee span { display: inline-flex; align-items: center; padding: 18px 22px; font-weight: 700; font-size: 18px; color: #fff; white-space: nowrap; text-transform: uppercase; letter-spacing: .02em; }
-  .marquee span::after { content: "✦"; margin-left: 44px; font-size: 14px; opacity: .75; }
+  /* Phones */
+  .phones { position: relative; height: 600px; }
+  .phone { position: absolute; width: 250px; border-radius: 38px; padding: 10px; background: linear-gradient(160deg, #3a3f52, #12141c); box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.06) inset; }
+  .phone-in { border-radius: 29px; overflow: hidden; background: #fff; }
+  .phone-in img { width: 100%; height: auto; }
+  .ph-1 { left: 4%; top: 30px; transform: rotate(-7deg); z-index: 1; }
+  .ph-2 { right: 2%; top: 0; transform: rotate(6deg); z-index: 2; }
+  .badge-float { position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px; background: rgba(13,19,37,.92); border: 1px solid var(--line-2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.9); animation: bob 5s ease-in-out infinite; }
+  .badge-float .ic { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--lime); color: var(--lime-ink); flex: none; }
+  .badge-float .ic svg { width: 19px; height: 19px; }
+  .badge-float b { display: block; font-size: 14px; }
+  .badge-float small { color: var(--muted); font-size: 12.5px; }
+  .bf-1 { left: -4%; bottom: 70px; }
+  .bf-2 { right: -2%; bottom: 150px; animation-delay: -2.5s; }
+  .bf-2 .ic { background: var(--grad); color: #fff; }
+  @keyframes bob { 50% { transform: translateY(-8px); } }
+
+  /* Countdown block */
+  .cd { display: inline-flex; gap: 8px; }
+  .cd div { min-width: 64px; padding: 10px 6px 8px; border-radius: 12px; background: rgba(5,7,15,.6); border: 1px solid var(--line-2); text-align: center; }
+  .cd b { display: block; font-family: var(--display); font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .cd small { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+
+  /* Strip */
+  .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); overflow: hidden; }
+  .marquee { display: flex; width: max-content; animation: slide 40s linear infinite; }
+  .marquee span { display: inline-flex; align-items: center; gap: 40px; padding: 20px 20px; font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--muted); white-space: nowrap; }
+  .marquee span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); margin-left: 20px; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
-  /* Mountain / core section */
-  .core { overflow: hidden; padding-bottom: 60px; }
-  .core .wrap { position: relative; z-index: 1; }
-  .core-stage { position: relative; height: 640px; margin-top: 30px; }
-  .mountain { position: absolute; left: 50%; bottom: 0; width: 820px; max-width: none; transform: translateX(-50%); }
-  .core-item { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; width: 230px; }
-  .core-item .ic { width: 58px; height: 58px; color: var(--accent); }
-  .core-item .ic svg { width: 100%; height: 100%; }
-  .core-item h3 { font-size: 24px; font-weight: 500; line-height: 1.2; }
-  .ci-1 { left: 2%; top: 26%; }
-  .ci-2 { left: 50%; top: 0; margin-left: -115px; }
-  .ci-3 { right: 2%; top: 26%; }
-  .core-cta { display: flex; justify-content: center; margin-top: -40px; position: relative; z-index: 2; }
-
-  /* Compare */
-  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-  .why-grid h2 { margin-top: 20px; }
-  .compare { display: grid; gap: 14px; }
-  .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .compare-cell { padding: 20px 22px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
-  .compare-cell small { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
-  .compare-cell.old { color: var(--muted); }
-  .compare-cell.old small { color: var(--dim); }
-  .compare-cell.new { border-color: rgba(255,90,31,.45); background: linear-gradient(160deg, rgba(255,90,31,.16), rgba(255,90,31,.03)); }
-  .compare-cell.new small { color: var(--accent); }
-
-  /* Learn cards */
-  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
-  .section-head h2 { margin-top: 20px; }
-  .section-head .lead { max-width: 44ch; margin: 0; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .card { position: relative; padding: 30px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; transition: transform .35s ease, border-color .35s ease; }
-  .card::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255,90,31,.16), transparent 45%); }
-  .card::after { content: ""; position: absolute; left: 30px; right: 30px; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,90,31,.7), transparent); opacity: .5; }
-  .card:hover { transform: translateY(-4px); border-color: rgba(255,90,31,.35); }
-  .card:hover::before { opacity: 1; }
-  .card > * { position: relative; }
-  .card .top { display: flex; justify-content: space-between; align-items: center; }
-  .card .num { font-size: 13px; color: var(--dim); font-weight: 600; }
-  .card .icon { width: 52px; height: 52px; color: var(--accent); }
-  .card .icon svg { width: 100%; height: 100%; }
-  .card h3 { font-size: 20px; line-height: 1.3; margin-top: 26px; font-weight: 600; }
-  .card p { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
-
-  /* Audience */
-  .aud { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .aud-card { padding: 40px; border-radius: 26px; border: 1px solid var(--line); background: var(--surface); }
-  .aud-card.hl { background: radial-gradient(90% 80% at 100% 0%, rgba(255,90,31,.25), transparent 60%), var(--surface); border-color: rgba(255,90,31,.4); }
-  .aud-card h3 { font-size: clamp(22px, 2.4vw, 28px); margin-top: 22px; font-weight: 700; }
-  .checks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
-  .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--soft); font-size: 15.5px; }
-  .checks li::before {
-    content: ""; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%;
-    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat;
-  }
-
-  /* Portfolio */
-  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .work { position: relative; display: grid; grid-template-columns: 1fr 230px; gap: 26px; align-items: center; padding: 34px; border-radius: 28px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
-  .work::before { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.3), transparent 70%); }
-  .work > * { position: relative; }
-  .work .client { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
-  .work h3 { font-size: 26px; margin-top: 8px; font-weight: 700; }
-  .work p { color: var(--muted); font-size: 15px; margin: 12px 0 0; }
-  .work .checks { margin-top: 18px; gap: 10px; }
-  .work .checks li { font-size: 14.5px; }
-  .phone { width: 230px; border-radius: 34px; padding: 9px; background: linear-gradient(160deg, #3a3a3e, #151517); box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
-  .phone-in { border-radius: 26px; overflow: hidden; background: #fff; }
-  .phone-in.shot { height: auto; background: #fff; }
-  .phone-in.shot img { width: 100%; height: auto; }
-
-  /* Steps */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
-  .steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 52px; height: 1px; background: repeating-linear-gradient(90deg, rgba(255,90,31,.6) 0 8px, transparent 8px 16px); }
-  .step { position: relative; padding: 28px 24px 30px; border-radius: 22px; border: 1px solid var(--line); background: var(--bg-2); }
-  .step-n { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 17px; background: var(--accent); color: #fff; box-shadow: 0 0 0 6px rgba(255,90,31,.15), 0 10px 30px -8px var(--glow); }
-  .step h3 { font-size: 18px; margin-top: 22px; line-height: 1.3; font-weight: 600; }
-  .step p { color: var(--muted); font-size: 14.5px; margin: 8px 0 0; }
-
-  /* Mentor */
-  .mentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
-  .mentor h2 { margin-top: 20px; }
-  .portrait { position: relative; aspect-ratio: 4/5; border-radius: 30px; overflow: hidden; border: 1px solid rgba(255,90,31,.3);
-    background: repeating-radial-gradient(circle at 50% 110%, rgba(255,255,255,.04) 0 2px, transparent 2px 40px), radial-gradient(90% 70% at 50% 100%, rgba(255,90,31,.45), transparent 65%), #0e0807; }
-  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .portrait .mono { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: clamp(130px, 17vw, 220px); letter-spacing: -0.05em; color: #fff; text-shadow: 0 20px 80px rgba(255,90,31,.7); }
-  .portrait .badge { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 14px 18px; border-radius: 16px; background: rgba(7,5,4,.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line-2); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .portrait .badge b { font-size: 18px; display: block; font-weight: 700; }
-  .portrait .badge small { color: var(--muted); font-size: 13px; }
-  .mentor-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
-  .fact { padding: 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
-  .fact strong { display: block; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); line-height: 1.15; }
-  .fact span { color: var(--muted); font-size: 13.5px; line-height: 1.4; display: block; margin-top: 4px; }
-  .quote { margin: 30px 0 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--accent); color: var(--soft); font-size: 18px; font-style: italic; }
-  .socials { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
-
-  /* Testimonials */
-  .tests { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
-  .test { grid-column: span 2; display: flex; flex-direction: column; padding: 30px; border-radius: 24px; border: 1px solid var(--line); background: var(--surface); position: relative; overflow: hidden; }
-  .test:nth-child(4), .test:nth-child(5) { grid-column: span 3; }
-  .test .qm { position: absolute; right: 22px; top: 6px; font-size: 110px; font-weight: 800; line-height: 1; color: rgba(255,90,31,.13); }
-  .stars { display: flex; gap: 3px; color: var(--accent); }
-  .stars svg { width: 17px; height: 17px; }
-  .test .tag { align-self: flex-start; margin-top: 16px; font-size: 11px; padding: 5px 11px; }
-  .test p { color: var(--soft); font-size: 15.5px; margin: 16px 0 24px; position: relative; }
-  .who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
-  .who .av { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 18px; background: linear-gradient(135deg, var(--accent-2), var(--accent-deep)); color: #fff; flex: none; }
-  .who b { display: block; font-weight: 600; }
-  .who small { color: var(--muted); font-size: 13px; }
+  /* Benefits */
+  .benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .ben { padding: 28px 24px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); transition: transform .3s, border-color .3s; }
+  .ben:hover { transform: translateY(-4px); border-color: var(--line-2); }
+  .ben .ic { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; background: rgba(79,124,255,.12); color: #9db4ff; }
+  .ben .ic svg { width: 24px; height: 24px; }
+  .ben h3 { font-size: 20px; margin-top: 22px; line-height: 1.25; }
+  .ben p { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
 
   /* Pricing */
   .pricing { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
-  .pricing .wrap { position: relative; z-index: 1; }
-  .pricing .head-center { margin-bottom: 64px; }
-  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-  .tier { position: relative; display: flex; flex-direction: column; padding: 34px 30px 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); transition: transform .35s ease, box-shadow .35s ease; }
-  .tier:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9); }
-  .tier-gem { width: 46px; height: 46px; margin-bottom: 20px; }
-  .tier-name { font-size: 15px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .tier.silver .tier-name { background-image: var(--silver); }
-  .tier.gold .tier-name { background-image: var(--gold); }
-  .tier.brilliant .tier-name { background-image: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; }
-  @keyframes shimmer { to { background-position: -200% 0; } }
-  .tier-sub { color: var(--muted); font-size: 14.5px; margin-top: 6px; min-height: 46px; }
-  .price { display: flex; align-items: flex-start; gap: 4px; margin-top: 18px; }
-  .price sup { font-size: 24px; font-weight: 600; margin-top: 10px; color: var(--accent); }
-  .price strong { font-size: 66px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-  .price-note { color: var(--dim); font-size: 13.5px; margin-top: 8px; }
-  .tier-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0 4px; }
-  .tier-meta span { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 7px; background: rgba(255,90,31,.12); border: 1px solid rgba(255,90,31,.3); color: var(--accent-2); }
-  .tier hr { border: 0; height: 1px; background: var(--line); margin: 22px 0; }
-  .tier .checks { margin: 0 0 30px; gap: 12px; }
-  .tier .checks li { font-size: 14.5px; }
-  .tier .checks li.plus { font-weight: 600; color: #fff; }
-  .tier .btn { width: 100%; margin-top: auto; }
-  .tier.gold { border: 1.5px solid var(--accent); background: radial-gradient(100% 60% at 50% 0%, rgba(255,90,31,.2), transparent 60%), var(--surface-2); box-shadow: 0 30px 90px -30px rgba(255,90,31,.45); }
-  .tier.brilliant { background: radial-gradient(120% 60% at 100% 0%, rgba(196,181,253,.10), transparent 60%), var(--surface); border-color: rgba(196,181,253,.22); }
-  .tier .tag.best { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); }
-  .pricing-foot { text-align: center; color: var(--muted); font-size: 15px; margin-top: 40px; }
-  .pricing-foot a { color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255,90,31,.5); }
+  .pricing .aurora::before { left: 10%; top: -300px; }
+  .pricing .aurora::after { right: 0; top: auto; bottom: -400px; }
+  .pricing .wrap { position: relative; }
+  .urgent { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 34px auto 54px; padding: 16px 22px; border-radius: 20px; border: 1px solid rgba(198,255,61,.3); background: rgba(198,255,61,.05); max-width: 720px; }
+  .urgent p { margin: 0; font-weight: 600; }
+  .urgent p small { display: block; color: var(--muted); font-weight: 500; font-size: 13.5px; }
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+  .plan { position: relative; display: flex; flex-direction: column; padding: 38px 34px 34px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+  .plan.hot { background: linear-gradient(var(--surface-2), var(--surface-2)) padding-box, linear-gradient(140deg, #6f95ff, #a98bff 50%, var(--lime)) border-box; border: 1.5px solid transparent; box-shadow: 0 40px 100px -40px rgba(111,149,255,.5); }
+  .plan .flag { position: absolute; top: -14px; left: 34px; padding: 6px 14px; border-radius: 999px; background: var(--lime); color: var(--lime-ink); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .plan-ic { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: var(--grad); color: #fff; }
+  .plan-ic svg { width: 28px; height: 28px; }
+  .plan h3 { font-size: 28px; margin-top: 22px; }
+  .plan .sub { color: var(--muted); margin: 8px 0 0; font-size: 15px; }
+  .plan .prices { display: flex; align-items: flex-end; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
+  .plan .now { font-family: var(--display); font-size: 68px; font-weight: 700; line-height: .9; letter-spacing: -0.04em; color: var(--lime); }
+  .plan .old { font-family: var(--display); font-size: 30px; margin-bottom: 6px; }
+  .plan .note { color: var(--dim); font-size: 13.5px; margin-top: 10px; }
+  .plan .addon { margin-top: 18px; padding: 12px 14px; border-radius: 12px; background: rgba(79,124,255,.08); border: 1px dashed rgba(111,149,255,.4); font-size: 14.5px; color: var(--soft); }
+  .plan .addon b { color: var(--lime); }
+  .plan hr { border: 0; height: 1px; background: var(--line); margin: 26px 0; }
+  .checks { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--soft); font-size: 15px; }
+  .checks li::before { content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 6px; background: rgba(198,255,61,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c6ff3d' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat; }
+  .plan .btn { margin-top: auto; width: 100%; }
+  .plan .left { text-align: center; color: var(--muted); font-size: 13.5px; margin-top: 12px; }
+  .plan .left b { color: var(--text); }
+
+  /* Calculator */
+  .calc { display: grid; grid-template-columns: 1.35fr .65fr; gap: 22px; align-items: start; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill { position: relative; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; transition: border-color .2s, background .2s; user-select: none; }
+  .skill input { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; padding: 0; margin: 0; }
+  .skill .box { flex: none; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid var(--line-2); display: grid; place-items: center; transition: background .2s, border-color .2s; }
+  .skill .box svg { width: 14px; height: 14px; color: var(--lime-ink); opacity: 0; }
+  .skill .t { flex: 1; font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .skill .t small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; }
+  .skill .p { color: var(--muted); font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .skill:hover { border-color: var(--line-2); }
+  .skill:has(input:checked) { border-color: rgba(198,255,61,.5); background: rgba(198,255,61,.05); }
+  .skill:has(input:checked) .box { background: var(--lime); border-color: var(--lime); }
+  .skill:has(input:checked) .box svg { opacity: 1; }
+  .skill:has(input:checked) .p { color: var(--lime); }
+  .skill.landing { grid-column: 1 / -1; background: linear-gradient(120deg, rgba(79,124,255,.12), rgba(139,92,246,.08)); }
+  .total { position: sticky; top: 140px; padding: 30px; border-radius: 26px; background: var(--surface-2); border: 1px solid var(--line-2); }
+  .total h3 { font-size: 20px; }
+  .rows { margin: 20px 0 0; display: grid; gap: 10px; font-size: 14.5px; color: var(--soft); }
+  .rows div { display: flex; justify-content: space-between; gap: 10px; }
+  .rows span:last-child { font-weight: 600; white-space: nowrap; }
+  .total hr { border: 0; height: 1px; background: var(--line-2); margin: 20px 0; }
+  .sum { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .sum .now { font-family: var(--display); font-size: 52px; font-weight: 700; line-height: .95; color: var(--lime); letter-spacing: -0.03em; }
+  .sum .old { font-family: var(--display); font-size: 24px; margin-bottom: 4px; }
+  .saved { margin-top: 12px; color: #ff8fa3; font-weight: 700; font-size: 14.5px; }
+  .total .btn { width: 100%; margin-top: 22px; }
+  .total .fine { color: var(--dim); font-size: 12.5px; margin: 12px 0 0; text-align: center; }
+
+  /* Works */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .work { position: relative; display: grid; grid-template-columns: 1fr 220px; gap: 26px; align-items: center; padding: 34px; border-radius: 28px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+  .work::before { content: ""; position: absolute; right: -140px; bottom: -180px; width: 440px; height: 440px; border-radius: 50%; background: radial-gradient(closest-side, rgba(111,149,255,.25), transparent 70%); }
+  .work > * { position: relative; }
+  .work .kind { font-size: 12.5px; font-weight: 700; color: #9db4ff; letter-spacing: .1em; text-transform: uppercase; }
+  .work h3 { font-size: 28px; margin-top: 8px; }
+  .work p { color: var(--muted); font-size: 15px; margin: 10px 0 18px; }
+  .work .checks { margin: 0; gap: 10px; }
+  .work .checks li { font-size: 14.5px; }
+  .work .phone { position: relative; width: 220px; transform: none; }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+  .step { position: relative; padding: 28px 24px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); }
+  .step::before { counter-increment: s; content: "0" counter(s); font-family: var(--display); font-size: 44px; font-weight: 700; line-height: 1; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .step h3 { font-size: 19px; margin-top: 18px; }
+  .step p { color: var(--muted); font-size: 14.5px; margin: 8px 0 0; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
+  .about-card { position: relative; aspect-ratio: 1; border-radius: 32px; overflow: hidden; border: 1px solid var(--line-2); background: radial-gradient(80% 70% at 50% 100%, rgba(139,92,246,.45), transparent 70%), radial-gradient(70% 60% at 30% 0%, rgba(79,124,255,.4), transparent 70%), var(--surface); display: grid; place-items: center; }
+  .about-card .mono { font-family: var(--display); font-weight: 700; font-size: clamp(120px, 15vw, 200px); letter-spacing: -0.06em; color: #fff; text-shadow: 0 20px 80px rgba(111,149,255,.6); }
+  .about-card .tagline { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 14px 18px; border-radius: 16px; background: rgba(5,7,15,.7); border: 1px solid var(--line-2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .about-card .tagline b { font-family: var(--display); font-size: 18px; display: block; }
+  .about-card .tagline small { color: var(--muted); font-size: 13px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+  .fact { padding: 20px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); }
+  .fact b { display: block; font-family: var(--display); font-size: 30px; line-height: 1.1; }
+  .fact span { color: var(--muted); font-size: 13.5px; }
 
   /* FAQ */
-  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
-  .faq-grid h2 { margin-top: 20px; }
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: start; }
   .faq-list { display: grid; gap: 12px; }
   details { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); transition: border-color .25s, background .25s; }
-  details[open] { border-color: rgba(255,90,31,.4); background: var(--surface-2); }
-  summary { list-style: none; cursor: pointer; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 600; font-size: 16.5px; }
+  details[open] { border-color: var(--line-2); background: var(--surface-2); }
+  summary { list-style: none; cursor: pointer; padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 18px; font-weight: 600; font-size: 16.5px; }
   summary::-webkit-details-marker { display: none; }
-  summary .pm { flex: none; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,90,31,.12); position: relative; transition: background .3s; }
-  summary .pm::before, summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--accent); transform: translate(-50%, -50%); border-radius: 2px; }
-  summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s ease; }
-  details[open] summary .pm { background: var(--accent); }
-  details[open] summary .pm::before, details[open] summary .pm::after { background: #fff; }
+  summary .pm { flex: none; width: 30px; height: 30px; border-radius: 9px; background: rgba(79,124,255,.12); position: relative; }
+  summary .pm::before, summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: #9db4ff; transform: translate(-50%, -50%); border-radius: 2px; transition: transform .3s; }
+  summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); }
+  details[open] summary .pm { background: var(--lime); }
+  details[open] summary .pm::before, details[open] summary .pm::after { background: var(--lime-ink); }
   details[open] summary .pm::after { transform: translate(-50%, -50%) rotate(0deg); }
-  details p { margin: 0; padding: 0 24px 22px; color: var(--muted); font-size: 15.5px; }
+  details p { margin: 0; padding: 0 22px 20px; color: var(--muted); font-size: 15.5px; }
 
-  /* Apply */
-  .apply-box { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px; padding: 64px; border-radius: 34px; overflow: hidden; border: 1px solid rgba(255,90,31,.4);
-    background: repeating-radial-gradient(circle at 0% 100%, rgba(255,255,255,.03) 0 2px, transparent 2px 44px), radial-gradient(80% 90% at 0% 0%, rgba(255,90,31,.28), transparent 60%), var(--surface); }
-  .apply-box h2 { margin-top: 20px; max-width: 13ch; }
-  .apply-points { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 16px; }
-  .apply-points li { display: flex; gap: 14px; align-items: center; color: var(--soft); }
-  .apply-points .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,90,31,.14); color: var(--accent); }
-  .apply-points .ic svg { width: 20px; height: 20px; }
-  form { display: grid; gap: 16px; align-content: start; }
+  /* Order */
+  .order-box { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 56px; padding: 60px; border-radius: 34px; overflow: hidden; border: 1px solid var(--line-2); background: radial-gradient(80% 90% at 0% 0%, rgba(79,124,255,.25), transparent 60%), radial-gradient(60% 80% at 100% 100%, rgba(139,92,246,.2), transparent 60%), var(--surface); }
+  .order-box h2 { margin-top: 18px; }
+  .order-box .cd { margin-top: 26px; }
+  .order-box .cd-label { margin-top: 30px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .pts { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+  .pts li { display: flex; gap: 12px; align-items: center; color: var(--soft); font-size: 15px; }
+  .pts .ic { flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: rgba(198,255,61,.12); color: var(--lime); }
+  .pts .ic svg { width: 18px; height: 18px; }
+  form { display: grid; gap: 14px; align-content: start; }
   .field { display: grid; gap: 7px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   label { font-size: 13.5px; font-weight: 600; color: var(--soft); }
   label .opt { color: var(--dim); font-weight: 500; }
-  input, select, textarea { width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(7,5,4,.7); border: 1px solid var(--line-2); font-size: 16px; transition: border-color .2s, box-shadow .2s; }
+  input, select, textarea { width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(5,7,15,.7); border: 1px solid var(--line-2); font-size: 16px; transition: border-color .2s, box-shadow .2s; }
   input::placeholder, textarea::placeholder { color: var(--dim); }
-  input:hover, select:hover, textarea:hover { border-color: rgba(255,255,255,.24); }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255,90,31,.18); }
-  select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
-  select option { background: #1a0f0b; }
-  textarea { min-height: 100px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(79,124,255,.2); }
+  select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239db4ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
+  select option { background: #121a33; }
+  textarea { min-height: 96px; resize: vertical; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .tier-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .tier-pick input { position: absolute; opacity: 0; pointer-events: none; }
-  .tier-pick label { cursor: pointer; text-align: center; padding: 12px 6px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(7,5,4,.7); transition: border-color .2s, background .2s; display: grid; gap: 1px; }
-  .tier-pick label b { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
-  .tier-pick label span { color: var(--muted); font-weight: 500; font-size: 14px; }
-  .tier-pick input:checked + label { border-color: var(--accent); background: rgba(255,90,31,.15); }
-  .tier-pick input:checked + label span { color: var(--accent-2); }
-  .tier-pick input:focus-visible + label { outline: 2px solid var(--accent-2); outline-offset: 2px; }
-  form .btn { padding: 16px 18px 16px 28px; }
-  .form-note { color: var(--dim); font-size: 12.5px; text-align: center; margin: 2px 0 0; }
-  .form-error { color: #ff9d85; font-size: 14px; display: none; margin: 0; }
+  .summary-chip { display: none; padding: 12px 14px; border-radius: 12px; background: rgba(198,255,61,.07); border: 1px solid rgba(198,255,61,.3); font-size: 14px; color: var(--soft); }
+  .summary-chip.on { display: block; }
+  .summary-chip b { color: var(--lime); }
+  form .btn { width: 100%; }
+  .form-note { color: var(--dim); font-size: 12.5px; text-align: center; margin: 0; }
+  .form-error { color: #ff8fa3; font-size: 14px; display: none; margin: 0; }
   .form-error.on { display: block; }
-  .success { display: none; text-align: center; padding: 30px 10px; align-content: center; }
+  .success { display: none; text-align: center; padding: 30px 10px; }
   .success.on { display: grid; justify-items: center; }
-  .success .ic { width: 78px; height: 78px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; margin-bottom: 24px; box-shadow: 0 0 0 10px rgba(255,90,31,.15), 0 20px 50px -10px var(--glow); }
+  .success .ic { width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center; background: var(--lime); color: var(--lime-ink); margin-bottom: 22px; box-shadow: 0 20px 50px -12px rgba(198,255,61,.6); }
   .success .ic svg { width: 34px; height: 34px; }
-  .success h3 { font-size: 26px; font-weight: 700; }
+  .success h3 { font-size: 26px; }
   .success p { color: var(--muted); margin: 12px 0 0; max-width: 38ch; }
-  .success .btn { margin-top: 24px; }
-  .demo-flag { display: none; font-size: 13px; color: var(--accent-2) !important; border: 1px dashed rgba(255,138,61,.5); border-radius: 12px; padding: 10px 14px; margin-top: 20px !important; }
-  .demo-flag.on { display: block; }
+  .success .btn { margin-top: 22px; }
 
   /* Footer */
-  footer { padding: 70px 0 40px; border-top: 1px solid var(--line); }
-  .foot-top { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
-  .foot-contacts { display: flex; align-items: center; gap: 18px; font-size: 18px; font-weight: 500; flex-wrap: wrap; }
-  .foot-contacts a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
-  .foot-contacts a:hover { color: var(--accent); }
-  .foot-contacts a svg { width: 20px; height: 20px; color: var(--accent); }
-  .foot-contacts .sep { width: 2px; height: 22px; background: var(--line-2); }
-  .foot-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
-  .foot-bottom p { color: var(--dim); font-size: 13.5px; margin: 0; }
-  .foot-bottom nav { display: flex; gap: 24px; font-size: 13.5px; color: var(--muted); flex-wrap: wrap; }
-  .foot-bottom nav a:hover { color: #fff; }
+  footer { padding: 60px 0 100px; border-top: 1px solid var(--line); }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; }
+  .foot-links a { display: inline-flex; align-items: center; gap: 8px; color: var(--soft); }
+  .foot-links a:hover { color: var(--lime); }
+  .foot-links svg { width: 18px; height: 18px; color: #9db4ff; }
+  .copy { color: var(--dim); font-size: 13.5px; margin-top: 26px; }
 
   .m-cta { display: none; }
 
   /* Reveal */
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
-  .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; } .d5 { transition-delay: .40s; }
+  .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .reveal, .term-line, .float-card { opacity: 1; transform: none; }
-    .ribbon-svg .flow { stroke-dashoffset: 0; }
+    .reveal { opacity: 1; transform: none; }
   }
 
-  /* Responsive */
   @media (max-width: 1080px) {
-    .stage { height: 560px; }
-    .float-card { display: none; }
-    .cards { grid-template-columns: 1fr 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .steps::before { display: none; }
-    .tiers { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 34px; }
-    .why-grid, .mentor, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
-    .portrait { max-width: 460px; }
-    .apply-box { grid-template-columns: 1fr; padding: 44px; gap: 40px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .phones { max-width: 560px; width: 100%; margin: 0 auto; }
+    .benefits { grid-template-columns: 1fr 1fr; }
+    .plans { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; gap: 34px; }
+    .calc { grid-template-columns: minmax(0, 1fr); }
+    .total { position: static; }
     .works { grid-template-columns: 1fr; }
-    .tests { grid-template-columns: 1fr 1fr; }
-    .test, .test:nth-child(4) { grid-column: span 1; }
-    .test:nth-child(5) { grid-column: span 2; }
-    .core-stage { height: 600px; }
-    .core-item { width: 190px; }
-    .ci-2 { margin-left: -95px; }
-    .core-item h3 { font-size: 20px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .about, .faq-grid { grid-template-columns: 1fr; gap: 44px; }
+    .about-card { max-width: 420px; }
+    .order-box { grid-template-columns: 1fr; padding: 44px; gap: 40px; }
   }
   @media (max-width: 760px) {
-    body { font-size: 15.5px; }
     .wrap { padding: 0 16px; }
-    section { padding: 84px 0; }
+    section { padding: 80px 0; }
+    .promo { font-size: 12.5px; gap: 8px; height: 40px; }
+    .promo .hide-s { display: none; }
+    .nav { top: 40px; }
     .nav-links { display: none; }
-    .nav .wrap { height: 66px; }
-    .logo { font-size: 16px; gap: 10px; }
-    .logo-mark { width: 34px; height: 34px; }
-    .nav .btn { padding: 8px 8px 8px 14px; font-size: 13.5px; gap: 8px; }
-    .nav .btn .arr { width: 22px; height: 22px; }
-    .hero { padding: 116px 0 30px; }
-    .hero h1 .sub strong { display: block; }
-    .hero-tags { gap: 8px; }
-    .hero-tags .tag { font-size: 11px; padding: 6px 10px; }
+    .nav .wrap { height: 62px; }
+    .nav .btn { padding: 9px 14px; font-size: 13.5px; }
+    .logo { font-size: 17px; }
+    .logo-mark { width: 32px; height: 32px; }
+    .hero { padding: 150px 0 60px; }
     .hero-cta .btn { flex: 1 1 100%; }
-    .stage { height: 330px; margin-top: 30px; }
-    .ribbon-svg { width: 900px; height: 412px; top: -30px; }
-    .laptop { bottom: 10px; width: 100%; }
-    .screen { padding: 7px 7px 0; border-radius: 12px 12px 0 0; }
-    .site-nav { padding: 8px 10px; font-size: 7px; }
-    .site-nav .m { display: none; }
-    .site-nav .l { font-size: 9px; }
-    .term { padding: 10px 12px; font-size: 8.5px; line-height: 1.6; }
-    .term-title { margin-bottom: 8px; }
-    .base { height: 14px; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .hero-stats div:nth-child(2) { border-right: 0; }
-    .hero-stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-    .hero-stats strong { font-size: 24px; }
-    .strip { margin-top: 50px; }
-    .marquee span { font-size: 15px; padding: 14px 18px; }
-    .core-stage { height: auto; display: grid; gap: 12px; }
-    .core-item { position: static; margin: 0 !important; width: auto; flex-direction: row; text-align: left; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
-    .core-item .ic { width: 42px; height: 42px; flex: none; }
-    .core-item h3 { font-size: 17px; }
-    .mountain { position: relative; left: auto; transform: none; width: 100%; max-width: 100%; margin-top: 10px; }
-    .core-cta { margin-top: 10px; }
-    .cards, .aud, .steps { grid-template-columns: 1fr; }
-    .compare-row { grid-template-columns: 1fr; gap: 8px; }
-    .compare-row + .compare-row { margin-top: 10px; }
-    .aud-card { padding: 30px 22px; }
-    .card { padding: 26px 22px; }
+    .hero-price .now { font-size: 30px; }
+    .phones { height: 470px; }
+    .phone { width: 200px; border-radius: 32px; padding: 8px; }
+    .phone-in { border-radius: 25px; }
+    .ph-1 { left: 0; }
+    .ph-2 { right: 10px; }
+    .bf-1 { left: 0; bottom: 20px; }
+    .bf-2 { right: 0; bottom: 110px; }
+    .benefits, .steps, .skills { grid-template-columns: minmax(0, 1fr); }
+    .plan { padding: 34px 22px 26px; }
+    .plan .now { font-size: 56px; }
+    .cd div { min-width: 56px; }
+    .cd b { font-size: 24px; }
     .work { grid-template-columns: 1fr; padding: 28px 20px; }
-    .phone { margin: 0 auto; }
-    .tests { grid-template-columns: 1fr; }
-    .test, .test:nth-child(4), .test:nth-child(5) { grid-column: span 1; }
-    .test { padding: 26px 22px; }
-    .mentor-facts { gap: 10px; }
-    .fact { padding: 16px 12px; }
-    .fact strong { font-size: 22px; }
+    .work .phone { margin: 0 auto; }
+    .facts { gap: 8px; }
+    .fact { padding: 14px 12px; }
+    .fact b { font-size: 22px; }
     .fact span { font-size: 12px; }
-    .tier { padding: 30px 22px 26px; }
-    .apply-box { padding: 30px 18px; border-radius: 26px; }
-    .field-row { grid-template-columns: 1fr; }
-    .tier-pick label b { font-size: 10.5px; letter-spacing: .06em; }
-    .foot-contacts { font-size: 16px; }
-    .foot-contacts .sep { display: none; }
+    .order-box { padding: 30px 18px; border-radius: 26px; }
+    .row2 { grid-template-columns: 1fr; }
     .m-cta { display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; transform: translateY(140%); transition: transform .35s ease; }
     .m-cta.on { transform: none; }
-    .m-cta .btn { width: 100%; box-shadow: 0 20px 50px -10px rgba(0,0,0,.85), 0 10px 40px -10px var(--glow); }
+    .m-cta .btn { width: 100%; box-shadow: 0 20px 50px -10px rgba(0,0,0,.85), 0 10px 40px -10px rgba(198,255,61,.5); }
   }
 </style>
 </head>
@@ -499,610 +369,339 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.1l-5.6 3 1.1-6.3L2.9 9.4l6.3-.9z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3l-3.2 15.1c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></symbol>
     <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor"/></g></symbol>
-    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M5 4v9a7 7 0 0014 0V4" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M12 10l4.5 8h-9z" fill="#ff5a1f"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
   </defs>
 </svg>
+
+<!-- ====== PROMO BAR ====== -->
+<div class="promo" data-urgent>
+  <span>🔥 <b>Aksiya:</b> <span class="hide-s">barcha xizmatlarga</span> 50% gacha chegirma</span>
+  <span class="cd-mini" data-cd-mini>—</span>
+  <a href="#narxlar" class="hide-s">Narxlarni ko‘rish</a>
+</div>
 
 <!-- ====== NAV ====== -->
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="theusmondigital bosh sahifa">
-      <span class="logo-mark"><svg><use href="#i-logo"/></svg></span>
-      <span>theusmon<b>digital</b></span>
-    </a>
+    <a href="#top" class="logo" aria-label="theusmondigital"><span class="logo-mark">U</span>theusmon<em>digital</em></a>
     <nav class="nav-links" aria-label="Asosiy menyu">
-      <a href="#dastur">Dastur</a>
-      <a href="#loyihalar">Loyihalar</a>
-      <a href="#mentor">Mentor</a>
-      <a href="#fikrlar">Fikrlar</a>
-      <a href="#tariflar">Tariflar</a>
+      <a href="#xizmatlar">Xizmatlar</a>
+      <a href="#narxlar">Narxlar</a>
+      <a href="#kalkulyator">Kalkulyator</a>
+      <a href="#ishlar">Ishlar</a>
+      <a href="#savollar">Savollar</a>
     </nav>
-    <a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+    <a href="#buyurtma" class="btn btn-cta">Buyurtma berish</a>
   </div>
 </header>
 
 <main id="top">
 
 <!-- ====== HERO ====== -->
-<section class="hero gridbg glow-tr glow-bl">
+<section class="hero">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="hero-kicker reveal">Claude AI bilan</div>
-    <h1 class="reveal d1">
-      <span class="big">Dasturlang</span>
-      <span class="sub">va biznesni <strong>avtomatlashtiring</strong></span>
-    </h1>
-    <div class="hero-tags reveal d2">
-      <span class="tag">25 ta video dars</span>
-      <span class="tag">100% onlayn</span>
-      <span class="tag">O‘z sur’atingizda</span>
-      <span class="tag">Sertifikat</span>
-    </div>
-    <p class="lead reveal d3">5 yillik tajribaga ega AI engineer Usmonning 25 ta video darsi orqali noldan boshlab real loyihalar qurasiz va bu ko‘nikmani pulli xizmatga aylantirasiz.</p>
-    <div class="hero-cta reveal d4">
-      <a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-      <a href="#tariflar" class="btn btn-ghost">Tariflarni ko‘rish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-    </div>
-
-    <div class="stage" aria-hidden="true">
-      <svg class="ribbon-svg" viewBox="0 0 1400 640" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#1b1b1d"/><stop offset=".22" stop-color="#e9e9ec"/><stop offset=".4" stop-color="#4b4b50"/>
-            <stop offset=".58" stop-color="#f4f4f6"/><stop offset=".78" stop-color="#2c2c30"/><stop offset="1" stop-color="#cfcfd4"/>
-          </linearGradient>
-          <linearGradient id="orangeTube" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#5a1602"/><stop offset=".25" stop-color="#ff7a2f"/><stop offset=".42" stop-color="#ffd2b0"/>
-            <stop offset=".58" stop-color="#ff5a1f"/><stop offset=".8" stop-color="#7a2004"/><stop offset="1" stop-color="#ff9a5c"/>
-          </linearGradient>
-          <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
-        </defs>
-        <path d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="#ff5a1f" stroke-width="60" opacity=".35" filter="url(#soft)"/>
-        <g>
-          <path class="flow" d="M-40 300 C 120 140, 300 120, 360 260 S 330 520, 520 520 S 760 260, 700 160 S 520 120, 560 300 S 900 560, 1100 420 S 1300 160, 1460 230" fill="none" stroke="#0b0b0c" stroke-width="40" stroke-linecap="round"/>
-          <path class="flow" d="M-40 300 C 120 140, 300 120, 360 260 S 330 520, 520 520 S 760 260, 700 160 S 520 120, 560 300 S 900 560, 1100 420 S 1300 160, 1460 230" fill="none" stroke="url(#chrome)" stroke-width="32" stroke-linecap="round"/>
-          <path class="flow" d="M-40 292 C 120 132, 300 112, 360 252 S 330 512, 520 512 S 760 252, 700 152 S 520 112, 560 292 S 900 552, 1100 412 S 1300 152, 1460 222" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/>
-        </g>
-        <g>
-          <path class="flow" d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="#1a0601" stroke-width="44" stroke-linecap="round"/>
-          <path class="flow" d="M-40 470 C 180 470, 260 160, 470 170 S 640 470, 820 380 S 980 90, 1130 170 S 1300 420, 1460 330" fill="none" stroke="url(#orangeTube)" stroke-width="36" stroke-linecap="round"/>
-          <path class="flow" d="M-40 461 C 180 461, 260 151, 470 161 S 640 461, 820 371 S 980 81, 1130 161 S 1300 411, 1460 321" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" opacity=".6"/>
-        </g>
-      </svg>
-
-      <div class="laptop">
-        <div class="screen">
-          <div class="screen-in">
-            <div class="site-nav">
-              <span class="l"><i></i>theusmondigital</span>
-              <span class="m"><span>Bosh sahifa</span><span>Dastur</span><span>Tariflar</span><span>Aloqa</span></span>
-              <span class="r">Ariza ↗</span>
-            </div>
-            <div class="term" id="term">
-              <div class="term-title">Bizneslarni <b>Claude AI</b> bilan<br>avtomatlashtiramiz</div>
-              <div class="term-line"><span class="t-p">❯ claude</span></div>
-              <div class="term-line"><span>› </span><span class="t-u" id="typed"></span><span class="caret" id="caret"></span></div>
-              <div class="term-line"><span class="t-ok">✓</span> bot.py yaratildi</div>
-              <div class="term-line"><span class="t-ok">✓</span> Telegram API ulandi · Google Sheets sinxronlandi</div>
-              <div class="term-line"><span class="t-p">●</span> <span class="t-u">Bot ishga tushdi.</span> Vaqt: <span class="t-ok">4 daqiqa</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="base"></div>
-      </div>
-
-      <div class="float-card" id="floatCard">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div>
-        <div><b>Yangi buyurtma #1042</b><small>Avtomatik Sheets’ga yozildi</small></div>
-      </div>
-      <div class="float-card left" id="floatCard2">
-        <div class="ic"><svg><use href="#i-tg"/></svg></div>
-        <div><b>Mijozga javob berildi</b><small>AI yordamchi · 3 soniyada</small></div>
-      </div>
-    </div>
-
-    <div class="hero-stats reveal">
-      <div><strong>5<em>+</em></strong><span>yillik tajriba</span></div>
-      <div><strong>25</strong><span>video dars</span></div>
-      <div><strong>3</strong><span>tarif tanlovi</span></div>
-      <div><strong>100<em>%</em></strong><span>onlayn</span></div>
-    </div>
-  </div>
-
-  <div class="strip" aria-hidden="true">
-    <div class="marquee">
-      <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
-      <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
-    </div>
-  </div>
-</section>
-
-<!-- ====== CORE / MOUNTAIN ====== -->
-<section class="core gridbg">
-  <div class="wrap">
-    <div class="head-center">
-      <h2 class="reveal"><span class="o">Natijaga</span> olib<br>boradigan yo‘l<svg class="curly" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10c10-8 24-4 22 8-1 6-8 7-9 2-1-6 10-8 14 2 2 5 0 10-3 13"/><path d="M24 31l6 4 3-7"/></svg></h2>
-      <p class="lead reveal d1">Aqlli yechimlar. Real natijalar.</p>
-    </div>
-    <div class="core-stage">
-      <div class="core-item ci-1 reveal d1">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.6 9.4L37 19l-9.4 3.6L24 32l-3.6-9.4L11 19l9.4-3.6z" fill="currentColor" fill-opacity=".2"/><path d="M38 30l1.6 4.4L44 36l-4.4 1.6L38 42l-1.6-4.4L32 36l4.4-1.6z"/></svg></div>
-        <h3>Claude AI bilan dasturlash</h3>
-      </div>
-      <div class="core-item ci-2 reveal">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="26" rx="3" fill="currentColor" fill-opacity=".15"/><path d="M18 42h12M24 34v8M19 17l-4 4 4 4M29 17l4 4-4 4"/></svg></div>
-        <h3>Biznesni avtomatlashtirish</h3>
-      </div>
-      <div class="core-item ci-3 reveal d2">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 40l12-14 9 7 15-19"/><path d="M32 14h10v10"/></svg></div>
-        <h3>Barqaror daromad</h3>
-      </div>
-
-      <svg class="mountain" viewBox="0 0 820 470" aria-hidden="true">
-        <defs>
-          <radialGradient id="mt" cx="50%" cy="10%" r="90%">
-            <stop offset="0" stop-color="#ff7a45"/><stop offset=".35" stop-color="#d23c10"/><stop offset=".75" stop-color="#4a1003"/><stop offset="1" stop-color="#160402"/>
-          </radialGradient>
-          <linearGradient id="mtShade" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/>
-          </linearGradient>
-          <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset=".6" stop-color="#070504" stop-opacity="0"/><stop offset="1" stop-color="#070504"/></linearGradient>
-          <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <path d="M0 470 L120 360 L170 380 L250 280 L300 300 L360 190 L392 150 L410 112 L432 150 L470 175 L520 250 L560 240 L640 330 L700 320 L820 470 Z" fill="url(#mt)"/>
-        <path d="M0 470 L120 360 L170 380 L250 280 L300 300 L360 190 L392 150 L410 112 L432 150 L470 175 L520 250 L560 240 L640 330 L700 320 L820 470 Z" fill="url(#mtShade)"/>
-        <path d="M410 112 L400 200 L360 280 L380 340 L330 470 M410 112 L450 230 L430 320 L500 470 M250 280 L280 360 L220 470 M640 330 L610 400 L650 470" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
-        <g id="particles"></g>
-        <rect x="0" y="0" width="820" height="470" fill="url(#fade)"/>
-        <rect x="408.25" y="10" width="3.5" height="104" fill="#ff7a45" filter="url(#glowF)"/>
-        <path d="M411 14 C 445 6, 470 26, 515 16 L 508 54 C 470 64, 445 44, 411 52 Z" fill="#ff5a1f" filter="url(#glowF)"/>
-        <text x="460" y="41" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="16" fill="#fff" transform="rotate(-3 460 41)">NATIJA</text>
-      </svg>
-    </div>
-    <div class="core-cta reveal"><a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
-  </div>
-</section>
-
-<!-- ====== WHY ====== -->
-<section>
-  <div class="wrap why-grid">
     <div>
-      <span class="tag reveal">Nega aynan hozir</span>
-      <h2 class="reveal d1">Kod yozish qoidalari <span class="o">o‘zgardi</span></h2>
-      <p class="lead reveal d2">Ilgari dasturchi bo‘lish uchun yillar kerak edi. Bugun Claude AI kodni siz bilan birga yozadi. Sizdan muammoni to‘g‘ri tushunish, AI’ni boshqarish va natijani biznesga sotish talab qilinadi. Aynan shuni o‘rgataman.</p>
-      <p class="lead reveal d3">Har bir biznesda takrorlanadigan qo‘l mehnati bor: buyurtmalarni yozish, mijozlarga javob berish, hisobot tayyorlash. Buni avtomatlashtira oladigan odamga talab katta.</p>
+      <span class="eyebrow reveal"><i></i>Telegram bot · Mini App · Landing sayt</span>
+      <h1 class="reveal d1">Biznesingizni <span class="g">Telegram’da</span> 24/7 sotadigan qilamiz</h1>
+      <p class="lead reveal d2">Mijozlaringiz allaqachon Telegram’da. Ularga bot va Mini App orqali menyu, katalog va buyurtmani bir bosishda taqdim eting. Operatorsiz, kechayu kunduz.</p>
+      <div class="hero-price reveal d2">
+        <span class="lbl">Bot + Mini App</span>
+        <span class="old" style="font-size:22px">$500</span>
+        <span class="now">$250</span>
+        <span class="save">−50%</span>
+      </div>
+      <div class="hero-cta reveal d3">
+        <a href="#buyurtma" class="btn btn-cta">Buyurtma berish <svg><use href="#i-arrow"/></svg></a>
+        <a href="#kalkulyator" class="btn btn-ghost">Narxni hisoblash</a>
+      </div>
+      <div class="hero-trust reveal d3">
+        <span><svg><use href="#i-check"/></svg>5+ yillik tajriba</span>
+        <span><svg><use href="#i-check"/></svg>Real ishlayotgan loyihalar</span>
+        <span><svg><use href="#i-check"/></svg>Shaffof narxlar</span>
+      </div>
     </div>
-    <div class="compare">
-      <div class="compare-row reveal d1">
-        <div class="compare-cell old"><small>Eski yo‘l</small>Yillab sintaksis yodlash</div>
-        <div class="compare-cell new"><small>Bizning yo‘l</small>Claude bilan birinchi haftadan ishlaydigan loyiha</div>
+
+    <div class="phones reveal d2" aria-hidden="true">
+      <div class="phone ph-1"><div class="phone-in"><img src="img/barno-miniapp.jpg" width="460" height="994" alt=""></div></div>
+      <div class="phone ph-2"><div class="phone-in"><img src="img/resto-miniapp.jpg" width="460" height="977" alt=""></div></div>
+      <div class="badge-float bf-1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
+        <div><b>Yangi buyurtma</b><small>Mini App orqali · hozirgina</small></div>
       </div>
-      <div class="compare-row reveal d2">
-        <div class="compare-cell old"><small>Eski yo‘l</small>Tarqoq bepul videolar, tizim yo‘q</div>
-        <div class="compare-cell new"><small>Bizning yo‘l</small>25 darslik tizimli yo‘l: noldan daromadgacha</div>
-      </div>
-      <div class="compare-row reveal d3">
-        <div class="compare-cell old"><small>Eski yo‘l</small>“O‘quv” loyihalar, real hayotdan uzoq</div>
-        <div class="compare-cell new"><small>Bizning yo‘l</small>Real biznes muammolarini avtomatlashtirish</div>
-      </div>
-      <div class="compare-row reveal d4">
-        <div class="compare-cell old"><small>Eski yo‘l</small>Bilim bor, daromad yo‘q</div>
-        <div class="compare-cell new"><small>Bizning yo‘l</small>Xizmatni narxlash va birinchi mijozni topish</div>
+      <div class="badge-float bf-2">
+        <div class="ic"><svg><use href="#i-clock"/></svg></div>
+        <div><b>24/7 savdo</b><small>Operator kerak emas</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== WHAT YOU LEARN ====== -->
-<section id="dastur" style="padding-top: 30px;">
+<div class="strip" aria-hidden="true">
+  <div class="marquee">
+    <span>Telegram botlar</span><span>Mini App</span><span>Landing saytlar</span><span>Onlayn to‘lovlar</span><span>Admin panel</span><span>CRM integratsiya</span><span>AI yordamchi</span><span>Avtomatlashtirish</span>
+    <span>Telegram botlar</span><span>Mini App</span><span>Landing saytlar</span><span>Onlayn to‘lovlar</span><span>Admin panel</span><span>CRM integratsiya</span><span>AI yordamchi</span><span>Avtomatlashtirish</span>
+  </div>
+</div>
+
+<!-- ====== BENEFITS ====== -->
+<section id="xizmatlar">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag reveal">Dastur</span>
-        <h2 class="reveal d1"><span class="o">25 ta darsda</span><br>nimani o‘rganasiz</h2>
-      </div>
-      <p class="lead reveal d2">25 ta video dars quyidagi yo‘nalishlarni qamrab oladi. Istalgan vaqtda, o‘z sur’atingizda ko‘rasiz.</p>
+    <div class="head">
+      <span class="eyebrow reveal"><i></i>Nega bot va Mini App</span>
+      <h2 class="reveal d1">Ko‘proq buyurtma, <span class="g">kamroq qo‘l mehnati</span></h2>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.6 9.4L37 19l-9.4 3.6L24 32l-3.6-9.4L11 19l9.4-3.6z" fill="currentColor" fill-opacity=".2"/><path d="M38 30l1.6 4.4L44 36l-4.4 1.6L38 42l-1.6-4.4L32 36l4.4-1.6z"/></svg></div><span class="num">01</span></div>
-        <h3>Claude AI va Claude Code asoslari</h3>
-        <p>Claude bilan to‘g‘ri ishlash, aniq vazifa (prompt) yozish va AI yordamida kod yaratish, tushunish hamda tuzatish.</p>
+    <div class="benefits">
+      <article class="ben reveal">
+        <div class="ic"><svg><use href="#i-clock"/></svg></div>
+        <h3>24/7 buyurtma qabul qiladi</h3>
+        <p>Tunda ham, dam olish kunida ham. Birorta mijoz javobsiz qolmaydi.</p>
       </article>
-      <article class="card reveal d1">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="30" rx="4" fill="currentColor" fill-opacity=".15"/><path d="M16 19l-5 5 5 5M32 19l5 5-5 5M27 16l-6 16"/></svg></div><span class="num">02</span></div>
-        <h3>Dasturlash poydevori</h3>
-        <p>Kod qanday ishlashini tushunish: o‘zgaruvchilar, funksiyalar, API, ma’lumotlar bazasi. AI yozgan kodni nazorat qila olish uchun.</p>
+      <article class="ben reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Operator xarajati kamayadi</h3>
+        <p>Menyu, narx va buyurtma — hammasini bot o‘zi bajaradi.</p>
       </article>
-      <article class="card reveal d2">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M42 7L6 21l14 5 5 14z" fill="currentColor" fill-opacity=".18"/><path d="M20 26l8-8"/></svg></div><span class="num">03</span></div>
-        <h3>Telegram botlar</h3>
-        <p>Buyurtma qabul qiladigan, mijozlarga javob beradigan va xabarnoma yuboradigan botlar yaratish va serverga joylash.</p>
+      <article class="ben reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Ilova yuklab olish shart emas</h3>
+        <p>Mini App Telegram ichida ochiladi. Mijoz uchun eng qulay yo‘l.</p>
       </article>
-      <article class="card reveal">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6" fill="currentColor" fill-opacity=".2"/><circle cx="36" cy="36" r="6" fill="currentColor" fill-opacity=".2"/><path d="M18 12h10a8 8 0 018 8v10M12 18v24"/></svg></div><span class="num">04</span></div>
-        <h3>Biznes jarayonlarini avtomatlashtirish</h3>
-        <p>Google Sheets, CRM, to‘lov tizimlari va boshqa servislarni bir-biriga ulab, qo‘l mehnatini yo‘qotish.</p>
-      </article>
-      <article class="card reveal d1">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="6" fill="currentColor" fill-opacity=".15"/><path d="M24 6v8M18 26h.01M30 26h.01M18 33h12"/></svg></div><span class="num">05</span></div>
-        <h3>AI agentlar</h3>
-        <p>Biznes uchun mustaqil ishlaydigan AI yordamchilar: mijozlar bilan suhbat, hujjatlarni tahlil qilish, hisobotlar.</p>
-      </article>
-      <article class="card reveal d2">
-        <div class="top"><div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18" fill="currentColor" fill-opacity=".15"/><path d="M24 12v24M30 17h-8.5a4.5 4.5 0 000 9h5a4.5 4.5 0 010 9H17"/></svg></div><span class="num">06</span></div>
-        <h3>Xizmatni sotish</h3>
-        <p>Portfolio yig‘ish, xizmatni to‘g‘ri narxlash, birinchi mijozni topish va u bilan ishlash.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ====== PORTFOLIO ====== -->
-<section id="loyihalar" class="gridbg" style="padding-top: 40px;">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag reveal">Loyihalar</span>
-        <h2 class="reveal d1"><span class="o">Brendlar</span> uchun<br>yaratilgan botlar</h2>
-      </div>
-      <p class="lead reveal d2">Darslarda o‘rgatadigan usullarim real bizneslarda ishlab turibdi. Siz ham aynan shunday loyihalarni qurishni o‘rganasiz.</p>
-    </div>
-    <div class="works">
-      <article class="work reveal">
-        <div>
-          <span class="client">Telegram Mini App</span>
-          <h3>Resto</h3>
-          <p>Telegram ichidagi to‘liq restoran ilovasi. Mijoz bir necha bosishda buyurtma beradi.</p>
-          <ul class="checks">
-            <li>Menyu, qidiruv va savat bir joyda</li>
-            <li>Manzil bo‘yicha yetkazib berish</li>
-            <li>Aksiyalar va promokodlar</li>
-            <li>Buyurtmalar tarixi va shaxsiy profil</li>
-          </ul>
-        </div>
-        <div class="phone">
-          <div class="phone-in shot">
-            <img src="img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App: menyu, qidiruv, aksiyalar va yetkazib berish">
-          </div>
-        </div>
-      </article>
-      <article class="work reveal d1">
-        <div>
-          <span class="client">Telegram Mini App</span>
-          <h3>Barno Abayas</h3>
-          <p>Abaya brendi uchun Telegram ichidagi onlayn do‘kon.</p>
-          <ul class="checks">
-            <li>Kategoriyalar bo‘yicha katalog va qidiruv</li>
-            <li>Yangi kolleksiyalar va yangi mahsulotlar</li>
-            <li>Savatcha va tez buyurtma</li>
-            <li>Buyurtmalar holatini kuzatish</li>
-          </ul>
-        </div>
-        <div class="phone">
-          <div class="phone-in shot">
-            <img src="img/barno-miniapp.jpg" width="460" height="994" loading="lazy" alt="Barno Abayas Telegram Mini App: katalog, qidiruv va savatcha">
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ====== AUDIENCE ====== -->
-<section style="padding-top: 20px;">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag reveal">Kimlar uchun</span>
-        <h2 class="reveal d1">Bu mentorlik <span class="o">siz uchun</span>, agar…</h2>
-      </div>
-    </div>
-    <div class="aud">
-      <div class="aud-card reveal">
-        <span class="tag ghost">Yangi boshlovchilar</span>
-        <h3>Dasturlashni noldan boshlamoqchisiz</h3>
-        <ul class="checks">
-          <li>Hech qachon kod yozmagansiz, lekin IT sohasiga kirishni xohlaysiz</li>
-          <li>Videodarslardan boshlab, yarim yo‘lda to‘xtab qolgansiz</li>
-          <li>Tizimli, qadamma-qadam o‘quv yo‘li kerak</li>
-          <li>Eng zamonaviy usul, ya’ni AI bilan dasturlashni o‘rganmoqchisiz</li>
-        </ul>
-      </div>
-      <div class="aud-card hl reveal d1">
-        <span class="tag">Daromadini oshirmoqchilar</span>
-        <h3>Yangi daromad manbai qidiryapsiz</h3>
-        <ul class="checks">
-          <li>Asosiy ishingiz bor, lekin qo‘shimcha daromad xohlaysiz</li>
-          <li>Biznesingiz bor va uni avtomatlashtirib vaqt tejamoqchisiz</li>
-          <li>Freelance’da AI avtomatlashtirish xizmatini sotmoqchisiz</li>
-          <li>Kasbingizni AI davriga moslashtirib, qadringizni oshirmoqchisiz</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== HOW IT WORKS ====== -->
-<section style="padding-top: 20px;">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag reveal">Qanday ishlaydi</span>
-        <h2 class="reveal d1">Arizadan natijagacha <span class="o">4 qadam</span></h2>
-      </div>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><div class="step-n">1</div><h3>Ariza qoldirasiz</h3><p>Formani to‘ldirasiz. Bir daqiqa ham ketmaydi.</p></div>
-      <div class="step reveal d1"><div class="step-n">2</div><h3>Tarifni tanlaymiz</h3><p>Siz bilan bog‘lanib, maqsadingizga mos tarifni tanlaymiz.</p></div>
-      <div class="step reveal d2"><div class="step-n">3</div><h3>Video darslar</h3><p>25 ta video darsni o‘z sur’atingizda o‘tib, loyihalar qurasiz.</p></div>
-      <div class="step reveal d3"><div class="step-n">4</div><h3>Jonli uchrashuv va sertifikat</h3><p>Gold va Brilliant’da Usmon bilan jonli uchrashuvlar, yakunda sertifikat.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== MENTOR ====== -->
-<section id="mentor">
-  <div class="wrap mentor">
-    <div class="portrait reveal">
-      <!-- Rasm qo‘shish uchun: <img src="usmon.jpg" alt="Usmon"> qatorini shu yerga qo‘ying -->
-      <div class="mono" aria-hidden="true">U</div>
-      <div class="badge">
-        <div><b>Usmon</b><small>Dasturchi va AI engineer</small></div>
-        <span class="tag">Mentor</span>
-      </div>
-    </div>
-    <div>
-      <span class="tag reveal">Mentoringiz</span>
-      <h2 class="reveal d1">Salom, men <span class="o">Usmon</span></h2>
-      <p class="lead reveal d2">Men 5 yildan beri dasturchi va AI engineer bo‘lib ishlayman. Shu vaqt ichida ko‘plab taniqli brendlar bilan ishladim va ularning jarayonlarini AI yordamida avtomatlashtirdim.</p>
-      <p class="lead reveal d3">Endi bu tajribani 25 ta video darsga jamladim. Nazariya emas, real loyihalarda ishlatiladigan usullar. Gold va Brilliant tariflarida esa men bilan jonli uchrashuvlarda savollaringizni to‘g‘ridan-to‘g‘ri muhokama qilamiz.</p>
-      <div class="mentor-facts">
-        <div class="fact reveal d2"><strong>5+</strong><span>yillik amaliy tajriba</span></div>
-        <div class="fact reveal d3"><strong>AI</strong><span>engineer va dasturchi</span></div>
-        <div class="fact reveal d4"><strong>Top</strong><span>brendlar bilan ish</span></div>
-      </div>
-      <blockquote class="quote reveal d4">“Maqsadim siz dasturlashni o‘rganishingiz emas, balki bu bilim bilan daromad qila boshlashingiz.”</blockquote>
-      <div class="socials reveal d5">
-        <a class="btn btn-ghost" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
-        <a class="btn btn-ghost" href="https://instagram.com/theusmondigital" target="_blank" rel="noopener">Instagram <span class="arr"><svg><use href="#i-ig"/></svg></span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== TESTIMONIALS ====== -->
-<!-- Eslatma: quyidagi fikrlar namuna sifatida yozilgan. Saytni ishga tushirishdan oldin ularni haqiqiy o‘quvchilar fikrlari bilan almashtiring. -->
-<section id="fikrlar" style="padding-top: 40px;">
-  <div class="wrap">
-    <div class="head-center" style="margin-bottom:56px;">
-      <span class="tag reveal">O‘quvchilar fikri</span>
-      <h2 class="reveal d1"><span class="o">Ular</span> allaqachon boshladi</h2>
-      <p class="lead reveal d2">Noldan birinchi daromadgacha, qo‘shimcha ishdan asosiy kasbgacha.</p>
-    </div>
-    <div class="tests">
-      <article class="test reveal">
-        <span class="qm" aria-hidden="true">“</span>
-        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <span class="tag">0 → birinchi daromad</span>
-        <p>Mentorlikka kelganimda na ishim, na daromadim bor edi. Kod yozishni umuman bilmasdim. Usmon aka har bir qadamni sabr bilan tushuntirdi. Kurs tugamasdanoq mahalladagi do‘konga buyurtma qabul qiladigan bot yasab berdim va hayotimdagi birinchi pulni dasturlash orqali topdim. Hozir har oy yangi mijozlarim bor.</p>
-        <div class="who"><span class="av">S</span><div><b>Sardor</b><small>Telegram bot dasturchisi</small></div></div>
-      </article>
-      <article class="test reveal d1">
-        <span class="qm" aria-hidden="true">“</span>
-        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <span class="tag">0 → birinchi daromad</span>
-        <p>Talaba edim, ota-onamdan pul so‘rashdan charchagandim. Claude bilan ishlashni o‘rgangach, freelance’da biznes avtomatlashtirish buyurtmalarini ola boshladim. Endi o‘qishim va xarajatlarimni o‘zim qoplayman. Eng muhimi, o‘zimga ishonch paydo bo‘ldi.</p>
-        <div class="who"><span class="av">K</span><div><b>Komil</b><small>Talaba, freelancer</small></div></div>
-      </article>
-      <article class="test reveal d2">
-        <span class="qm" aria-hidden="true">“</span>
-        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
-        <p>Savdo menejeri bo‘lib ishlardim, darslarni kechqurun ko‘rdim. Avvaliga qo‘shimcha daromad uchun kichik loyihalar oldim. Bir necha oydan keyin bu daromad asosiy maoshimdan oshib ketdi va ishdan bemalol ketdim. Endi to‘liq vaqt avtomatlashtirish bilan shug‘ullanaman.</p>
-        <div class="who"><span class="av">I</span><div><b>Ilyos</b><small>Avtomatlashtirish mutaxassisi</small></div></div>
-      </article>
-      <article class="test reveal">
-        <span class="qm" aria-hidden="true">“</span>
-        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
-        <p>Buxgalter edim va kun bo‘yi bir xil hisobotlarni qo‘lda tayyorlardim. Avval o‘z ishimni avtomatlashtirdim, keyin tanish kompaniyalarga ham shunday xizmat taklif qildim. Hozir bu mening asosiy kasbim. Darslar shunchalik tushunarliki, har bir qadamni darhol amalda qo‘llay oldim.</p>
-        <div class="who"><span class="av">R</span><div><b>Rustam</b><small>Biznes jarayonlarini avtomatlashtiruvchi</small></div></div>
-      </article>
-      <article class="test reveal d1">
-        <span class="qm" aria-hidden="true">“</span>
-        <div class="stars" aria-label="5 yulduz"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <span class="tag">Qo‘shimcha ish → asosiy kasb</span>
-        <p>Dasturlashni “keyinroq” deb yillab orqaga surganman. Asosiy ishimdan keyin, kechqurun o‘qib, birinchi botimni yasadim. Keyin ikkinchisini, uchinchisini… Bugun bizneslar uchun AI yordamchilar yarataman va bu mening asosiy ishim. Qani endi buni oldinroq boshlaganimda!</p>
-        <div class="who"><span class="av">D</span><div><b>Davron</b><small>AI yordamchilar dasturchisi</small></div></div>
+      <article class="ben reveal d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div>
+        <h3>Buyurtmalar tartibda</h3>
+        <p>Har bir buyurtma darhol sizga yetadi. Hech narsa yo‘qolmaydi.</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ====== PRICING ====== -->
-<section id="tariflar" class="pricing gridbg glow-tr">
+<section id="narxlar" class="pricing">
+  <div class="aurora" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="head-center">
-      <span class="tag reveal">Tariflar</span>
-      <h2 class="reveal d1"><span class="o">O‘zingizga mos</span><br>yo‘lni tanlang</h2>
-      <p class="lead reveal d2">Barcha tariflarda 25 ta video dars va sertifikat bor. Yuqori tariflarda Usmon bilan jonli uchrashuvlar, bonus darsliklar va real mijoz tahlili qo‘shiladi.</p>
+    <div class="center">
+      <span class="eyebrow reveal"><i></i>Narxlar</span>
+      <h2 class="reveal d1">Aksiya narxlari — <span class="l">faqat hozir</span></h2>
+      <p class="lead reveal d2">Narxlar ochiq va aniq. Yashirin to‘lovlar yo‘q.</p>
     </div>
 
-    <div class="tiers">
-      <article class="tier silver reveal">
-        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
-          <defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#9aa2ad"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs>
-          <circle cx="24" cy="24" r="18" fill="none" stroke="url(#gs)" stroke-width="2.5"/><circle cx="24" cy="24" r="9" fill="url(#gs)"/>
-        </svg>
-        <div class="tier-name">Silver</div>
-        <p class="tier-sub">Video darslar bilan mustaqil o‘rganish</p>
-        <div class="price"><sup>$</sup><strong>150</strong></div>
-        <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>25 ta video dars</span><span>Sertifikat</span></div>
-        <hr>
-        <ul class="checks">
-          <li>25 ta video dars</li>
-          <li>Claude AI va Claude Code bilan dasturlash</li>
-          <li>Telegram botlar va biznesni avtomatlashtirish</li>
-          <li>Istalgan vaqtda, o‘z sur’atingizda</li>
-          <li>theusmondigital sertifikati</li>
-        </ul>
-        <a href="#ariza" class="btn btn-ghost" data-tier="silver">Silver’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-      </article>
-
-      <article class="tier gold reveal d1">
-        <span class="tag best">Eng ko‘p tanlanadi</span>
-        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
-          <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c1"/><stop offset=".45" stop-color="#e5b84f"/><stop offset="1" stop-color="#b9862b"/></linearGradient></defs>
-          <path d="M24 5l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L24 33.7 12.8 39.6l2.1-12.5-9.1-8.9 12.6-1.8z" fill="url(#gg)"/>
-        </svg>
-        <div class="tier-name">Gold</div>
-        <p class="tier-sub">Video darslar + mentor bilan jonli muloqot</p>
-        <div class="price"><sup>$</sup><strong>250</strong></div>
-        <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>Jonli uchrashuvlar</span><span>Bonus darslar</span></div>
-        <hr>
-        <ul class="checks">
-          <li class="plus">Silver tarifidagi hamma narsa</li>
-          <li>Usmon bilan jonli uchrashuvlar: savollaringizga to‘g‘ridan-to‘g‘ri javob</li>
-          <li>Bonus darsliklar</li>
-        </ul>
-        <a href="#ariza" class="btn btn-primary" data-tier="gold">Gold’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-      </article>
-
-      <article class="tier brilliant reveal d2">
-        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
-          <defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a5f3fc"/><stop offset=".35" stop-color="#c4b5fd"/><stop offset=".7" stop-color="#f9a8d4"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs>
-          <path d="M14 8h20l9 11-19 22L5 19z" fill="url(#gb)"/>
-          <path d="M5 19h38M14 8l10 33M34 8L24 41M19 19l5-11 5 11" fill="none" stroke="#1b1330" stroke-opacity=".35" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-        <div class="tier-name">Brilliant</div>
-        <p class="tier-sub">Birinchi mijozingizgacha hamrohlik</p>
-        <div class="price"><sup>$</sup><strong>500</strong></div>
-        <div class="price-note">bir martalik to‘lov</div>
-        <div class="tier-meta"><span>Mijoz tahlili</span><span>Jonli uchrashuvlar</span></div>
-        <hr>
-        <ul class="checks">
-          <li class="plus">Gold tarifidagi hamma narsa</li>
-          <li>1 ta real mijozni Usmon bilan birga tahlil qilish</li>
-          <li>Mijozga qanday yechim va qancha narx taklif qilishni birga aniqlash</li>
-        </ul>
-        <a href="#ariza" class="btn btn-ghost" data-tier="brilliant">Brilliant’ni tanlash <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
-      </article>
+    <div class="urgent reveal" data-urgent>
+      <p>⏳ Aksiya tugashiga qoldi:<small data-cd-date>Muddat tugagach, narxlar eski holiga qaytadi</small></p>
+      <div class="cd" data-cd><div><b>00</b><small>kun</small></div><div><b>00</b><small>soat</small></div><div><b>00</b><small>daq</small></div><div><b>00</b><small>son</small></div></div>
     </div>
 
-    <p class="pricing-foot reveal">Qaysi tarif mos kelishini bilmayapsizmi? <a href="#ariza">Ariza qoldiring</a>, birga tanlaymiz.</p>
+    <div class="plans">
+      <article class="plan hot reveal">
+        <span class="flag">Eng ko‘p buyurtma qilinadi</span>
+        <div class="plan-ic"><svg><use href="#i-tg"/></svg></div>
+        <h3>Telegram bot + Mini App</h3>
+        <p class="sub">Biznesingiz uchun Telegram ichidagi to‘liq do‘kon yoki menyu</p>
+        <div class="prices"><span class="now">$250</span><span class="old">$500</span><span class="save">−50%</span></div>
+        <div class="addon">Har bir qo‘shimcha funksiya (skill): <b>+$15</b></div>
+        <hr>
+        <ul class="checks">
+          <li>Telegram bot va Mini App</li>
+          <li>Brendingizga mos individual dizayn</li>
+          <li>Katalog yoki menyu, qidiruv va savatcha</li>
+          <li>Buyurtma qabul qilish va sizga darhol xabar</li>
+          <li>Ishga tushirish va sozlab berish</li>
+        </ul>
+        <a href="#buyurtma" class="btn btn-cta" data-order="bot">Buyurtma berish <svg><use href="#i-arrow"/></svg></a>
+        <a href="#kalkulyator" class="btn btn-ghost" style="margin-top:10px">Funksiyalar bilan hisoblash</a>
+      </article>
+
+      <article class="plan reveal d1">
+        <div class="plan-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Landing sayt</h3>
+        <p class="sub">Mijozni buyurtmaga olib keladigan sotuvchi sayt</p>
+        <div class="prices"><span class="now">$1000</span><span class="old">$1500</span><span class="save">−33%</span></div>
+        <hr>
+        <ul class="checks">
+          <li>Individual dizayn, shablonsiz</li>
+          <li>Sotuvchi matnlar va tuzilma</li>
+          <li>Telefon va kompyuterga to‘liq moslashgan</li>
+          <li>Buyurtma formasi Telegram’ga ulangan</li>
+          <li>Internetga joylab berish</li>
+        </ul>
+        <a href="#buyurtma" class="btn btn-cta" data-order="landing">Buyurtma berish <svg><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CALCULATOR ====== -->
+<section id="kalkulyator">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal"><i></i>Kalkulyator</span>
+      <h2 class="reveal d1">Botingiz narxini <span class="g">o‘zingiz hisoblang</span></h2>
+      <p class="lead reveal d2">Asosiy narx $250. Kerakli funksiyalarni belgilang — har biri atigi $15.</p>
+    </div>
+    <div class="calc">
+      <div class="skills" id="skills">
+        <!-- skills rendered by script -->
+      </div>
+      <aside class="total reveal" aria-live="polite">
+        <h3>Sizning buyurtmangiz</h3>
+        <div class="rows" id="rows"></div>
+        <hr>
+        <div class="sum"><span class="now" id="sumNow">$250</span><span class="old" id="sumOld">$500</span></div>
+        <div class="saved" id="saved">Siz $250 tejaysiz</div>
+        <a href="#buyurtma" class="btn btn-cta" id="calcOrder">Buyurtma berish <svg><use href="#i-arrow"/></svg></a>
+        <p class="fine">Yakuniy narx texnik topshiriq kelishilgandan keyin tasdiqlanadi.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WORKS ====== -->
+<section id="ishlar" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal"><i></i>Ishlarimiz</span>
+      <h2 class="reveal d1">Real bizneslarda <span class="g">ishlab turibdi</span></h2>
+    </div>
+    <div class="works">
+      <article class="work reveal">
+        <div>
+          <span class="kind">Restoran · Mini App</span>
+          <h3>Resto</h3>
+          <p>Telegram ichidagi to‘liq restoran ilovasi.</p>
+          <ul class="checks">
+            <li>Menyu, qidiruv va savat</li>
+            <li>Manzil bo‘yicha yetkazib berish</li>
+            <li>Aksiyalar va promokodlar</li>
+            <li>Buyurtmalar tarixi va profil</li>
+          </ul>
+        </div>
+        <div class="phone"><div class="phone-in"><img src="img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App"></div></div>
+      </article>
+      <article class="work reveal d1">
+        <div>
+          <span class="kind">Kiyim do‘koni · Mini App</span>
+          <h3>Barno Abayas</h3>
+          <p>Abaya brendi uchun Telegram ichidagi onlayn do‘kon.</p>
+          <ul class="checks">
+            <li>Kategoriyalar va qidiruv</li>
+            <li>Yangi kolleksiyalar</li>
+            <li>Savatcha va tez buyurtma</li>
+            <li>Buyurtma holatini kuzatish</li>
+          </ul>
+        </div>
+        <div class="phone"><div class="phone-in"><img src="img/barno-miniapp.jpg" width="460" height="994" loading="lazy" alt="Barno Abayas Telegram Mini App"></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STEPS ====== -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal"><i></i>Qanday ishlaymiz</span>
+      <h2 class="reveal d1">Buyurtmadan ishga tushirishgacha</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Buyurtma</h3><p>Formani to‘ldirasiz, biz siz bilan bog‘lanamiz.</p></div>
+      <div class="step reveal d1"><h3>Texnik topshiriq</h3><p>Funksiyalar, dizayn va muddatni birga kelishamiz.</p></div>
+      <div class="step reveal d2"><h3>Ishlab chiqish</h3><p>Loyihani yasaymiz va oraliq natijani ko‘rsatamiz.</p></div>
+      <div class="step reveal d3"><h3>Ishga tushirish</h3><p>Sozlab, ishga tushirib, sizga topshiramiz.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section style="padding-top:20px">
+  <div class="wrap about">
+    <div class="about-card reveal">
+      <div class="mono" aria-hidden="true">U</div>
+      <div class="tagline"><div><b>Usmon</b><small>Dasturchi va AI engineer</small></div><span class="save" style="background:rgba(198,255,61,.14);color:var(--lime)">theusmondigital</span></div>
+    </div>
+    <div>
+      <span class="eyebrow reveal"><i></i>Kim bilan ishlaysiz</span>
+      <h2 class="reveal d1" style="margin-top:18px">Loyihangizni <span class="g">tajribali mutaxassis</span> yasaydi</h2>
+      <p class="lead reveal d2">Men Usmon — 5 yildan beri dasturchi va AI engineer. Ko‘plab taniqli brendlar bilan ishlaganman va ularning jarayonlarini avtomatlashtirganman. Har bir loyihani o‘zim boshqaraman, shuning uchun siz to‘g‘ridan-to‘g‘ri ijrochi bilan gaplashasiz.</p>
+      <div class="facts">
+        <div class="fact reveal d1"><b class="l">5+</b><span>yillik tajriba</span></div>
+        <div class="fact reveal d2"><b class="l">AI</b><span>engineer va dasturchi</span></div>
+        <div class="fact reveal d3"><b class="l">Top</b><span>brendlar bilan ish</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ====== FAQ ====== -->
-<section id="savollar">
+<section id="savollar" style="padding-top:20px">
   <div class="wrap faq-grid">
     <div>
-      <span class="tag reveal">Savol-javob</span>
-      <h2 class="reveal d1"><span class="o">Ko‘p</span> beriladigan savollar</h2>
-      <p class="lead reveal d2">Javobini topa olmagan savolingizni arizada yozib qoldiring yoki <a href="https://t.me/usmairways" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">Telegram’da</a> yozing.</p>
+      <span class="eyebrow reveal"><i></i>Savol-javob</span>
+      <h2 class="reveal d1" style="margin-top:18px">Ko‘p beriladigan savollar</h2>
+      <p class="lead reveal d2">Boshqa savol bo‘lsa, <a href="https://t.me/usmairways" target="_blank" rel="noopener" style="color:var(--lime);font-weight:600">Telegram’da yozing</a>.</p>
     </div>
     <div class="faq-list">
-      <details class="reveal">
-        <summary>Umuman dasturlashni bilmasam ham bo‘ladimi?<span class="pm"></span></summary>
-        <p>Ha. Darslar aynan noldan boshlovchilar uchun ham mo‘ljallangan. Kompyuterdan oddiy foydalana olsangiz yetarli. Qolganini birga, qadamma-qadam o‘rganamiz.</p>
-      </details>
-      <details class="reveal d1">
-        <summary>Darslar qanday o‘tadi?<span class="pm"></span></summary>
-        <p>Barcha 25 ta dars videoga yozilgan: ularni istalgan vaqtda, o‘z sur’atingizda ko‘rasiz. Gold va Brilliant tariflarida bunga qo‘shimcha Usmon bilan jonli uchrashuvlar bor.</p>
-      </details>
-      <details class="reveal d2">
-        <summary>Sertifikat beriladimi?<span class="pm"></span></summary>
-        <p>Ha. Kursni muvaffaqiyatli yakunlagan har bir o‘quvchiga theusmondigital sertifikati beriladi. Bu barcha tariflarga tegishli.</p>
-      </details>
-      <details class="reveal d3">
-        <summary>Qaysi tarifni tanlashim kerak?<span class="pm"></span></summary>
-        <p>Mustaqil o‘rganishni yoqtirsangiz, Silver yetarli. Savollaringizni mentor bilan jonli muhokama qilmoqchi bo‘lsangiz, Gold. Birinchi mijozingiz bilan ishlashda ham yordam kerak bo‘lsa, Brilliant. Ikkilansangiz, ariza qoldiring, birga tanlaymiz.</p>
-      </details>
-      <details class="reveal d4">
-        <summary>Mijoz tahlili nima?<span class="pm"></span></summary>
-        <p>Brilliant tarifida bitta real mijozingiz biznesini Usmon bilan birga tahlil qilasiz: qaysi jarayonni avtomatlashtirish mumkin, qanday yechim va qancha narx taklif qilish kerak.</p>
-      </details>
-      <details class="reveal d4">
-        <summary>Qanday kompyuter kerak?<span class="pm"></span></summary>
-        <p>Internetga ulangan har qanday zamonaviy noutbuk yoki kompyuter (Windows yoki macOS) yetarli. Kerakli dasturlarni o‘rnatish birinchi darsda ko‘rsatilgan.</p>
-      </details>
-      <details class="reveal d5">
-        <summary>Claude AI uchun alohida to‘lov kerakmi?<span class="pm"></span></summary>
-        <p>Claude’ning bepul versiyasi bilan ham boshlash mumkin. Ba’zi vositalar uchun pullik obuna kerak bo‘lishi mumkin. Qachon va nima uchun kerakligi darslarda aniq tushuntirilgan.</p>
-      </details>
+      <details class="reveal"><summary>“Skill” yoki qo‘shimcha funksiya nima?<span class="pm"></span></summary><p>Bu asosiy botga qo‘shiladigan alohida imkoniyat: masalan, onlayn to‘lov, admin panel, ko‘p tillilik yoki AI yordamchi. Har bir funksiya $15. Kalkulyatorda kerakligini belgilab, narxni darhol ko‘rasiz.</p></details>
+      <details class="reveal d1"><summary>Loyiha qancha vaqtda tayyor bo‘ladi?<span class="pm"></span></summary><p>Muddat funksiyalar soniga bog‘liq. Texnik topshiriqni kelishganimizda aniq muddatni aytamiz va unga amal qilamiz.</p></details>
+      <details class="reveal d2"><summary>Aksiya qachon tugaydi?<span class="pm"></span></summary><p><span data-cd-text>Aksiya muddati sahifadagi taymerda ko‘rsatilgan.</span> Shu muddatgacha buyurtma bergan mijozlar uchun aksiya narxi saqlanadi.</p></details>
+      <details class="reveal d3"><summary>To‘lov qanday amalga oshiriladi?<span class="pm"></span></summary><p>Buyurtmadan so‘ng siz bilan bog‘lanib, texnik topshiriq va qulay to‘lov usulini kelishib olamiz.</p></details>
+      <details class="reveal"><summary>Keyinchalik yangi funksiya qo‘shsa bo‘ladimi?<span class="pm"></span></summary><p>Ha. Bot tayyor bo‘lgandan keyin ham istalgan funksiyani qo‘shish mumkin.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ====== APPLY ====== -->
-<section id="ariza" style="padding-top: 20px;">
+<!-- ====== ORDER ====== -->
+<section id="buyurtma" style="padding-top:20px">
   <div class="wrap">
-    <div class="apply-box">
+    <div class="order-box">
       <div>
-        <span class="tag reveal">Ariza</span>
-        <h2 class="reveal d1">Birinchi qadamni <span class="o">bugun</span> qo‘ying</h2>
-        <p class="lead reveal d2">Formani to‘ldiring, siz bilan bog‘lanib, maqsadingizga mos tarifni tanlaymiz.</p>
-        <ul class="apply-points">
-          <li class="reveal d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Tez orada siz bilan bog‘lanamiz</li>
-          <li class="reveal d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Savollaringizga javob berib, mos tarifni tanlashga yordam beramiz</li>
-          <li class="reveal d4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>Ma’lumotlaringiz uchinchi shaxslarga berilmaydi</li>
+        <span class="eyebrow reveal"><i></i>Buyurtma</span>
+        <h2 class="reveal d1">Aksiya narxini <span class="l">bugun band qiling</span></h2>
+        <p class="lead reveal d2">Formani to‘ldiring — siz bilan bog‘lanib, loyihangizni muhokama qilamiz.</p>
+        <div data-urgent>
+          <div class="cd-label">⏳ Aksiya tugashiga qoldi:</div>
+          <div class="cd" data-cd><div><b>00</b><small>kun</small></div><div><b>00</b><small>soat</small></div><div><b>00</b><small>daq</small></div><div><b>00</b><small>son</small></div></div>
+        </div>
+        <ul class="pts">
+          <li><span class="ic"><svg><use href="#i-check"/></svg></span>Aksiya narxi buyurtma bergan zahoti siz uchun band qilinadi</li>
+          <li><span class="ic"><svg><use href="#i-check"/></svg></span>Bepul maslahat va texnik topshiriq</li>
+          <li><span class="ic"><svg><use href="#i-check"/></svg></span>To‘g‘ridan-to‘g‘ri ijrochi bilan muloqot</li>
         </ul>
       </div>
-
       <div>
-        <form id="applyForm" novalidate>
+        <form id="orderForm" novalidate>
+          <div class="summary-chip" id="summaryChip"></div>
           <div class="field">
-            <label for="f-name">Ismingiz</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Masalan: Aziz" maxlength="80" required>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="f-phone">Telefon raqam</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67" maxlength="30" required>
-            </div>
-            <div class="field">
-              <label for="f-tg">Telegram <span class="opt">(ixtiyoriy)</span></label>
-              <input id="f-tg" name="telegram" type="text" placeholder="@username" maxlength="40">
-            </div>
-          </div>
-          <div class="field">
-            <label id="tier-label">Qiziqtirgan tarif</label>
-            <div class="tier-pick" role="radiogroup" aria-labelledby="tier-label">
-              <input type="radio" name="tier" id="t-silver" value="Silver ($150)"><label for="t-silver"><b>Silver</b><span>$150</span></label>
-              <input type="radio" name="tier" id="t-gold" value="Gold ($250)" checked><label for="t-gold"><b>Gold</b><span>$250</span></label>
-              <input type="radio" name="tier" id="t-brilliant" value="Brilliant ($500)"><label for="t-brilliant"><b>Brilliant</b><span>$500</span></label>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-level">Dasturlash bo‘yicha darajangiz</label>
-            <select id="f-level" name="level">
-              <option>Umuman bilmayman, noldan boshlayman</option>
-              <option>Ozgina tajribam bor</option>
-              <option>Dasturchiman, AI’ni o‘rganmoqchiman</option>
-              <option>Biznes egasiman, jarayonlarni avtomatlashtirmoqchiman</option>
+            <label for="f-service">Xizmat</label>
+            <select id="f-service" name="service">
+              <option value="bot">Telegram bot + Mini App — $250</option>
+              <option value="landing">Landing sayt — $1000</option>
+              <option value="both">Bot + Mini App va Landing sayt — $1250</option>
             </select>
           </div>
-          <div class="field">
-            <label for="f-goal">Maqsadingiz <span class="opt">(ixtiyoriy)</span></label>
-            <textarea id="f-goal" name="goal" maxlength="1000" placeholder="Nimaga erishmoqchisiz? Masalan: freelance’da avtomatlashtirish xizmatini sotmoqchiman"></textarea>
+          <div class="row2">
+            <div class="field"><label for="f-name">Ismingiz</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Masalan: Aziz" maxlength="80"></div>
+            <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67" maxlength="30"></div>
           </div>
+          <div class="row2">
+            <div class="field"><label for="f-biz">Biznesingiz <span class="opt">(ixtiyoriy)</span></label><input id="f-biz" name="business" type="text" placeholder="Masalan: restoran" maxlength="80"></div>
+            <div class="field"><label for="f-tg">Telegram <span class="opt">(ixtiyoriy)</span></label><input id="f-tg" name="telegram" type="text" placeholder="@username" maxlength="40"></div>
+          </div>
+          <div class="field"><label for="f-note">Izoh <span class="opt">(ixtiyoriy)</span></label><textarea id="f-note" name="note" maxlength="1000" placeholder="Loyihangiz haqida qisqacha"></textarea></div>
           <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <p class="form-error" id="formError" role="alert"></p>
-          <button type="submit" class="btn btn-primary" id="submitBtn"><span class="lbl">Ariza yuborish</span> <span class="arr"><svg><use href="#i-arrow"/></svg></span></button>
-          <p class="form-note">Tugmani bosish orqali siz bilan bog‘lanishimizga rozilik bildirasiz.</p>
+          <button type="submit" class="btn btn-cta" id="submitBtn"><span class="lbl">Buyurtma berish</span> <svg><use href="#i-arrow"/></svg></button>
+          <p class="form-note">Tugmani bosganingizda Telegram’da buyurtma matni tayyor holda ochiladi.</p>
         </form>
-
         <div class="success" id="success" role="status" aria-live="polite">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-          <h3 id="successTitle">Arizangiz qabul qilindi!</h3>
-          <p id="successText">Rahmat. Tez orada siz bilan bog‘lanamiz. Kutishni xohlamasangiz, hoziroq Telegram’da yozing.</p>
-          <a class="btn btn-primary" id="successTg" href="https://t.me/usmairways" target="_blank" rel="noopener">Telegram’da yozish <span class="arr"><svg><use href="#i-tg"/></svg></span></a>
+          <div class="ic"><svg><use href="#i-check"/></svg></div>
+          <h3>Deyarli tayyor!</h3>
+          <p>Telegram ochildi: buyurtmangiz matni tayyor turibdi. Uni yuborish uchun “Yuborish” tugmasini bosing. Telegram ochilmagan bo‘lsa, quyidagi tugmani bosing.</p>
+          <a class="btn btn-cta" id="successTg" href="https://t.me/usmairways" target="_blank" rel="noopener">Buyurtmani Telegram’da yuborish <svg><use href="#i-tg"/></svg></a>
         </div>
       </div>
     </div>
@@ -1113,178 +712,186 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
-      <a href="#top" class="logo"><span class="logo-mark"><svg><use href="#i-logo"/></svg></span><span>theusmon<b>digital</b></span></a>
-      <div class="foot-contacts">
+    <div class="foot">
+      <a href="#top" class="logo"><span class="logo-mark">U</span>theusmon<em>digital</em></a>
+      <div class="foot-links">
         <a href="https://t.me/usmairways" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>@usmairways</a>
-        <span class="sep"></span>
         <a href="https://instagram.com/theusmondigital" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@theusmondigital</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <p>© <span id="year">2026</span> theusmondigital. Barcha huquqlar himoyalangan.</p>
-      <nav aria-label="Pastki menyu">
-        <a href="#dastur">Dastur</a><a href="#loyihalar">Loyihalar</a><a href="#mentor">Mentor</a><a href="#tariflar">Tariflar</a><a href="#ariza">Ariza</a>
-      </nav>
-    </div>
+    <p class="copy">© <span id="year">2026</span> theusmondigital. Barcha huquqlar himoyalangan.</p>
   </div>
 </footer>
 
-<div class="m-cta" id="mCta"><a href="#ariza" class="btn btn-primary">Ariza qoldirish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>
+<div class="m-cta" id="mCta"><a href="#buyurtma" class="btn btn-cta">Buyurtma berish · <span id="mPrice">$250</span></a></div>
 
 <script>
   /* ================= SOZLAMALAR =================
-     Hozir: ariza to'ldirilgach, Telegram'da TG_USERNAME ga tayyor matn bilan chat ochiladi,
-     tashrif buyuruvchi faqat "Yuborish" ni bosadi.
-     Arizalar botga avtomatik kelishi uchun Cloudflare Worker manzilini FORM_ENDPOINT ga qo'ying
-     (batafsil: SOZLASH.md). Masalan: const FORM_ENDPOINT = "https://ariza.sizning-nomingiz.workers.dev"; */
-  const FORM_ENDPOINT = "";
+     OFFER_END   — aksiya tugash vaqti (Toshkent vaqti). Muddat o'tgach taymer va aksiya yozuvlari yashiriladi.
+     TG_USERNAME — buyurtmalar keladigan Telegram akkaunt.
+     FORM_ENDPOINT — Cloudflare Worker manzili (ixtiyoriy, SOZLASH.md). To'ldirilsa, buyurtmalar botga avtomatik keladi. */
+  const OFFER_END = "2026-10-31T23:59:59+05:00";
   const TG_USERNAME = "usmairways";
+  const FORM_ENDPOINT = "";
+
+  const PRICES = { bot: { now: 250, old: 500, name: "Telegram bot + Mini App" }, landing: { now: 1000, old: 1500, name: "Landing sayt" } };
+  const SKILL_PRICE = 15;
+  const SKILLS = [
+    ["To‘lov tizimi", "Click / Payme"],
+    ["Admin panel", "Mahsulot va narxlarni boshqarish"],
+    ["Google Sheets", "Buyurtmalar jadvalga yoziladi"],
+    ["CRM integratsiya", "amoCRM, Bitrix24 va boshqalar"],
+    ["AI yordamchi", "Savollarga avtomatik javob"],
+    ["Ko‘p tillilik", "O‘zbek, rus, ingliz"],
+    ["Yetkazib berish", "Manzil va lokatsiya"],
+    ["Promokod va aksiyalar", "Chegirma tizimi"],
+    ["Ommaviy xabar", "Barcha mijozlarga rassilka"],
+    ["Statistika", "Savdo va mijozlar hisoboti"],
+    ["Bonus / keshbek", "Doimiy mijozlar uchun"],
+    ["Bron qilish", "Stol, xizmat yoki vaqt band qilish"]
+  ];
 
   (function () {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+    const money = (n) => "$" + n;
+    $("#year").textContent = new Date().getFullYear();
 
-    // Nav background + mobile CTA
-    const nav = document.getElementById("nav");
-    const mCta = document.getElementById("mCta");
-    let applyVisible = false;
-    const onScroll = () => {
-      const y = window.scrollY;
-      nav.classList.toggle("scrolled", y > 20);
-      mCta.classList.toggle("on", y > 700 && !applyVisible);
-    };
-    new IntersectionObserver(([e]) => { applyVisible = e.isIntersecting; onScroll(); }, { threshold: 0.1 }).observe(document.getElementById("ariza"));
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-    // Card spotlight
-    document.querySelectorAll(".card").forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        card.style.setProperty("--my", (e.clientY - r.top) + "px");
-      });
-    });
-
-    // Mountain glowing particles
-    const g = document.getElementById("particles");
-    const ns = "http://www.w3.org/2000/svg";
-    let seed = 7;
-    const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
-    for (let i = 0; i < 160; i++) {
-      const y = 120 + rnd() * 330;
-      const spread = (y - 110) * 1.05;
-      const x = 410 + (rnd() - 0.5) * spread * 1.6;
-      const c = document.createElementNS(ns, "circle");
-      c.setAttribute("cx", x.toFixed(1));
-      c.setAttribute("cy", y.toFixed(1));
-      c.setAttribute("r", (0.6 + rnd() * 1.8).toFixed(2));
-      c.setAttribute("fill", rnd() > 0.5 ? "#ffb48a" : "#ff6a32");
-      c.setAttribute("opacity", (0.25 + rnd() * 0.6).toFixed(2));
-      g.appendChild(c);
-    }
-
-    // Terminal animation
-    const lines = Array.from(document.querySelectorAll("#term .term-line"));
-    const typed = document.getElementById("typed");
-    const caret = document.getElementById("caret");
-    const floats = [document.getElementById("floatCard"), document.getElementById("floatCard2")];
-    const text = "Do‘konim uchun buyurtmalarni Sheets’ga yozadigan bot yarat";
-    function runTerminal() {
-      if (reduce) {
-        lines.forEach((l) => l.classList.add("on"));
-        typed.textContent = text; caret.style.display = "none"; floats.forEach((c) => c.classList.add("on"));
-        return;
+    // ----- Countdown to a fixed date (never resets) -----
+    const end = new Date(OFFER_END).getTime();
+    const pad = (n) => String(n).padStart(2, "0");
+    const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+    const endParts = Object.fromEntries(new Intl.DateTimeFormat("en-US", { day: "numeric", month: "numeric", timeZone: "Asia/Tashkent" }).formatToParts(new Date(end)).map((p) => [p.type, p.value]));
+    const endLabel = endParts.day + "-" + MONTHS[endParts.month - 1];
+    $$("[data-cd-date]").forEach((el) => el.textContent = "Aksiya " + endLabel + " kuni tugaydi, keyin narxlar eski holiga qaytadi");
+    $$("[data-cd-text]").forEach((el) => el.textContent = "Aksiya " + endLabel + " kuni tugaydi.");
+    function tick() {
+      const left = end - Date.now();
+      if (left <= 0) {
+        $$("[data-urgent]").forEach((el) => el.style.display = "none");
+        document.body.classList.add("no-promo");
+        return false;
       }
-      lines[0].classList.add("on");
-      setTimeout(() => {
-        lines[1].classList.add("on");
-        let i = 0;
-        const t = setInterval(() => {
-          typed.textContent = text.slice(0, ++i);
-          if (i >= text.length) {
-            clearInterval(t);
-            caret.style.display = "none";
-            lines.slice(2).forEach((l, k) => setTimeout(() => l.classList.add("on"), 420 * (k + 1)));
-            floats.forEach((c, k) => setTimeout(() => c.classList.add("on"), 420 * (lines.length - 1) + 300 + k * 500));
-          }
-        }, 34);
-      }, 600);
-    }
-    setTimeout(runTerminal, 1200);
-
-    // Preselect tier from pricing buttons
-    document.querySelectorAll("[data-tier]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const r = document.getElementById("t-" + btn.dataset.tier);
-        if (r) r.checked = true;
+      const d = Math.floor(left / 864e5), h = Math.floor(left / 36e5) % 24, m = Math.floor(left / 6e4) % 60, s = Math.floor(left / 1e3) % 60;
+      $$("[data-cd]").forEach((el) => {
+        const b = el.querySelectorAll("b");
+        b[0].textContent = pad(d); b[1].textContent = pad(h); b[2].textContent = pad(m); b[3].textContent = pad(s);
       });
-    });
+      $$("[data-cd-mini]").forEach((el) => el.textContent = d + " kun " + pad(h) + ":" + pad(m) + ":" + pad(s));
+      return true;
+    }
+    if (tick()) setInterval(tick, 1000);
 
-    // Form → Telegram chat with prefilled text (or Cloudflare Worker → bot when FORM_ENDPOINT is set)
-    const form = document.getElementById("applyForm");
-    const err = document.getElementById("formError");
-    const btn = document.getElementById("submitBtn");
-    const lbl = btn.querySelector(".lbl");
+    // ----- Nav, mobile CTA, reveal -----
+    const nav = $("#nav"), mCta = $("#mCta");
+    let orderVisible = false;
+    const onScroll = () => {
+      nav.classList.toggle("scrolled", scrollY > 10);
+      mCta.classList.toggle("on", scrollY > 600 && !orderVisible);
+    };
+    new IntersectionObserver(([e]) => { orderVisible = e.isIntersecting; onScroll(); }, { threshold: 0.1 }).observe($("#buyurtma"));
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    $$(".reveal").forEach((el) => io.observe(el));
+
+    // ----- Calculator -----
+    const box = $("#skills");
+    const check = '<span class="box"><svg><use href="#i-check"/></svg></span>';
+    box.innerHTML = SKILLS.map(([t, s], i) =>
+      '<label class="skill"><input type="checkbox" name="skill" value="' + i + '">' + check +
+      '<span class="t">' + t + '<small>' + s + '</small></span><span class="p">+$' + SKILL_PRICE + '</span></label>'
+    ).join("") +
+      '<label class="skill landing"><input type="checkbox" id="addLanding">' + check +
+      '<span class="t">Landing sayt ham kerak<small>Eski narx $1500 · aksiyada</small></span><span class="p">+$1000</span></label>';
+
+    function state() {
+      const picked = $$("#skills input[name=skill]:checked").map((i) => SKILLS[+i.value][0]);
+      const landing = $("#addLanding").checked;
+      const now = PRICES.bot.now + picked.length * SKILL_PRICE + (landing ? PRICES.landing.now : 0);
+      const old = PRICES.bot.old + picked.length * SKILL_PRICE + (landing ? PRICES.landing.old : 0);
+      return { picked, landing, now, old };
+    }
+    function render() {
+      const st = state();
+      let html = '<div><span>' + PRICES.bot.name + '</span><span>' + money(PRICES.bot.now) + '</span></div>';
+      if (st.picked.length) html += '<div><span>Funksiyalar: ' + st.picked.length + ' × $' + SKILL_PRICE + '</span><span>' + money(st.picked.length * SKILL_PRICE) + '</span></div>';
+      if (st.landing) html += '<div><span>' + PRICES.landing.name + '</span><span>' + money(PRICES.landing.now) + '</span></div>';
+      $("#rows").innerHTML = html;
+      $("#sumNow").textContent = money(st.now);
+      $("#sumOld").textContent = money(st.old);
+      $("#saved").textContent = "Siz " + money(st.old - st.now) + " tejaysiz";
+      $("#mPrice").textContent = money(st.now);
+    }
+    box.addEventListener("change", render);
+    render();
+
+    // ----- Order: carry selection into the form -----
+    let order = null; // null = use the select only
+    const chip = $("#summaryChip"), service = $("#f-service");
+    function showChip() {
+      if (!order) { chip.classList.remove("on"); return; }
+      const parts = [PRICES.bot.name];
+      if (order.picked.length) parts.push(order.picked.length + " ta funksiya: " + order.picked.join(", "));
+      if (order.landing) parts.push(PRICES.landing.name);
+      chip.innerHTML = "Kalkulyatordan: " + parts.join(" · ") + " — <b>" + money(order.now) + "</b>";
+      chip.classList.add("on");
+    }
+    $("#calcOrder").addEventListener("click", () => {
+      order = state();
+      service.value = order.landing ? "both" : "bot";
+      showChip();
+    });
+    $$("[data-order]").forEach((b) => b.addEventListener("click", () => { order = null; service.value = b.dataset.order; showChip(); }));
+    service.addEventListener("change", () => { order = null; showChip(); });
+
+    function orderText(d) {
+      const v = (x) => String(x || "").trim() || "—";
+      let what, total;
+      if (order) {
+        what = PRICES.bot.name + (order.landing ? " + " + PRICES.landing.name : "");
+        total = order.now;
+      } else {
+        what = service.value === "both" ? PRICES.bot.name + " + " + PRICES.landing.name : PRICES[service.value].name;
+        total = service.value === "both" ? PRICES.bot.now + PRICES.landing.now : PRICES[service.value].now;
+      }
+      const lines = ["Assalomu alaykum! Saytdan buyurtma:", "", "Xizmat: " + what];
+      if (order && order.picked.length) lines.push("Funksiyalar (" + order.picked.length + "): " + order.picked.join(", "));
+      lines.push("Aksiya narxi: " + money(total), "", "Ism: " + v(d.name), "Telefon: " + v(d.phone), "Biznes: " + v(d.business), "Telegram: " + v(d.telegram), "Izoh: " + v(d.note));
+      return lines.join("\n");
+    }
+
+    const form = $("#orderForm"), err = $("#formError"), btn = $("#submitBtn"), lbl = btn.querySelector(".lbl");
+    function showError(msg, id) { err.textContent = msg; err.classList.add("on"); if (id) $("#" + id).focus(); }
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       err.classList.remove("on");
       const data = Object.fromEntries(new FormData(form).entries());
-      if (data.website) return; // spam bot
-      const phoneDigits = (data.phone || "").replace(/\D/g, "");
-      if (!data.name.trim()) return showError("Iltimos, ismingizni kiriting.", "f-name");
-      if (phoneDigits.length < 9) return showError("Iltimos, telefon raqamingizni to‘liq kiriting.", "f-phone");
-
-      btn.disabled = true; btn.style.opacity = ".7"; lbl.textContent = "Yuborilmoqda…";
+      if (data.website) return;
+      if (!String(data.name || "").trim()) return showError("Iltimos, ismingizni kiriting.", "f-name");
+      if (String(data.phone || "").replace(/\D/g, "").length < 9) return showError("Iltimos, telefon raqamingizni to‘liq kiriting.", "f-phone");
+      const text = orderText(data);
+      btn.disabled = true; lbl.textContent = "Yuborilmoqda…";
       try {
         if (FORM_ENDPOINT) {
-          const res = await fetch(FORM_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-          });
+          const res = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
           if (!res.ok) throw new Error("HTTP " + res.status);
+          $("#success h3").textContent = "Buyurtmangiz qabul qilindi!";
+          $("#success p").textContent = "Rahmat! Tez orada siz bilan bog‘lanamiz.";
         } else {
-          // Open a Telegram chat with the application text prefilled (no await before this, so popups are allowed)
-          const url = "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(applicationText(data));
+          // No await before this line, so the browser allows opening the new tab
+          const url = "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(text);
           window.open(url, "_blank", "noopener");
-          document.getElementById("successTg").href = url;
-          document.getElementById("successTitle").textContent = "Deyarli tayyor!";
-          document.getElementById("successText").textContent = "Telegram ochildi: arizangiz matni tayyor turibdi. Uni yuborish uchun “Yuborish” tugmasini bosing. Telegram ochilmagan bo‘lsa, quyidagi tugmani bosing.";
-          document.getElementById("successTg").firstChild.textContent = "Arizani Telegram’da yuborish ";
+          $("#successTg").href = url;
         }
         form.style.display = "none";
-        document.getElementById("success").classList.add("on");
+        $("#success").classList.add("on");
       } catch (_) {
-        showError("Yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring yoki Telegram’da yozing: @usmairways");
+        showError("Yuborishda xatolik. Iltimos, qayta urinib ko‘ring yoki Telegram’da yozing: @" + TG_USERNAME);
       } finally {
-        btn.disabled = false; btn.style.opacity = ""; lbl.textContent = "Ariza yuborish";
+        btn.disabled = false; lbl.textContent = "Buyurtma berish";
       }
     });
-    function applicationText(d) {
-      const v = (x) => String(x || "").trim() || "—";
-      return [
-        "Assalomu alaykum! Saytdan ariza:",
-        "",
-        "Ism: " + v(d.name),
-        "Telefon: " + v(d.phone),
-        "Telegram: " + v(d.telegram),
-        "Tarif: " + v(d.tier),
-        "Daraja: " + v(d.level),
-        "Maqsad: " + v(d.goal)
-      ].join("\n");
-    }
-    function showError(msg, focusId) {
-      err.textContent = msg; err.classList.add("on");
-      if (focusId) document.getElementById(focusId).focus();
-    }
   })();
 </script>
 </body>

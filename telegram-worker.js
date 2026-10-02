@@ -1,19 +1,21 @@
-// Cloudflare Worker: saytdagi arizani Telegram botga yuboradi.
+// Cloudflare Worker: saytdagi buyurtmani Telegram botga yuboradi.
 // Bot tokeni saytda ko'rinmasligi uchun shu yerda (Worker sozlamalarida) saqlanadi.
 //
 // Kerakli o'zgaruvchilar (Settings → Variables and Secrets):
 //   BOT_TOKEN       — @BotFather bergan token (Secret sifatida)
-//   CHAT_ID         — arizalar keladigan chat ID (sizning yoki guruh ID)
-//   ALLOWED_ORIGIN  — ixtiyoriy, masalan https://theusmondigital.uz (bo'sh bo'lsa hamma saytdan qabul qiladi)
+//   CHAT_ID         — buyurtmalar keladigan chat ID
+//   ALLOWED_ORIGIN  — ixtiyoriy, masalan https://usmoon07-blip.github.io (bo'sh bo'lsa hamma saytdan qabul qiladi)
+//
+// Sayt { "text": "..." } yuboradi — buyurtma matni saytning o'zida tayyorlanadi.
 
-const LIMITS = { name: 80, phone: 30, telegram: 40, tier: 40, level: 120, goal: 1000 };
+const MAX_LENGTH = 3000;
 
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
     const allowed = env.ALLOWED_ORIGIN || "*";
     const cors = {
-      "Access-Control-Allow-Origin": allowed === "*" ? "*" : allowed,
+      "Access-Control-Allow-Origin": allowed,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
@@ -29,31 +31,13 @@ export default {
       return json({ ok: false, error: "json" }, 400, cors);
     }
 
-    if (data.website) return json({ ok: true }, 200, cors); // spam bot
-
-    const clean = {};
-    for (const [key, max] of Object.entries(LIMITS)) {
-      clean[key] = String(data[key] ?? "").trim().slice(0, max);
-    }
-    if (!clean.name || clean.phone.replace(/\D/g, "").length < 9) {
-      return json({ ok: false, error: "validation" }, 400, cors);
-    }
-
-    const text = [
-      "🆕 Yangi ariza — theusmondigital",
-      "",
-      `👤 Ism: ${clean.name}`,
-      `📞 Telefon: ${clean.phone}`,
-      `✈️ Telegram: ${clean.telegram || "—"}`,
-      `💎 Tarif: ${clean.tier || "—"}`,
-      `📚 Daraja: ${clean.level || "—"}`,
-      `🎯 Maqsad: ${clean.goal || "—"}`,
-    ].join("\n");
+    const text = String(data.text ?? "").trim().slice(0, MAX_LENGTH);
+    if (!text) return json({ ok: false, error: "validation" }, 400, cors);
 
     const tg = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: env.CHAT_ID, text, disable_web_page_preview: true }),
+      body: JSON.stringify({ chat_id: env.CHAT_ID, text: "🆕 " + text, disable_web_page_preview: true }),
     });
 
     if (!tg.ok) return json({ ok: false, error: "telegram" }, 502, cors);
