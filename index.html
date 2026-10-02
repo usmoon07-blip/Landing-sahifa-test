@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>theusmondigital — Claude AI bilan dasturlash mentorligi</title>
+<meta name="description" content="Usmon bilan yakka tartibda onlayn mentorlik: Claude AI yordamida dasturlashni va bizneslarni avtomatlashtirishni o‘rganing.">
+<meta property="og:title" content="theusmondigital — Claude AI bilan dasturlash mentorligi">
+<meta property="og:description" content="Claude AI bilan dasturlashni o‘rganing va bizneslarni avtomatlashtirib daromad qiling. Yakka tartibda, onlayn.">
+<meta name="theme-color" content="#0c0b0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b0a;
+    --bg-2: #12100e;
+    --surface: #171512;
+    --surface-2: #1e1b17;
+    --line: rgba(255, 240, 225, 0.08);
+    --line-2: rgba(255, 240, 225, 0.14);
+    --text: #f5efe7;
+    --muted: #a69d92;
+    --dim: #6f675e;
+    --accent: #e8774a;
+    --accent-2: #f3b46e;
+    --accent-ink: #1a0e07;
+    --ok: #7ad19a;
+    --silver: linear-gradient(135deg, #f3f5f8 0%, #a9b0bb 45%, #e6e9ee 70%, #8d95a1 100%);
+    --gold: linear-gradient(135deg, #fff1c1 0%, #e5b84f 40%, #fbe39a 65%, #b9862b 100%);
+    --brilliant: linear-gradient(120deg, #a5f3fc 0%, #c4b5fd 30%, #f9a8d4 55%, #fde68a 80%, #a5f3fc 100%);
+    --radius: 22px;
+    --display: "Unbounded", "Manrope", system-ui, sans-serif;
+    --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --wrap: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+  section { position: relative; padding: 120px 0; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent-2);
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; opacity: .7; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; margin: 0; line-height: 1.12; }
+  h2 { font-size: clamp(30px, 4.4vw, 52px); margin-top: 18px; max-width: 18ch; }
+  .lead { color: var(--muted); font-size: clamp(17px, 1.6vw, 19px); max-width: 60ch; margin: 22px 0 0; }
+  .grad {
+    background: linear-gradient(100deg, var(--accent) 10%, var(--accent-2) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 26px; border-radius: 999px; border: 1px solid transparent;
+    font-weight: 700; font-size: 16px; cursor: pointer; white-space: nowrap;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  }
+  .btn svg { width: 18px; height: 18px; transition: transform .25s ease; }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn-primary {
+    background: linear-gradient(100deg, var(--accent), var(--accent-2));
+    color: var(--accent-ink);
+    box-shadow: 0 10px 40px -10px rgba(232, 119, 74, .65), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -12px rgba(232, 119, 74, .8), inset 0 1px 0 rgba(255,255,255,.35); }
+  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.02); }
+  .btn-ghost:hover { border-color: rgba(255,240,225,.32); background: rgba(255,255,255,.05); }
+  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent-2); outline-offset: 3px;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled { background: rgba(12, 11, 10, .72); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+  .logo-mark {
+    width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--accent-ink); font-size: 17px; font-weight: 800;
+    box-shadow: 0 6px 24px -6px rgba(232,119,74,.7);
+  }
+  .logo span em { font-style: normal; color: var(--accent-2); }
+  .nav-links { display: flex; gap: 34px; font-size: 15px; font-weight: 600; color: var(--muted); }
+  .nav-links a { transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav .btn { padding: 11px 20px; font-size: 15px; }
+
+  /* Hero */
+  .hero { padding: 168px 0 110px; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .hero-bg::before {
+    content: ""; position: absolute; width: 900px; height: 900px; right: -260px; top: -320px;
+    background: radial-gradient(closest-side, rgba(232,119,74,.28), rgba(232,119,74,0) 70%);
+    filter: blur(10px);
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
+    opacity: .55;
+  }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 64px; align-items: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px;
+    border: 1px solid var(--line-2); border-radius: 999px; background: rgba(255,255,255,.03);
+    font-size: 14px; font-weight: 600; color: var(--muted);
+  }
+  .pill b { background: rgba(122,209,154,.14); color: var(--ok); padding: 3px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .04em; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(122,209,154,.6); animation: ping 2s infinite; display: inline-block; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(122,209,154,.55); } 80%, 100% { box-shadow: 0 0 0 10px rgba(122,209,154,0); } }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 70px); margin-top: 26px; }
+  .hero .lead { margin-top: 26px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 54px; border-top: 1px solid var(--line); padding-top: 28px; }
+  .hero-stats div { padding-right: 34px; margin-right: 34px; border-right: 1px solid var(--line); }
+  .hero-stats div:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .hero-stats strong { display: block; font-family: var(--display); font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .hero-stats span { color: var(--muted); font-size: 14px; }
+
+  /* Terminal */
+  .stage { position: relative; }
+  .terminal {
+    position: relative; border-radius: 20px; border: 1px solid var(--line-2);
+    background: linear-gradient(180deg, rgba(30,27,23,.92), rgba(18,16,14,.96));
+    box-shadow: 0 40px 120px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.02) inset;
+    overflow: hidden; transform: rotate(-1.2deg);
+  }
+  .term-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a342e; }
+  .term-bar i:nth-child(1) { background: #ef6b5b; } .term-bar i:nth-child(2) { background: #f2bd4f; } .term-bar i:nth-child(3) { background: #62c76c; }
+  .term-bar span { margin-left: 10px; font-size: 13px; color: var(--dim); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .term-body { padding: 22px 22px 26px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; line-height: 1.75; min-height: 330px; }
+  .term-line { opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
+  .term-line.on { opacity: 1; transform: none; }
+  .term-prompt { color: var(--accent-2); }
+  .term-user { color: var(--text); }
+  .term-ok { color: var(--ok); }
+  .term-muted { color: var(--dim); }
+  .caret { display: inline-block; width: 8px; height: 16px; background: var(--accent-2); vertical-align: -3px; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .float-card {
+    position: absolute; left: -38px; bottom: -70px; width: 300px;
+    padding: 16px 18px; border-radius: 16px;
+    background: rgba(28,25,21,.92); border: 1px solid var(--line-2);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,.8);
+    display: flex; gap: 14px; align-items: center;
+    opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .6s ease, transform .6s ease;
+  }
+  .float-card.on { opacity: 1; transform: none; }
+  .float-card .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(122,209,154,.14); color: var(--ok); }
+  .float-card .ic svg { width: 20px; height: 20px; }
+  .float-card b { display: block; font-size: 14px; }
+  .float-card small { color: var(--muted); font-size: 13px; }
+  .float-chip {
+    position: absolute; right: -14px; top: -20px; padding: 10px 16px; border-radius: 999px;
+    background: linear-gradient(100deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
+    font-weight: 800; font-size: 13px; box-shadow: 0 14px 40px -12px rgba(232,119,74,.8); transform: rotate(3deg); z-index: 2;
+  }
+
+  /* Marquee */
+  .strip { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); overflow: hidden; }
+  .marquee { display: flex; width: max-content; animation: slide 38s linear infinite; }
+  .marquee span { display: inline-flex; align-items: center; gap: 28px; padding: 22px 14px; font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--muted); white-space: nowrap; }
+  .marquee span::after { content: "✦"; color: var(--accent); font-size: 14px; margin-left: 14px; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* Why */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .compare { display: grid; gap: 14px; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .compare-cell { padding: 20px 22px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
+  .compare-cell small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+  .compare-cell.old { color: var(--muted); }
+  .compare-cell.old small { color: var(--dim); }
+  .compare-cell.new { border-color: rgba(232,119,74,.35); background: linear-gradient(160deg, rgba(232,119,74,.12), rgba(232,119,74,.02)); }
+  .compare-cell.new small { color: var(--accent-2); }
+
+  /* Learn */
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
+  .section-head .lead { max-width: 44ch; margin: 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    position: relative; padding: 30px; border-radius: var(--radius);
+    background: var(--surface); border: 1px solid var(--line);
+    transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(232,119,74,.14), transparent 45%);
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--line-2); }
+  .card:hover::before { opacity: 1; }
+  .card > * { position: relative; }
+  .card .num { font-family: var(--display); font-size: 13px; color: var(--dim); font-weight: 600; }
+  .card .icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; background: rgba(232,119,74,.12); color: var(--accent-2); margin: 22px 0 22px; }
+  .card .icon svg { width: 24px; height: 24px; }
+  .card h3 { font-size: 20px; line-height: 1.3; }
+  .card p { color: var(--muted); font-size: 15.5px; margin: 12px 0 0; }
+
+  /* Audience */
+  .aud { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .aud-card { padding: 40px; border-radius: 26px; border: 1px solid var(--line); background: var(--surface); }
+  .aud-card.hl { background: linear-gradient(160deg, rgba(232,119,74,.16), rgba(23,21,18,1) 60%); border-color: rgba(232,119,74,.3); }
+  .aud-tag { display: inline-block; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.05); color: var(--muted); border: 1px solid var(--line); }
+  .aud-card h3 { font-size: clamp(22px, 2.4vw, 28px); margin-top: 22px; }
+  .checks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; color: #ddd5cb; font-size: 16px; }
+  .checks li::before {
+    content: ""; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%;
+    background: rgba(232,119,74,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3b46e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat;
+  }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: s; position: relative; }
+  .step { padding: 28px 26px 30px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-2); position: relative; }
+  .step-n {
+    width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    font-family: var(--display); font-weight: 700; font-size: 16px;
+    border: 1px solid rgba(232,119,74,.45); color: var(--accent-2); background: rgba(232,119,74,.08);
+  }
+  .step h3 { font-size: 18px; margin-top: 22px; line-height: 1.3; }
+  .step p { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
+
+  /* Mentor */
+  .mentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .portrait {
+    position: relative; aspect-ratio: 4/5; border-radius: 30px; overflow: hidden;
+    background:
+      radial-gradient(120% 80% at 80% 0%, rgba(243,180,110,.35), transparent 55%),
+      radial-gradient(90% 70% at 0% 100%, rgba(232,119,74,.35), transparent 60%),
+      linear-gradient(160deg, #241f1a, #12100e);
+    border: 1px solid var(--line-2);
+  }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portrait .mono {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    font-family: var(--display); font-weight: 800; font-size: clamp(120px, 16vw, 210px); letter-spacing: -0.05em;
+    color: rgba(255,240,225,.92); text-shadow: 0 20px 80px rgba(232,119,74,.5);
+  }
+  .portrait .badge {
+    position: absolute; left: 20px; right: 20px; bottom: 20px; padding: 16px 18px; border-radius: 16px;
+    background: rgba(12,11,10,.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-2); display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .portrait .badge b { font-family: var(--display); font-size: 18px; display: block; }
+  .portrait .badge small { color: var(--muted); font-size: 13px; }
+  .portrait .badge .live { font-size: 12px; font-weight: 700; color: var(--ok); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .mentor-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 38px; }
+  .fact { padding: 22px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .fact strong { display: block; font-family: var(--display); font-size: 30px; letter-spacing: -0.02em; }
+  .fact span { color: var(--muted); font-size: 14px; line-height: 1.4; display: block; margin-top: 4px; }
+  .quote { margin: 34px 0 0; padding: 4px 0 4px 22px; border-left: 2px solid var(--accent); color: #ddd5cb; font-size: 18px; font-style: italic; }
+
+  /* Pricing */
+  .pricing { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .pricing::before {
+    content: ""; position: absolute; left: 50%; top: 0; width: 1000px; height: 600px; transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(232,119,74,.13), transparent 70%); pointer-events: none;
+  }
+  .pricing .section-head { flex-direction: column; align-items: center; text-align: center; }
+  .pricing .section-head h2 { max-width: 22ch; }
+  .pricing .section-head .lead { text-align: center; max-width: 54ch; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; position: relative; }
+  .tier {
+    position: relative; display: flex; flex-direction: column;
+    padding: 34px 30px 30px; border-radius: 28px;
+    background: var(--surface); border: 1px solid var(--line);
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .tier:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9); }
+  .tier-name {
+    font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tier.silver .tier-name { background-image: var(--silver); }
+  .tier.gold .tier-name { background-image: var(--gold); }
+  .tier.brilliant .tier-name { background-image: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  .tier-gem { width: 44px; height: 44px; margin-bottom: 22px; }
+  .tier-sub { color: var(--muted); font-size: 15px; margin-top: 8px; min-height: 48px; }
+  .price { display: flex; align-items: flex-start; gap: 4px; margin-top: 22px; font-family: var(--display); }
+  .price sup { font-size: 24px; font-weight: 600; margin-top: 10px; color: var(--muted); }
+  .price strong { font-size: 64px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+  .price-note { color: var(--dim); font-size: 14px; margin-top: 10px; }
+  .tier-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 4px; }
+  .tier-meta span { font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: #ddd5cb; }
+  .tier hr { border: 0; height: 1px; background: var(--line); margin: 22px 0; }
+  .tier .checks { margin: 0 0 30px; gap: 12px; }
+  .tier .checks li { font-size: 15px; }
+  .tier .checks li.plus { font-weight: 700; color: var(--text); }
+  .tier .btn { width: 100%; margin-top: auto; }
+  .tier.silver .checks li::before { background-color: rgba(200,206,214,.12); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d5dae1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+  .tier.gold {
+    border-color: transparent;
+    background: linear-gradient(var(--surface-2), var(--surface-2)) padding-box, var(--gold) border-box;
+    border: 1.5px solid transparent;
+    box-shadow: 0 30px 90px -30px rgba(229,184,79,.35);
+  }
+  .tier.gold .checks li::before { background-color: rgba(229,184,79,.14); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0cb6e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+  .tier.gold .btn-primary { background: var(--gold); color: #2a1d05; box-shadow: 0 12px 40px -12px rgba(229,184,79,.7), inset 0 1px 0 rgba(255,255,255,.5); }
+  .tier.brilliant {
+    background:
+      radial-gradient(120% 60% at 100% 0%, rgba(196,181,253,.12), transparent 60%),
+      radial-gradient(100% 60% at 0% 100%, rgba(165,243,252,.08), transparent 60%),
+      var(--surface);
+    border-color: rgba(196,181,253,.25);
+  }
+  .tier.brilliant .checks li::before { background-color: rgba(196,181,253,.14); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d9cffe' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+  .tier.brilliant .btn-primary { background: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; color: #1b1330; box-shadow: 0 12px 40px -12px rgba(196,181,253,.6), inset 0 1px 0 rgba(255,255,255,.5); }
+  .ribbon {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    padding: 7px 16px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+    background: var(--gold); color: #2a1d05; box-shadow: 0 10px 30px -10px rgba(229,184,79,.8);
+  }
+  .pricing-foot { text-align: center; color: var(--muted); font-size: 15px; margin-top: 40px; }
+  .pricing-foot a { color: var(--accent-2); font-weight: 700; border-bottom: 1px solid rgba(243,180,110,.4); }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+  .faq-list { display: grid; gap: 12px; }
+  details { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); transition: border-color .25s, background .25s; }
+  details[open] { border-color: var(--line-2); background: var(--surface-2); }
+  summary { list-style: none; cursor: pointer; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 700; font-size: 17px; }
+  summary::-webkit-details-marker { display: none; }
+  summary .pm { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-2); position: relative; transition: transform .3s ease, background .3s; }
+  summary .pm::before, summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.6px; background: var(--text); transform: translate(-50%, -50%); border-radius: 2px; }
+  summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s ease; }
+  details[open] summary .pm { background: var(--accent); border-color: var(--accent); }
+  details[open] summary .pm::before, details[open] summary .pm::after { background: var(--accent-ink); }
+  details[open] summary .pm::after { transform: translate(-50%, -50%) rotate(0deg); }
+  details p { margin: 0; padding: 0 24px 24px; color: var(--muted); font-size: 16px; }
+
+  /* Apply */
+  .apply-box {
+    position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px;
+    padding: 64px; border-radius: 34px; overflow: hidden;
+    border: 1px solid rgba(232,119,74,.3);
+    background:
+      radial-gradient(80% 90% at 0% 0%, rgba(232,119,74,.22), transparent 60%),
+      radial-gradient(60% 70% at 100% 100%, rgba(243,180,110,.10), transparent 60%),
+      var(--surface);
+  }
+  .apply-box h2 { max-width: 14ch; }
+  .apply-points { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 18px; }
+  .apply-points li { display: flex; gap: 14px; align-items: center; color: #ddd5cb; }
+  .apply-points .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--accent-2); }
+  .apply-points .ic svg { width: 20px; height: 20px; }
+  form { display: grid; gap: 16px; align-content: start; }
+  .field { display: grid; gap: 8px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { font-size: 14px; font-weight: 700; color: #ddd5cb; }
+  label .opt { color: var(--dim); font-weight: 600; }
+  input, select, textarea {
+    width: 100%; padding: 15px 16px; border-radius: 14px;
+    background: rgba(12,11,10,.65); border: 1px solid var(--line-2);
+    font-size: 16px; transition: border-color .2s, background .2s, box-shadow .2s;
+  }
+  input::placeholder, textarea::placeholder { color: var(--dim); }
+  input:hover, select:hover, textarea:hover { border-color: rgba(255,240,225,.24); }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(232,119,74,.15); }
+  select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a69d92' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
+  select option { background: #1e1b17; }
+  textarea { min-height: 110px; resize: vertical; }
+  .tier-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tier-pick input { position: absolute; opacity: 0; pointer-events: none; }
+  .tier-pick label {
+    cursor: pointer; text-align: center; padding: 14px 8px; border-radius: 14px; border: 1px solid var(--line-2);
+    background: rgba(12,11,10,.65); transition: border-color .2s, background .2s, transform .2s; display: grid; gap: 2px;
+  }
+  .tier-pick label b { font-family: var(--display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  .tier-pick label span { color: var(--muted); font-weight: 600; font-size: 14px; }
+  .tier-pick input:checked + label { border-color: var(--accent); background: rgba(232,119,74,.12); }
+  .tier-pick input:focus-visible + label { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .form-note { color: var(--dim); font-size: 13px; text-align: center; margin: 4px 0 0; }
+  .form-error { color: #ff9d85; font-size: 14px; display: none; }
+  .form-error.on { display: block; }
+  .success { display: none; text-align: center; padding: 40px 10px; align-content: center; }
+  .success.on { display: grid; justify-items: center; }
+  .success .ic { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; background: rgba(122,209,154,.14); color: var(--ok); margin-bottom: 24px; }
+  .success .ic svg { width: 34px; height: 34px; }
+  .success h3 { font-size: 26px; }
+  .success p { color: var(--muted); margin: 14px 0 0; max-width: 36ch; }
+  .demo-flag { display: none; margin-top: 18px; font-size: 13px; color: var(--accent-2); border: 1px dashed rgba(243,180,110,.45); border-radius: 12px; padding: 10px 14px; }
+  .demo-flag.on { display: block; }
+
+  /* Footer */
+  footer { padding: 56px 0 40px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  footer p { color: var(--dim); font-size: 14px; margin: 0; }
+  footer nav { display: flex; gap: 26px; font-size: 14px; font-weight: 600; color: var(--muted); flex-wrap: wrap; }
+  footer nav a:hover { color: var(--text); }
+
+  /* Mobile sticky CTA */
+  .m-cta { display: none; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; } .d5 { transition-delay: .40s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal, .term-line, .float-card { opacity: 1; transform: none; }
+  }
+
+  /* Responsive */
+  @media (max-width: 1080px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 80px; }
+    .stage { max-width: 600px; margin: 0 auto; width: 100%; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .tiers { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 30px; }
+    .why-grid, .mentor, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+    .portrait { max-width: 460px; }
+    .apply-box { grid-template-columns: 1fr; padding: 44px; gap: 40px; }
+  }
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 84px 0; }
+    .nav-links { display: none; }
+    .nav .wrap { height: 66px; }
+    .nav .btn { padding: 10px 16px; font-size: 14px; }
+    .logo { font-size: 15px; }
+    .hero { padding: 124px 0 80px; }
+    .hero-cta .btn { flex: 1 1 100%; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .hero-stats div { padding-right: 10px; margin-right: 10px; }
+    .hero-stats strong { font-size: 21px; }
+    .hero-stats span { font-size: 12.5px; line-height: 1.35; display: block; margin-top: 4px; }
+    .pill { font-size: 13px; }
+    .pill b { display: none; }
+    .terminal { transform: none; }
+    .term-body { font-size: 12.5px; padding: 18px; min-height: 300px; }
+    .float-card { left: 8px; right: 8px; width: auto; bottom: -56px; }
+    .float-chip { right: 8px; }
+    .cards, .aud, .steps { grid-template-columns: 1fr; }
+    .compare-row { grid-template-columns: 1fr; gap: 8px; }
+    .compare-row + .compare-row { margin-top: 10px; }
+    .aud-card { padding: 30px 24px; }
+    .card { padding: 26px 24px; }
+    .mentor-facts { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .fact { padding: 16px 14px; }
+    .fact strong { font-size: 22px; }
+    .fact span { font-size: 12.5px; }
+    .tier { padding: 30px 24px 26px; }
+    .apply-box { padding: 30px 20px; border-radius: 26px; }
+    .field-row { grid-template-columns: 1fr; }
+    .tier-pick label { padding: 12px 4px; }
+    .tier-pick label b { font-size: 11px; }
+    footer .wrap { flex-direction: column; align-items: flex-start; }
+    .m-cta {
+      display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+      transform: translateY(140%); transition: transform .35s ease;
+    }
+    .m-cta.on { transform: none; }
+    .m-cta .btn { width: 100%; box-shadow: 0 20px 50px -10px rgba(0,0,0,.8), 0 10px 40px -10px rgba(232,119,74,.65); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="theusmondigital bosh sahifa">
+      <span class="logo-mark">U</span>
+      <span>theusmon<em>digital</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Asosiy menyu">
+      <a href="#dastur">Dastur</a>
+      <a href="#mentor">Mentor</a>
+      <a href="#tariflar">Tariflar</a>
+      <a href="#savollar">Savollar</a>
+    </nav>
+    <a href="#ariza" class="btn btn-primary">Ariza qoldirish</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="pill reveal"><span class="dot"></span> Yakka mentorlik · Onlayn <b>QABUL OCHIQ</b></span>
+      <h1 class="reveal d1">Claude AI bilan dasturlashni o‘rganing va <span class="grad">bizneslarni avtomatlashtirib</span> daromad qiling</h1>
+      <p class="lead reveal d2">5 yillik tajribaga ega AI engineer Usmon bilan yakkama-yakka ishlaysiz. Noldan boshlab real loyihalar qurasiz, keyin bu ko‘nikmani pulli xizmatga aylantirasiz.</p>
+      <div class="hero-cta reveal d3">
+        <a href="#ariza" class="btn btn-primary">Ariza qoldirish
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#tariflar" class="btn btn-ghost">Tariflarni ko‘rish</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div><strong>5+ yil</strong><span>dasturlash va AI tajribasi</span></div>
+        <div><strong>1 : 1</strong><span>faqat yakka tartibda</span></div>
+        <div><strong>100%</strong><span>onlayn, istalgan joydan</span></div>
+      </div>
+    </div>
+
+    <div class="stage reveal d2" aria-hidden="true">
+      <div class="float-chip">Claude AI ✦</div>
+      <div class="terminal">
+        <div class="term-bar"><i></i><i></i><i></i><span>~/biznes-avtomatlashtirish</span></div>
+        <div class="term-body" id="term">
+          <div class="term-line"><span class="term-prompt">❯ claude</span></div>
+          <div class="term-line"><span class="term-muted">› </span><span class="term-user" id="typed"></span><span class="caret" id="caret"></span></div>
+          <div class="term-line">&nbsp;</div>
+          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">bot.py yaratildi</span></div>
+          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Telegram API ulandi</span></div>
+          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Google Sheets bilan sinxronlandi</span></div>
+          <div class="term-line"><span class="term-ok">✓</span> <span class="term-muted">Testlar o‘tdi (12/12)</span></div>
+          <div class="term-line">&nbsp;</div>
+          <div class="term-line"><span class="term-prompt">●</span> Bot ishga tushdi. Vaqt: <span class="term-ok">4 daqiqa</span></div>
+        </div>
+      </div>
+      <div class="float-card" id="floatCard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div>
+        <div><b>Yangi buyurtma #1042</b><small>Avtomatik Sheets’ga yozildi</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STRIP ====== -->
+<div class="strip" aria-hidden="true">
+  <div class="marquee">
+    <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
+    <span>Claude AI</span><span>Claude Code</span><span>Telegram botlar</span><span>Google Sheets</span><span>CRM integratsiya</span><span>AI agentlar</span><span>API &amp; Webhook</span><span>Biznes avtomatlashtirish</span>
+  </div>
+</div>
+
+<!-- ====== WHY ====== -->
+<section>
+  <div class="wrap why-grid">
+    <div>
+      <span class="eyebrow reveal">Nega aynan hozir</span>
+      <h2 class="reveal d1">Kod yozishning qoidalari <span class="grad">o‘zgardi</span></h2>
+      <p class="lead reveal d2">Ilgari dasturchi bo‘lish uchun yillar kerak edi. Bugun Claude AI kodni siz bilan birga yozadi. Sizdan esa muammoni to‘g‘ri tushunish, AI’ni boshqarish va natijani biznesga sotish talab qilinadi. Aynan shuni o‘rgataman.</p>
+      <p class="lead reveal d3">Har bir biznesda takrorlanadigan qo‘l mehnati bor: buyurtmalarni yozish, mijozlarga javob berish, hisobot tayyorlash. Buni avtomatlashtira oladigan odamga talab katta.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-row reveal d1">
+        <div class="compare-cell old"><small>Eski yo‘l</small>Yillab sintaksis yodlash</div>
+        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Claude bilan birinchi haftadan ishlaydigan loyiha</div>
+      </div>
+      <div class="compare-row reveal d2">
+        <div class="compare-cell old"><small>Eski yo‘l</small>Video kurslar, savolga javob yo‘q</div>
+        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Mentor bilan yakkama-yakka, jonli muloqot</div>
+      </div>
+      <div class="compare-row reveal d3">
+        <div class="compare-cell old"><small>Eski yo‘l</small>“O‘quv” loyihalar, real hayotdan uzoq</div>
+        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Real biznes muammolarini avtomatlashtirish</div>
+      </div>
+      <div class="compare-row reveal d4">
+        <div class="compare-cell old"><small>Eski yo‘l</small>Bilim bor, daromad yo‘q</div>
+        <div class="compare-cell new"><small>Siz o‘rganadigan yo‘l</small>Xizmatni narxlash va birinchi mijozni topish</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHAT YOU LEARN ====== -->
+<section id="dastur" style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Nimani o‘rganasiz</span>
+        <h2 class="reveal d1">Noldan pulli xizmatgacha</h2>
+      </div>
+      <p class="lead reveal d2">Dastur sizning darajangiz va maqsadingizga moslashtiriladi. Asosiy yo‘nalishlar quyidagicha:</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="num">01</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div>
+        <h3>Claude AI va Claude Code asoslari</h3>
+        <p>Claude bilan to‘g‘ri ishlash, aniq vazifa (prompt) yozish va AI yordamida kod yaratish, tushunish hamda tuzatish.</p>
+      </article>
+      <article class="card reveal d1">
+        <span class="num">02</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Dasturlash poydevori</h3>
+        <p>Kod qanday ishlashini tushunish: o‘zgaruvchilar, funksiyalar, API, ma’lumotlar bazasi. AI yozgan kodni nazorat qila olish uchun.</p>
+      </article>
+      <article class="card reveal d2">
+        <span class="num">03</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M10 13l4-4"/></svg></div>
+        <h3>Telegram botlar</h3>
+        <p>Buyurtma qabul qiladigan, mijozlarga javob beradigan va xabarnoma yuboradigan botlarni yaratish va serverga joylash.</p>
+      </article>
+      <article class="card reveal">
+        <span class="num">04</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h5a4 4 0 014 4v5M6 9v9"/></svg></div>
+        <h3>Biznes jarayonlarini avtomatlashtirish</h3>
+        <p>Google Sheets, CRM, to‘lov tizimlari va boshqa servislarni bir-biriga ulab, qo‘l mehnatini yo‘qotish.</p>
+      </article>
+      <article class="card reveal d1">
+        <span class="num">05</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M9 17h6"/></svg></div>
+        <h3>AI agentlar</h3>
+        <p>Biznes uchun mustaqil ishlaydigan AI yordamchilar: mijozlar bilan suhbat, hujjatlarni tahlil qilish, hisobotlar.</p>
+      </article>
+      <article class="card reveal d2">
+        <span class="num">06</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Xizmatni sotish</h3>
+        <p>Portfolio yig‘ish, xizmatni to‘g‘ri narxlash, birinchi mijozni topish va u bilan ishlash.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AUDIENCE ====== -->
+<section style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Kimlar uchun</span>
+        <h2 class="reveal d1">Bu mentorlik aynan siz uchun, agar…</h2>
+      </div>
+    </div>
+    <div class="aud">
+      <div class="aud-card reveal">
+        <span class="aud-tag">Yangi boshlovchilar</span>
+        <h3>Dasturlashni noldan boshlamoqchisiz</h3>
+        <ul class="checks">
+          <li>Hech qachon kod yozmagansiz, lekin IT sohasiga kirishni xohlaysiz</li>
+          <li>Videodarslardan boshlab, yarim yo‘lda to‘xtab qolgansiz</li>
+          <li>Har bir savolingizga javob beradigan shaxsiy mentor kerak</li>
+          <li>Eng zamonaviy usul, ya’ni AI bilan dasturlashni o‘rganmoqchisiz</li>
+        </ul>
+      </div>
+      <div class="aud-card hl reveal d1">
+        <span class="aud-tag">Daromadini oshirmoqchilar</span>
+        <h3>Yangi daromad manbai qidiryapsiz</h3>
+        <ul class="checks">
+          <li>Asosiy ishingiz bor, lekin qo‘shimcha daromad xohlaysiz</li>
+          <li>Biznesingiz bor va uni avtomatlashtirib vaqt tejamoqchisiz</li>
+          <li>Freelance’da AI avtomatlashtirish xizmatini sotmoqchisiz</li>
+          <li>Kasbingizni AI davriga moslashtirib, qadringizni oshirmoqchisiz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== HOW IT WORKS ====== -->
+<section style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Qanday ishlaydi</span>
+        <h2 class="reveal d1">Arizadan natijagacha 4 qadam</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">1</div><h3>Ariza qoldirasiz</h3><p>Formani to‘ldirasiz. Bir daqiqa ham ketmaydi.</p></div>
+      <div class="step reveal d1"><div class="step-n">2</div><h3>Tanishuv suhbati</h3><p>Siz bilan bog‘lanib, maqsadingiz va darajangizni aniqlaymiz.</p></div>
+      <div class="step reveal d2"><div class="step-n">3</div><h3>Shaxsiy reja</h3><p>Aynan sizning maqsadingizga mos o‘quv rejasi tuziladi.</p></div>
+      <div class="step reveal d3"><div class="step-n">4</div><h3>Mentorlik va natija</h3><p>Yakka darslar, real loyihalar va doimiy qo‘llab-quvvatlash.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MENTOR ====== -->
+<section id="mentor" style="padding-top: 40px;">
+  <div class="wrap mentor">
+    <div class="portrait reveal">
+      <!-- Rasm qo‘shish uchun: <img src="usmon.jpg" alt="Usmon"> qatorini shu yerga qo‘ying -->
+      <div class="mono" aria-hidden="true">U</div>
+      <div class="badge">
+        <div><b>Usmon</b><small>Dasturchi va AI engineer</small></div>
+        <span class="live"><span class="dot"></span>Mentor</span>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow reveal">Mentoringiz</span>
+      <h2 class="reveal d1">Salom, men <span class="grad">Usmon</span></h2>
+      <p class="lead reveal d2">Men 5 yildan beri dasturchi va AI engineer bo‘lib ishlayman. Shu vaqt ichida ko‘plab taniqli brendlar bilan ishladim va ularning jarayonlarini AI yordamida avtomatlashtirdim.</p>
+      <p class="lead reveal d3">Endi bu tajribani sizga o‘rgataman. Nazariya emas, real loyihalarda ishlatiladigan usullarni. Har bir o‘quvchim bilan yakka ishlayman, shuning uchun siz o‘z sur’atingizda va o‘z maqsadingiz sari harakat qilasiz.</p>
+      <div class="mentor-facts">
+        <div class="fact reveal d2"><strong>5+</strong><span>yillik amaliy tajriba</span></div>
+        <div class="fact reveal d3"><strong>AI</strong><span>engineer va dasturchi</span></div>
+        <div class="fact reveal d4"><strong>Top</strong><span>taniqli brendlar bilan ish</span></div>
+      </div>
+      <blockquote class="quote reveal d4">“Maqsadim siz dasturlashni o‘rganishingiz emas, balki bu bilim bilan daromad qila boshlashingiz.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRICING ====== -->
+<section id="tariflar" class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow reveal">Tariflar</span>
+      <h2 class="reveal d1">O‘zingizga mos yo‘lni tanlang</h2>
+      <p class="lead reveal d2">Barcha tariflarda darslar yakka tartibda va onlayn o‘tadi. Farqi chuqurlik, davomiylik va qo‘llab-quvvatlash darajasida.</p>
+    </div>
+
+    <div class="tiers">
+      <!-- SILVER -->
+      <article class="tier silver reveal">
+        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f5f8"/><stop offset=".5" stop-color="#9aa2ad"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs>
+          <circle cx="24" cy="24" r="18" fill="none" stroke="url(#gs)" stroke-width="2.5"/>
+          <circle cx="24" cy="24" r="9" fill="url(#gs)" opacity=".9"/>
+        </svg>
+        <div class="tier-name">Silver</div>
+        <p class="tier-sub">Claude AI bilan dasturlashga ishonchli start</p>
+        <div class="price"><sup>$</sup><strong>150</strong></div>
+        <div class="price-note">bir martalik to‘lov</div>
+        <div class="tier-meta"><span>1 oy</span><span>4 ta yakka dars</span></div>
+        <hr>
+        <ul class="checks">
+          <li>Haftasiga 1 marta, 60 daqiqalik yakka dars</li>
+          <li>Claude AI va Claude Code bilan ishlash asoslari</li>
+          <li>To‘g‘ri prompt yozish va AI bilan kod yaratish</li>
+          <li>1 ta amaliy loyiha: o‘z Telegram botingiz</li>
+          <li>Barcha darslar yozuvi</li>
+          <li>Kurs davomida Telegram orqali savol-javob</li>
+        </ul>
+        <a href="#ariza" class="btn btn-ghost" data-tier="silver">Silver’ni tanlash</a>
+      </article>
+
+      <!-- GOLD -->
+      <article class="tier gold reveal d1">
+        <span class="ribbon">Eng ko‘p tanlanadi</span>
+        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c1"/><stop offset=".45" stop-color="#e5b84f"/><stop offset="1" stop-color="#b9862b"/></linearGradient></defs>
+          <path d="M24 5l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L24 33.7 12.8 39.6l2.1-12.5-9.1-8.9 12.6-1.8z" fill="url(#gg)"/>
+        </svg>
+        <div class="tier-name">Gold</div>
+        <p class="tier-sub">Bilimni daromadga aylantirish uchun to‘liq dastur</p>
+        <div class="price"><sup>$</sup><strong>250</strong></div>
+        <div class="price-note">bir martalik to‘lov</div>
+        <div class="tier-meta"><span>2 oy</span><span>8 ta yakka dars</span></div>
+        <hr>
+        <ul class="checks">
+          <li class="plus">Silver tarifidagi hamma narsa</li>
+          <li>Biznes jarayonlarini avtomatlashtirish: Google Sheets, CRM, to‘lovlar</li>
+          <li>API va webhook’lar bilan ishlash</li>
+          <li>3 ta real portfolio loyiha</li>
+          <li>Xizmatni narxlash va birinchi mijozni topish strategiyasi</li>
+          <li>Uy vazifalarini tekshirish va batafsil fikr-mulohaza</li>
+          <li>theusmondigital sertifikati</li>
+        </ul>
+        <a href="#ariza" class="btn btn-primary" data-tier="gold">Gold’ni tanlash</a>
+      </article>
+
+      <!-- BRILLIANT -->
+      <article class="tier brilliant reveal d2">
+        <svg class="tier-gem" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a5f3fc"/><stop offset=".35" stop-color="#c4b5fd"/><stop offset=".7" stop-color="#f9a8d4"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs>
+          <path d="M14 8h20l9 11-19 22L5 19z" fill="url(#gb)"/>
+          <path d="M5 19h38M14 8l10 33M34 8L24 41M19 19l5-11 5 11" fill="none" stroke="#1b1330" stroke-opacity=".35" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+        <div class="tier-name">Brilliant</div>
+        <p class="tier-sub">Natijaga qadar shaxsiy hamrohlik</p>
+        <div class="price"><sup>$</sup><strong>500</strong></div>
+        <div class="price-note">bir martalik to‘lov</div>
+        <div class="tier-meta"><span>3 oy</span><span>12 ta yakka dars</span></div>
+        <hr>
+        <ul class="checks">
+          <li class="plus">Gold tarifidagi hamma narsa</li>
+          <li>AI agentlar va murakkab integratsiyalar</li>
+          <li>Real mijoz loyihasini mentor bilan birga bajarish</li>
+          <li>Shaxsiy rivojlanish va daromad rejasi</li>
+          <li>Kodingizni cheksiz tekshirish (code review)</li>
+          <li>Savollarga ustuvor javob</li>
+          <li>Mentorlik tugaganidan keyin 1 oy qo‘llab-quvvatlash</li>
+        </ul>
+        <a href="#ariza" class="btn btn-primary" data-tier="brilliant">Brilliant’ni tanlash</a>
+      </article>
+    </div>
+
+    <p class="pricing-foot reveal">Qaysi tarif mos kelishini bilmayapsizmi? <a href="#ariza">Ariza qoldiring</a>, tanishuv suhbatida birga tanlaymiz.</p>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section id="savollar">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow reveal">Savol-javob</span>
+      <h2 class="reveal d1">Ko‘p beriladigan savollar</h2>
+      <p class="lead reveal d2">Javobini topa olmagan savolingizni arizada yozib qoldiring. Shaxsan javob beraman.</p>
+    </div>
+    <div class="faq-list">
+      <details class="reveal">
+        <summary>Umuman dasturlashni bilmasam ham bo‘ladimi?<span class="pm"></span></summary>
+        <p>Ha. Mentorlik aynan noldan boshlovchilar uchun ham mo‘ljallangan. Kompyuterdan oddiy foydalana olsangiz yetarli. Qolganini birga, qadamma-qadam o‘rganamiz.</p>
+      </details>
+      <details class="reveal d1">
+        <summary>Darslar qanday o‘tadi?<span class="pm"></span></summary>
+        <p>Barcha darslar onlayn, video qo‘ng‘iroq orqali, yakkama-yakka o‘tadi. Ekranni ulashib, kodni birga yozamiz. Dars vaqti sizning jadvalingizga moslashtiriladi.</p>
+      </details>
+      <details class="reveal d2">
+        <summary>Qaysi tarifni tanlashim kerak?<span class="pm"></span></summary>
+        <p>Sinab ko‘rmoqchi bo‘lsangiz, Silver yaxshi start. Daromad qilishni maqsad qilgan bo‘lsangiz, Gold eng muvozanatli tanlov. Natijaga to‘liq hamrohlik kerak bo‘lsa, Brilliant. Ikkilansangiz, tanishuv suhbatida birga hal qilamiz.</p>
+      </details>
+      <details class="reveal d3">
+        <summary>Qanday kompyuter kerak?<span class="pm"></span></summary>
+        <p>Internetga ulangan har qanday zamonaviy noutbuk yoki kompyuter (Windows yoki macOS) yetarli. Kerakli dasturlarni birinchi darsda birga o‘rnatamiz.</p>
+      </details>
+      <details class="reveal d4">
+        <summary>Claude AI uchun alohida to‘lov kerakmi?<span class="pm"></span></summary>
+        <p>Claude’ning bepul versiyasi bilan ham boshlash mumkin. Ba’zi vositalar uchun pullik obuna kerak bo‘lishi mumkin. Qachon va nima uchun kerakligini darsda aniq tushuntiraman.</p>
+      </details>
+      <details class="reveal d5">
+        <summary>To‘lov qanday amalga oshiriladi?<span class="pm"></span></summary>
+        <p>Ariza qoldirganingizdan so‘ng siz bilan bog‘lanamiz, tanishuv suhbatidan keyin qulay to‘lov usulini kelishib olamiz.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====== APPLY ====== -->
+<section id="ariza" style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="apply-box">
+      <div>
+        <span class="eyebrow reveal">Ariza</span>
+        <h2 class="reveal d1">Birinchi qadamni <span class="grad">bugun</span> qo‘ying</h2>
+        <p class="lead reveal d2">Formani to‘ldiring, siz bilan bog‘lanib, maqsadingizni muhokama qilamiz va mos tarifni tanlaymiz.</p>
+        <ul class="apply-points">
+          <li class="reveal d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Tez orada siz bilan bog‘lanamiz</li>
+          <li class="reveal d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Tanishuv suhbati bepul va hech narsaga majburlamaydi</li>
+          <li class="reveal d4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>Ma’lumotlaringiz uchinchi shaxslarga berilmaydi</li>
+        </ul>
+      </div>
+
+      <div>
+        <form id="applyForm" novalidate>
+          <div class="field">
+            <label for="f-name">Ismingiz</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Masalan: Aziz" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Telefon raqam</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67" required>
+            </div>
+            <div class="field">
+              <label for="f-tg">Telegram <span class="opt">(ixtiyoriy)</span></label>
+              <input id="f-tg" name="telegram" type="text" placeholder="@username">
+            </div>
+          </div>
+          <div class="field">
+            <label id="tier-label">Qiziqtirgan tarif</label>
+            <div class="tier-pick" role="radiogroup" aria-labelledby="tier-label">
+              <input type="radio" name="tier" id="t-silver" value="Silver ($150)"><label for="t-silver"><b>Silver</b><span>$150</span></label>
+              <input type="radio" name="tier" id="t-gold" value="Gold ($250)" checked><label for="t-gold"><b>Gold</b><span>$250</span></label>
+              <input type="radio" name="tier" id="t-brilliant" value="Brilliant ($500)"><label for="t-brilliant"><b>Brilliant</b><span>$500</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-level">Dasturlash bo‘yicha darajangiz</label>
+            <select id="f-level" name="level">
+              <option>Umuman bilmayman, noldan boshlayman</option>
+              <option>Ozgina tajribam bor</option>
+              <option>Dasturchiman, AI’ni o‘rganmoqchiman</option>
+              <option>Biznes egasiman, jarayonlarni avtomatlashtirmoqchiman</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-goal">Maqsadingiz <span class="opt">(ixtiyoriy)</span></label>
+            <textarea id="f-goal" name="goal" placeholder="Nimaga erishmoqchisiz? Masalan: freelance’da avtomatlashtirish xizmatini sotmoqchiman"></textarea>
+          </div>
+          <p class="form-error" id="formError" role="alert"></p>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Ariza yuborish
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-note">Tugmani bosish orqali siz bilan bog‘lanishimizga rozilik bildirasiz.</p>
+        </form>
+
+        <div class="success" id="success" role="status" aria-live="polite">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>Arizangiz qabul qilindi!</h3>
+          <p>Rahmat. Tez orada siz bilan bog‘lanamiz. Telefoningiz va Telegram’ingizni kuzatib turing.</p>
+          <p class="demo-flag" id="demoFlag">Demo rejim: forma hali ariza qabul qiluvchi servisga ulanmagan, ma’lumot hech qayerga yuborilmadi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="logo-mark">U</span><span>theusmon<em>digital</em></span></a>
+    <nav aria-label="Pastki menyu">
+      <a href="#dastur">Dastur</a>
+      <a href="#mentor">Mentor</a>
+      <a href="#tariflar">Tariflar</a>
+      <a href="#savollar">Savollar</a>
+      <a href="#ariza">Ariza</a>
+    </nav>
+    <p>© <span id="year">2026</span> theusmondigital. Barcha huquqlar himoyalangan.</p>
+  </div>
+</footer>
+
+<div class="m-cta" id="mCta"><a href="#ariza" class="btn btn-primary">Ariza qoldirish</a></div>
+
+<script>
+  /* ================= SOZLAMALAR =================
+     Arizalar qayerga borishini shu yerda belgilang.
+     Masalan, formspree.io'da bepul forma ochib, uning manzilini qo'ying:
+     const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxx";
+     Bo'sh qolsa, forma demo rejimda ishlaydi (hech narsa yuborilmaydi). */
+  const FORM_ENDPOINT = "";
+
+  (function () {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Nav background + mobile CTA
+    const nav = document.getElementById("nav");
+    const mCta = document.getElementById("mCta");
+    const apply = document.getElementById("ariza");
+    let applyVisible = false;
+    const onScroll = () => {
+      const y = window.scrollY;
+      nav.classList.toggle("scrolled", y > 20);
+      mCta.classList.toggle("on", y > 600 && !applyVisible);
+    };
+    new IntersectionObserver(([e]) => { applyVisible = e.isIntersecting; onScroll(); }, { threshold: 0.1 }).observe(apply);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    // Card spotlight
+    document.querySelectorAll(".card").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+
+    // Terminal animation
+    const lines = Array.from(document.querySelectorAll("#term .term-line"));
+    const typed = document.getElementById("typed");
+    const caret = document.getElementById("caret");
+    const card = document.getElementById("floatCard");
+    const text = "Do‘konim uchun buyurtmalarni Google Sheets’ga yozadigan Telegram bot yarat";
+    function runTerminal() {
+      if (reduce) {
+        lines.forEach((l) => l.classList.add("on"));
+        typed.textContent = text; caret.style.display = "none"; card.classList.add("on");
+        return;
+      }
+      lines[0].classList.add("on");
+      setTimeout(() => {
+        lines[1].classList.add("on");
+        let i = 0;
+        const t = setInterval(() => {
+          typed.textContent = text.slice(0, ++i);
+          if (i >= text.length) {
+            clearInterval(t);
+            caret.style.display = "none";
+            lines.slice(2).forEach((l, k) => setTimeout(() => l.classList.add("on"), 380 * (k + 1)));
+            setTimeout(() => card.classList.add("on"), 380 * (lines.length - 1) + 300);
+          }
+        }, 32);
+      }, 600);
+    }
+    setTimeout(runTerminal, 700);
+
+    // Preselect tier from pricing buttons
+    document.querySelectorAll("[data-tier]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const r = document.getElementById("t-" + btn.dataset.tier);
+        if (r) r.checked = true;
+      });
+    });
+
+    // Form
+    const form = document.getElementById("applyForm");
+    const err = document.getElementById("formError");
+    const btn = document.getElementById("submitBtn");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.classList.remove("on");
+      const data = Object.fromEntries(new FormData(form).entries());
+      const phoneDigits = (data.phone || "").replace(/\D/g, "");
+      if (!data.name.trim()) return showError("Iltimos, ismingizni kiriting.", "f-name");
+      if (phoneDigits.length < 9) return showError("Iltimos, telefon raqamingizni to‘liq kiriting.", "f-phone");
+
+      btn.disabled = true; btn.style.opacity = ".7"; btn.firstChild.textContent = "Yuborilmoqda… ";
+      try {
+        if (FORM_ENDPOINT) {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(data)
+          });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+        } else {
+          document.getElementById("demoFlag").classList.add("on");
+        }
+        form.style.display = "none";
+        document.getElementById("success").classList.add("on");
+      } catch (_) {
+        showError("Yuborishda xatolik yuz berdi. Iltimos, birozdan keyin qayta urinib ko‘ring.");
+      } finally {
+        btn.disabled = false; btn.style.opacity = ""; btn.firstChild.textContent = "Ariza yuborish ";
+      }
+    });
+    function showError(msg, focusId) {
+      err.textContent = msg; err.classList.add("on");
+      if (focusId) document.getElementById(focusId).focus();
+    }
+  })();
+</script>
+</body>
+</html>
