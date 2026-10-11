@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tariflar — theusmondigital Telegram bot xizmatlari</title>
+<meta name="description" content="Telegram bot tariflari: Boshlang‘ich $250, Biznes $400, To‘liq $600.">
+<meta name="theme-color" content="#070504">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070504;
+    --surface: #120b09;
+    --surface-2: #1a0f0b;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-2: rgba(255, 255, 255, 0.14);
+    --text: #ffffff;
+    --soft: #e9e2de;
+    --muted: #a8988f;
+    --dim: #6e605a;
+    --fire: #ff5a1f;
+    --fire-2: #ff8a3d;
+    --glow: rgba(255, 90, 31, 0.55);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Poppins", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  svg { display: block; }
+
+  /* ---------- Shared pieces ---------- */
+  .bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .bg::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 25%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 25%, transparent 80%); }
+  .bg::after { content: ""; position: absolute; width: 900px; height: 900px; right: -360px; top: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.32), transparent 70%); }
+  .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 20px; }
+  .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--fire); font-weight: 800; box-shadow: 0 8px 24px -10px var(--glow); }
+  .logo b { color: var(--fire); font-weight: 600; }
+  .tag { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 7px; background: var(--fire); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; box-shadow: 0 8px 26px -10px var(--glow); white-space: nowrap; }
+  .tag.ghost { background: rgba(255,90,31,.12); color: var(--fire-2); border: 1px solid rgba(255,90,31,.35); box-shadow: none; }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--soft); }
+  .checks li::before { content: ""; flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: var(--fire) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat; }
+  .checks li.plus { color: #fff; font-weight: 700; }
+  .checks li.plus::before { background-color: transparent; border: 2px solid var(--fire); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E"); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 18px 15px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; white-space: nowrap; transition: transform .2s, box-shadow .2s, background .2s, border-color .2s; }
+  .btn .arr { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.2); }
+  .btn .arr svg { width: 15px; height: 15px; }
+  .btn-fire { background: var(--fire); color: #fff; box-shadow: 0 14px 40px -12px var(--glow); }
+  .btn-fire:hover { transform: translateY(-2px); background: #ff6a32; }
+  .btn-ghost { border: 1px solid var(--line-2); background: rgba(255,255,255,.03); }
+  .btn-ghost .arr { background: var(--fire); }
+  .btn-ghost:hover { border-color: rgba(255,90,31,.6); }
+  .btn:focus-visible, a:focus-visible { outline: 2px solid var(--fire-2); outline-offset: 3px; }
+
+  /* ---------- Page mode ---------- */
+  .page { position: relative; min-height: 100vh; padding: 40px 24px 80px; }
+  .wrap { position: relative; max-width: 1180px; margin: 0 auto; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .head { text-align: center; margin: 70px auto 60px; max-width: 760px; }
+  .head h1 { margin: 20px 0 0; font-size: clamp(36px, 5.4vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .head h1 span { color: var(--fire); }
+  .head p { color: var(--muted); font-size: 18px; margin: 18px 0 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  .card { position: relative; display: flex; flex-direction: column; padding: 38px 30px 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+  .card.hot { border: 1.5px solid var(--fire); background: radial-gradient(100% 55% at 50% 0%, rgba(255,90,31,.22), transparent 65%), var(--surface-2); box-shadow: 0 40px 100px -40px rgba(255,90,31,.55); }
+  .card .best { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); }
+  .card .num { color: var(--dim); font-weight: 700; font-size: 14px; letter-spacing: .1em; }
+  .card h2 { margin: 6px 0 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+  .card .sub { color: var(--muted); margin: 6px 0 0; font-size: 15px; min-height: 46px; }
+  .card .price { margin-top: 22px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: 72px; }
+  .card .price sup { font-size: 30px; color: var(--fire); vertical-align: top; position: relative; top: 10px; margin-right: 2px; }
+  .card .once { color: var(--dim); font-size: 14px; margin-top: 10px; }
+  .card hr { border: 0; height: 1px; background: var(--line); margin: 24px 0; }
+  .card .checks { margin-bottom: 30px; font-size: 15.5px; }
+  .card .actions { margin-top: auto; display: grid; gap: 10px; }
+  .card .btn { width: 100%; }
+  .note { text-align: center; color: var(--muted); margin-top: 44px; font-size: 15px; }
+  .note a { color: var(--fire); font-weight: 600; }
+
+  @media (max-width: 1000px) { .cards { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 34px; } .card .sub { min-height: 0; } }
+  @media (max-width: 600px) { .page { padding: 24px 16px 60px; } .head { margin: 44px auto 44px; } .card { padding: 34px 22px 24px; } .card .price { font-size: 60px; } }
+
+  /* ---------- Poster mode (1080 × 1350, for sharing as an image) ---------- */
+  body.poster-mode { width: 1080px; height: 1350px; overflow: hidden; }
+  .poster { position: relative; width: 1080px; height: 1350px; padding: 72px 80px 70px; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+  .poster.hot { box-shadow: inset 0 0 0 6px var(--fire); }
+  .poster .bg::after { width: 1100px; height: 1100px; right: -420px; top: -460px; }
+  .poster .ribbon { position: absolute; right: -120px; bottom: 150px; width: 600px; opacity: .6; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%); mask-image: linear-gradient(90deg, transparent, #000 45%); }
+  .poster .row { position: relative; display: flex; justify-content: space-between; align-items: center; }
+  .poster .logo { font-size: 26px; gap: 14px; }
+  .poster .logo-mark { width: 52px; height: 52px; border-radius: 12px; font-size: 24px; }
+  .poster .kicker { color: var(--muted); font-size: 20px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .poster .meta { position: relative; display: flex; gap: 14px; margin-top: 70px; }
+  .poster .tag { font-size: 18px; padding: 10px 18px; border-radius: 9px; }
+  .poster h1 { position: relative; margin: 26px 0 0; font-size: 108px; line-height: 1; font-weight: 800; letter-spacing: -0.035em; }
+  .poster .sub { position: relative; color: var(--muted); font-size: 28px; margin: 18px 0 0; }
+  .poster .price { position: relative; margin-top: 34px; font-size: 190px; font-weight: 800; line-height: .9; letter-spacing: -0.05em; color: var(--fire); text-shadow: 0 16px 70px rgba(255,90,31,.45); }
+  .poster .price sup { font-size: 80px; vertical-align: top; position: relative; top: 26px; margin-right: 6px; }
+  .poster .checks { position: relative; margin-top: 54px; gap: 22px; font-size: 30px; line-height: 1.3; }
+  .poster .checks li { gap: 18px; }
+  .poster .checks li::before { width: 38px; height: 38px; margin-top: 0; background-size: 20px; }
+  .poster .foot { position: relative; margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .poster .cta { display: inline-flex; align-items: center; gap: 16px; padding: 20px 22px 20px 36px; border-radius: 999px; background: var(--fire); font-size: 28px; font-weight: 700; box-shadow: 0 20px 60px -16px var(--glow); }
+  .poster .cta .arr { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.22); display: grid; place-items: center; }
+  .poster .cta .arr svg { width: 22px; height: 22px; }
+  .poster .handles { text-align: right; color: var(--soft); font-size: 22px; font-weight: 600; line-height: 1.6; }
+  .poster .handles span { color: var(--fire); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ribbon" viewBox="0 0 900 500">
+      <defs>
+        <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1b1d"/><stop offset=".22" stop-color="#e9e9ec"/><stop offset=".4" stop-color="#4b4b50"/><stop offset=".58" stop-color="#f4f4f6"/><stop offset=".78" stop-color="#2c2c30"/><stop offset="1" stop-color="#cfcfd4"/></linearGradient>
+        <linearGradient id="fireTube" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a1602"/><stop offset=".25" stop-color="#ff7a2f"/><stop offset=".42" stop-color="#ffd2b0"/><stop offset=".58" stop-color="#ff5a1f"/><stop offset=".8" stop-color="#7a2004"/><stop offset="1" stop-color="#ff9a5c"/></linearGradient>
+      </defs>
+      <path d="M0 330 C 140 160, 300 140, 340 280 S 520 470, 640 330 S 760 120, 900 200" fill="none" stroke="url(#chrome)" stroke-width="30" stroke-linecap="round"/>
+      <path d="M0 420 C 200 420, 250 180, 430 190 S 600 420, 740 330 S 850 160, 900 160" fill="none" stroke="url(#fireTube)" stroke-width="36" stroke-linecap="round"/>
+      <path d="M0 411 C 200 411, 250 171, 430 181 S 600 411, 740 321 S 850 151, 900 151" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="app"></div>
+
+<script>
+  // ===== Tariflar — matnni o'zgartirish uchun shu yerni tahrirlang =====
+  const TG_USERNAME = "usmairways";
+  const INSTAGRAM = "theusmondigital";
+  const PLANS = [
+    {
+      id: "boshlangich", name: "Boshlang‘ich", price: 250,
+      sub: "Kichik biznes uchun tez start",
+      items: [
+        "Telegram bot: katalog va buyurtma qabul qilish",
+        "Buyurtma kelganda sizga xabar",
+        "Oddiy dizayn (nomi, rasmi, tugmalari)",
+        "Ishga tushirishda 1 hafta yordam"
+      ]
+    },
+    {
+      id: "biznes", name: "Biznes", price: 400, hot: true,
+      sub: "O‘sib borayotgan biznes uchun",
+      items: [
+        "+Boshlang‘ichdagi hammasi",
+        "Admin panel: mijozlar, buyurtmalar, yetkazib berish",
+        "Kirim-chiqim hisobi",
+        "Brendingizga mos dizayn",
+        "2 hafta yordam"
+      ]
+    },
+    {
+      id: "toliq", name: "To‘liq", price: 600,
+      sub: "Telegram’da to‘liq onlayn do‘kon",
+      items: [
+        "+Biznesdagi hammasi",
+        "Telegram Mini App: chiroyli katalog, savat, buyurtma",
+        "To‘lov (karta va naqd) va joylashuv yuborish",
+        "Mijozlarga avtomatik xabar (aksiya, eslatma)",
+        "1 oy yordam va kichik o‘zgartirishlar"
+      ]
+    }
+  ];
+
+  const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const checks = (items) => '<ul class="checks">' + items.map((t) =>
+    t.startsWith("+") ? '<li class="plus">' + esc(t.slice(1)) + "</li>" : "<li>" + esc(t) + "</li>").join("") + "</ul>";
+  const orderUrl = (p) => "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(
+    "Assalomu alaykum! «" + p.name + "» tarifi ($" + p.price + ") bo‘yicha Telegram bot buyurtma qilmoqchiman.");
+  const logo = '<span class="logo"><span class="logo-mark">U</span><span>theusmon<b>digital</b></span></span>';
+
+  const params = new URLSearchParams(location.search);
+  const posterId = params.get("poster");
+  const app = document.getElementById("app");
+
+  if (posterId) {
+    // Poster mode: one tariff on a 1080×1350 canvas (used to export the PNG images)
+    const i = PLANS.findIndex((p) => p.id === posterId);
+    const p = PLANS[i];
+    document.body.classList.add("poster-mode");
+    app.innerHTML =
+      '<div class="poster' + (p.hot ? " hot" : "") + '">' +
+        '<div class="bg"></div>' +
+        '<svg class="ribbon" viewBox="0 0 900 500" aria-hidden="true"><use href="#ribbon"/></svg>' +
+        '<div class="row">' + logo + '<span class="kicker">Telegram bot xizmati</span></div>' +
+        '<div class="meta"><span class="tag ghost">Tarif 0' + (i + 1) + ' / 03</span>' + (p.hot ? '<span class="tag">🔥 Eng ko‘p tanlanadi</span>' : "") + "</div>" +
+        "<h1>" + esc(p.name) + "</h1>" +
+        '<p class="sub">' + esc(p.sub) + "</p>" +
+        '<div class="price"><sup>$</sup>' + p.price + "</div>" +
+        checks(p.items) +
+        '<div class="foot">' +
+          '<span class="cta">Buyurtma berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></span>' +
+          '<span class="handles">Telegram: <span>@' + TG_USERNAME + '</span><br>Instagram: <span>@' + INSTAGRAM + "</span></span>" +
+        "</div>" +
+      "</div>";
+  } else {
+    // Page mode: all three tariffs side by side
+    app.innerHTML =
+      '<main class="page">' +
+        '<div class="bg"></div>' +
+        '<div class="wrap">' +
+          '<div class="top"><a href="../">' + logo + '</a><a class="btn btn-ghost" href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">Savol berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>' +
+          '<div class="head"><span class="tag">Tariflar</span><h1>Biznesingizga mos <span>Telegram bot</span></h1><p>Uchta aniq tarif. Narx bir martalik, yashirin to‘lovlar yo‘q.</p></div>' +
+          '<div class="cards">' + PLANS.map((p, i) =>
+            '<article class="card' + (p.hot ? " hot" : "") + '" id="' + p.id + '">' +
+              (p.hot ? '<span class="tag best">Eng ko‘p tanlanadi</span>' : "") +
+              '<span class="num">TARIF 0' + (i + 1) + "</span>" +
+              "<h2>" + esc(p.name) + "</h2>" +
+              '<p class="sub">' + esc(p.sub) + "</p>" +
+              '<div class="price"><sup>$</sup>' + p.price + "</div>" +
+              '<div class="once">bir martalik to‘lov</div>' +
+              "<hr>" + checks(p.items) +
+              '<div class="actions">' +
+                '<a class="btn ' + (p.hot ? "btn-fire" : "btn-ghost") + '" href="' + orderUrl(p) + '" target="_blank" rel="noopener">Buyurtma berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>' +
+                '<a class="btn btn-ghost" href="' + p.id + '.png" download="tarif-' + p.id + '.png">Rasmni yuklab olish <span class="arr"><svg><use href="#i-dl"/></svg></span></a>' +
+              "</div>" +
+            "</article>").join("") +
+          "</div>" +
+          '<p class="note">Qaysi tarif mos kelishini bilmayapsizmi? <a href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">Telegram’da yozing</a> — birga tanlaymiz.</p>' +
+        "</div>" +
+      "</main>";
+  }
+</script>
+</body>
+</html>
