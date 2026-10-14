@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tariflar — theusmondigital Telegram bot xizmatlari</title>
-<meta name="description" content="Telegram bot tariflari: Boshlang‘ich $250, Biznes $400, To‘liq $600.">
+<title>Telegram bot tariflari — theusmondigital</title>
+<meta name="description" content="Restoran, kafe va yetkazib berish xizmatlari uchun Telegram bot, Mini App va admin panel. Silver, Gold va Brilliant tariflari.">
 <meta name="theme-color" content="#070504">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
 <style>
   :root {
     --bg: #070504;
+    --bg-2: #0d0807;
     --surface: #120b09;
     --surface-2: #1a0f0b;
     --line: rgba(255, 255, 255, 0.08);
@@ -23,84 +24,163 @@
     --fire: #ff5a1f;
     --fire-2: #ff8a3d;
     --glow: rgba(255, 90, 31, 0.55);
+    --silver: linear-gradient(135deg, #ffffff 0%, #a9b0bb 45%, #eef0f3 70%, #8d95a1 100%);
+    --gold: linear-gradient(135deg, #fff1c1 0%, #e5b84f 40%, #fbe39a 65%, #b9862b 100%);
+    --brilliant: linear-gradient(120deg, #a5f3fc 0%, #c4b5fd 30%, #f9a8d4 55%, #fde68a 80%, #a5f3fc 100%);
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body { margin: 0; background: var(--bg); color: var(--text); font-family: "Poppins", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   svg { display: block; }
+  img { display: block; max-width: 100%; }
 
-  /* ---------- Shared pieces ---------- */
+  /* ---------- Shared ---------- */
   .bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .bg::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 25%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 25%, transparent 80%); }
+  .bg::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 25%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 25%, transparent 80%); }
   .bg::after { content: ""; position: absolute; width: 900px; height: 900px; right: -360px; top: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.32), transparent 70%); }
+  .wrap { position: relative; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
   .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 20px; }
   .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--fire); font-weight: 800; box-shadow: 0 8px 24px -10px var(--glow); }
   .logo b { color: var(--fire); font-weight: 600; }
   .tag { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 7px; background: var(--fire); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; box-shadow: 0 8px 26px -10px var(--glow); white-space: nowrap; }
   .tag.ghost { background: rgba(255,90,31,.12); color: var(--fire-2); border: 1px solid rgba(255,90,31,.35); box-shadow: none; }
-  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  h1, h2, h3 { margin: 0; letter-spacing: -0.025em; line-height: 1.1; }
+  h2 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 800; }
+  .o { color: var(--fire); }
+  .lead { color: var(--muted); font-size: clamp(16px, 1.5vw, 18px); margin: 16px 0 0; max-width: 62ch; }
+  .metal { -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .m-silver { background-image: var(--silver); }
+  .m-gold { background-image: var(--gold); }
+  .m-brilliant { background-image: var(--brilliant); background-size: 200% 100%; animation: shimmer 6s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
   .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--soft); }
-  .checks li::before { content: ""; flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: var(--fire) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat; }
+  .checks li::before { content: ""; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: var(--fire) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat; }
   .checks li.plus { color: #fff; font-weight: 700; }
   .checks li.plus::before { background-color: transparent; border: 2px solid var(--fire); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E"); }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 18px 15px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; white-space: nowrap; transition: transform .2s, box-shadow .2s, background .2s, border-color .2s; }
+  .checks b { color: #fff; font-weight: 600; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 18px 15px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s, border-color .2s; }
   .btn .arr { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.2); }
   .btn .arr svg { width: 15px; height: 15px; }
   .btn-fire { background: var(--fire); color: #fff; box-shadow: 0 14px 40px -12px var(--glow); }
   .btn-fire:hover { transform: translateY(-2px); background: #ff6a32; }
-  .btn-ghost { border: 1px solid var(--line-2); background: rgba(255,255,255,.03); }
+  .btn-ghost { border-color: var(--line-2); background: rgba(255,255,255,.03); color: #fff; }
   .btn-ghost .arr { background: var(--fire); }
   .btn-ghost:hover { border-color: rgba(255,90,31,.6); }
-  .btn:focus-visible, a:focus-visible { outline: 2px solid var(--fire-2); outline-offset: 3px; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--fire-2); outline-offset: 3px; }
 
-  /* ---------- Page mode ---------- */
-  .page { position: relative; min-height: 100vh; padding: 40px 24px 80px; }
-  .wrap { position: relative; max-width: 1180px; margin: 0 auto; }
-  .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .head { text-align: center; margin: 70px auto 60px; max-width: 760px; }
-  .head h1 { margin: 20px 0 0; font-size: clamp(36px, 5.4vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
-  .head h1 span { color: var(--fire); }
-  .head p { color: var(--muted); font-size: 18px; margin: 18px 0 0; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
-  .card { position: relative; display: flex; flex-direction: column; padding: 38px 30px 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
-  .card.hot { border: 1.5px solid var(--fire); background: radial-gradient(100% 55% at 50% 0%, rgba(255,90,31,.22), transparent 65%), var(--surface-2); box-shadow: 0 40px 100px -40px rgba(255,90,31,.55); }
-  .card .best { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); }
-  .card .num { color: var(--dim); font-weight: 700; font-size: 14px; letter-spacing: .1em; }
-  .card h2 { margin: 6px 0 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
-  .card .sub { color: var(--muted); margin: 6px 0 0; font-size: 15px; min-height: 46px; }
-  .card .price { margin-top: 22px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: 72px; }
-  .card .price sup { font-size: 30px; color: var(--fire); vertical-align: top; position: relative; top: 10px; margin-right: 2px; }
-  .card .once { color: var(--dim); font-size: 14px; margin-top: 10px; }
-  .card hr { border: 0; height: 1px; background: var(--line); margin: 24px 0; }
-  .card .checks { margin-bottom: 30px; font-size: 15.5px; }
-  .card .actions { margin-top: auto; display: grid; gap: 10px; }
-  .card .btn { width: 100%; }
-  .note { text-align: center; color: var(--muted); margin-top: 44px; font-size: 15px; }
-  .note a { color: var(--fire); font-weight: 600; }
+  /* ---------- Page ---------- */
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 28px; }
+  section { position: relative; padding: 90px 0; }
+  .hero { padding: 70px 0 60px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: center; }
+  .hero h1 { font-size: clamp(38px, 5.4vw, 66px); font-weight: 800; margin-top: 22px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: 14.5px; }
+  .chip svg { width: 18px; height: 18px; color: var(--fire); }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .phone { position: relative; width: 270px; margin: 0 auto; border-radius: 40px; padding: 10px; background: linear-gradient(160deg, #3a3a3e, #121214); box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 90px -30px var(--glow); transform: rotate(4deg); }
+  .phone-in { border-radius: 31px; overflow: hidden; background: #fff; }
+  .phone-cap { text-align: center; color: var(--dim); font-size: 13px; margin-top: 18px; }
 
-  @media (max-width: 1000px) { .cards { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 34px; } .card .sub { min-height: 0; } }
-  @media (max-width: 600px) { .page { padding: 24px 16px 60px; } .head { margin: 44px auto 44px; } .card { padding: 34px 22px 24px; } .card .price { font-size: 60px; } }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; margin-top: 54px; }
+  .plan { position: relative; display: flex; flex-direction: column; padding: 36px 28px 28px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+  .plan.hot { border: 1.5px solid var(--fire); background: radial-gradient(100% 55% at 50% 0%, rgba(255,90,31,.22), transparent 65%), var(--surface-2); box-shadow: 0 40px 100px -40px rgba(255,90,31,.55); }
+  .plan .best { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); }
+  .plan .gem { width: 46px; height: 46px; margin-bottom: 18px; }
+  .plan .name { font-size: 34px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; line-height: 1; }
+  .plan .tier { color: var(--muted); font-weight: 600; margin-top: 6px; font-size: 15px; letter-spacing: .02em; }
+  .plan .who { color: var(--soft); font-size: 14.5px; margin: 16px 0 0; min-height: 66px; }
+  .plan .price { margin-top: 18px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: 64px; }
+  .plan .price sup { font-size: 28px; color: var(--fire); vertical-align: top; position: relative; top: 9px; margin-right: 2px; }
+  .plan .once { color: var(--dim); font-size: 13.5px; margin-top: 8px; }
+  .plan hr { border: 0; height: 1px; background: var(--line); margin: 22px 0; }
+  .plan .checks { font-size: 14.5px; margin-bottom: 26px; }
+  .plan .actions { margin-top: auto; display: grid; gap: 10px; }
+  .plan .btn { width: 100%; }
 
-  /* ---------- Poster mode (1080 × 1350, for sharing as an image) ---------- */
+  /* Details (tabs) */
+  .tabs { display: flex; gap: 6px; padding: 6px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); width: max-content; max-width: 100%; margin-top: 36px; overflow-x: auto; }
+  .tabs button { border: 0; background: none; cursor: pointer; padding: 11px 20px; border-radius: 11px; font: inherit; font-weight: 700; font-size: 15px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+  .tabs button[aria-selected="true"] { background: var(--fire); color: #fff; box-shadow: 0 8px 24px -10px var(--glow); }
+  .pane[hidden] { display: none; }
+  .pane-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin: 34px 0 26px; }
+  .pane-head h3 { font-size: 30px; font-weight: 800; }
+  .pane-head p { color: var(--muted); margin: 6px 0 0; }
+  .base-note { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 14px; border: 1px dashed rgba(255,90,31,.45); background: rgba(255,90,31,.06); color: var(--soft); font-weight: 600; margin-bottom: 18px; }
+  .base-note svg { width: 18px; height: 18px; color: var(--fire); }
+  .groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .group { padding: 26px 24px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); }
+  .group .gh { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .group .gi { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,90,31,.12); color: var(--fire); flex: none; }
+  .group .gi svg { width: 22px; height: 22px; }
+  .group h4 { margin: 0; font-size: 18px; }
+  .group .checks { font-size: 14.5px; gap: 11px; }
+  .group.wide { grid-column: 1 / -1; }
+  .group.wide .checks { grid-template-columns: 1fr 1fr; column-gap: 28px; }
+
+  /* Compare table */
+  .table-wrap { margin-top: 40px; border-radius: 24px; border: 1px solid var(--line); background: var(--surface); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  th, td { padding: 15px 20px; text-align: center; border-bottom: 1px solid var(--line); font-size: 15px; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { position: sticky; top: 0; background: var(--surface-2); font-size: 15px; letter-spacing: .06em; text-transform: uppercase; }
+  thead th.hot { box-shadow: inset 0 3px 0 var(--fire); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: rgba(255,255,255,.02); }
+  td.y svg { width: 22px; height: 22px; margin: 0 auto; color: var(--fire); }
+  td.n { color: var(--dim); }
+  tr.price-row td { font-weight: 800; font-size: 20px; }
+  tr.price-row td:first-child { font-weight: 600; font-size: 15px; color: var(--muted); }
+
+  .final { text-align: center; }
+  .final .box { position: relative; padding: 60px 30px; border-radius: 32px; border: 1px solid rgba(255,90,31,.4); overflow: hidden; background: radial-gradient(70% 90% at 50% 0%, rgba(255,90,31,.25), transparent 65%), var(--surface); }
+  .final .btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--dim); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--soft); font-weight: 600; margin-left: 18px; }
+  footer a:hover { color: var(--fire); }
+
+  @media (max-width: 1000px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; gap: 34px; }
+    .plan .who { min-height: 0; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    section { padding: 70px 0; }
+    .hero { padding: 50px 0 40px; }
+    .hero-cta .btn { flex: 1 1 100%; }
+    .phone { width: 230px; }
+    .plan { padding: 34px 22px 24px; }
+    .groups { grid-template-columns: minmax(0, 1fr); }
+    .group.wide .checks { grid-template-columns: 1fr; }
+    .final .box { padding: 44px 18px; }
+    footer a { margin: 0 14px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+  /* ---------- Poster mode (1080 × 1350) ---------- */
   body.poster-mode { width: 1080px; height: 1350px; overflow: hidden; }
-  .poster { position: relative; width: 1080px; height: 1350px; padding: 72px 80px 70px; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+  .poster { position: relative; width: 1080px; height: 1350px; padding: 70px 80px 68px; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
   .poster.hot { box-shadow: inset 0 0 0 6px var(--fire); }
   .poster .bg::after { width: 1100px; height: 1100px; right: -420px; top: -460px; }
-  .poster .ribbon { position: absolute; right: -120px; bottom: 150px; width: 600px; opacity: .6; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%); mask-image: linear-gradient(90deg, transparent, #000 45%); }
   .poster .row { position: relative; display: flex; justify-content: space-between; align-items: center; }
   .poster .logo { font-size: 26px; gap: 14px; }
   .poster .logo-mark { width: 52px; height: 52px; border-radius: 12px; font-size: 24px; }
-  .poster .kicker { color: var(--muted); font-size: 20px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-  .poster .meta { position: relative; display: flex; gap: 14px; margin-top: 70px; }
+  .poster .kicker { color: var(--muted); font-size: 19px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .poster .meta { position: relative; display: flex; gap: 14px; margin-top: 62px; }
   .poster .tag { font-size: 18px; padding: 10px 18px; border-radius: 9px; }
-  .poster h1 { position: relative; margin: 26px 0 0; font-size: 108px; line-height: 1; font-weight: 800; letter-spacing: -0.035em; }
-  .poster .sub { position: relative; color: var(--muted); font-size: 28px; margin: 18px 0 0; }
-  .poster .price { position: relative; margin-top: 34px; font-size: 190px; font-weight: 800; line-height: .9; letter-spacing: -0.05em; color: var(--fire); text-shadow: 0 16px 70px rgba(255,90,31,.45); }
-  .poster .price sup { font-size: 80px; vertical-align: top; position: relative; top: 26px; margin-right: 6px; }
-  .poster .checks { position: relative; margin-top: 54px; gap: 22px; font-size: 30px; line-height: 1.3; }
-  .poster .checks li { gap: 18px; }
-  .poster .checks li::before { width: 38px; height: 38px; margin-top: 0; background-size: 20px; }
+  .poster .pname { position: relative; display: flex; align-items: baseline; gap: 22px; margin-top: 24px; }
+  .poster .pname .metal { font-size: 116px; font-weight: 800; letter-spacing: .02em; line-height: 1; text-transform: uppercase; animation: none; }
+  .poster .pname .tierp { font-size: 40px; font-weight: 700; color: var(--muted); }
+  .poster .who { position: relative; color: var(--muted); font-size: 26px; margin: 16px 0 0; max-width: 860px; line-height: 1.4; }
+  .poster .price { position: relative; margin-top: 26px; font-size: 170px; font-weight: 800; line-height: .9; letter-spacing: -0.05em; color: var(--fire); text-shadow: 0 16px 70px rgba(255,90,31,.45); }
+  .poster .price sup { font-size: 72px; vertical-align: top; position: relative; top: 22px; margin-right: 6px; }
+  .poster .checks { position: relative; margin-top: 44px; gap: 18px; font-size: 27px; line-height: 1.3; }
+  .poster .checks li { gap: 16px; }
+  .poster .checks li::before { width: 34px; height: 34px; margin-top: 0; background-size: 18px; }
   .poster .foot { position: relative; margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
   .poster .cta { display: inline-flex; align-items: center; gap: 16px; padding: 20px 22px 20px 36px; border-radius: 999px; background: var(--fire); font-size: 28px; font-weight: 700; box-shadow: 0 20px 60px -16px var(--glow); }
   .poster .cta .arr { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.22); display: grid; place-items: center; }
@@ -115,116 +195,283 @@
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="ribbon" viewBox="0 0 900 500">
-      <defs>
-        <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1b1d"/><stop offset=".22" stop-color="#e9e9ec"/><stop offset=".4" stop-color="#4b4b50"/><stop offset=".58" stop-color="#f4f4f6"/><stop offset=".78" stop-color="#2c2c30"/><stop offset="1" stop-color="#cfcfd4"/></linearGradient>
-        <linearGradient id="fireTube" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a1602"/><stop offset=".25" stop-color="#ff7a2f"/><stop offset=".42" stop-color="#ffd2b0"/><stop offset=".58" stop-color="#ff5a1f"/><stop offset=".8" stop-color="#7a2004"/><stop offset="1" stop-color="#ff9a5c"/></linearGradient>
-      </defs>
-      <path d="M0 330 C 140 160, 300 140, 340 280 S 520 470, 640 330 S 760 120, 900 200" fill="none" stroke="url(#chrome)" stroke-width="30" stroke-linecap="round"/>
-      <path d="M0 420 C 200 420, 250 180, 430 190 S 600 420, 740 330 S 850 160, 900 160" fill="none" stroke="url(#fireTube)" stroke-width="36" stroke-linecap="round"/>
-      <path d="M0 411 C 200 411, 250 171, 430 181 S 600 411, 740 321 S 850 151, 900 151" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".5"/>
-    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".14" stroke="none"/><path d="M7 12.5l3.2 3.2L17 9"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3l-3.2 15.1c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></g></symbol>
+    <symbol id="i-admin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9h6M7 12h10"/></g></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></g></symbol>
+    <symbol id="i-chef" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14a4 4 0 01-.9-7.9A5 5 0 0115 4.3 4 4 0 1118 14"/><path d="M6 14v6h12v-6M10 17h4"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.4 3.6 4 7 4c2 0 3.3 1 5 3 1.7-2 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8C19.5 15.4 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 10"/></g></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h10l4 6-9 12L3 9z"/><path d="M3 9h18M12 21L8.5 9 12 3l3.5 6z"/></g></symbol>
   </defs>
 </svg>
 
 <div id="app"></div>
 
 <script>
-  // ===== Tariflar — matnni o'zgartirish uchun shu yerni tahrirlang =====
+  /* ================= SOZLAMALAR =================
+     Narxlarni shu yerda o'zgartiring (dollarda). */
+  const PRICES = { silver: 250, gold: 400, brilliant: 600 };
   const TG_USERNAME = "usmairways";
   const INSTAGRAM = "theusmondigital";
+
+  /* Tariflar mazmuni — "Telegram bot tariflari" PDF faylidan */
   const PLANS = [
     {
-      id: "boshlangich", name: "Boshlang‘ich", price: 250,
-      sub: "Kichik biznes uchun tez start",
-      items: [
-        "Telegram bot: katalog va buyurtma qabul qilish",
-        "Buyurtma kelganda sizga xabar",
-        "Oddiy dizayn (nomi, rasmi, tugmalari)",
-        "Ishga tushirishda 1 hafta yordam"
+      id: "silver", name: "Silver", tier: "Start", metal: "m-silver",
+      who: "Endi ochilgan va kichik joylar uchun: buyurtmani tez va oson qabul qilish.",
+      highlights: [
+        "Telegram bot va Mini App (o‘zbek / rus)",
+        "Brendingiz ranglari va logotipi bilan dizayn",
+        "Menyu, savat, yetkazib berish yoki olib ketish",
+        "Naqd yoki karta orqali to‘lov",
+        "Mijozga buyurtma holati haqida xabarlar",
+        "Admin panel: buyurtmalar va menyuni boshqarish"
+      ],
+      groups: [
+        { title: "Telegram bot", icon: "i-bot", items: [
+          "Brend logotipi bilan salomlashish va menyuni ochish tugmasi",
+          "O‘zbek va rus tillari",
+          "Mijozga buyurtma holati haqida xabarlar: qabul qilindi, tayyorlanmoqda, yo‘lda, tayyor",
+          "Har bir yangi buyurtma adminning Telegram’iga darhol keladi"
+        ] },
+        { title: "Mini App (bot ichidagi ilova)", icon: "i-app", items: [
+          "Brendingiz ranglari va logotipi bilan zamonaviy dizayn",
+          "Bosh sahifa: kategoriyalar slaydi va “Xit savdo” bo‘limi",
+          "Kategoriyalar bo‘yicha menyu, rasmli mahsulot oynasi va tarkibi",
+          "Savat, yetkazib berish yoki olib ketishni tanlash",
+          "Naqd yoki karta orqali to‘lov",
+          "Profil: kontaktlar, “biz haqimizda”, Instagram, til tanlash"
+        ] },
+        { title: "Admin panel", icon: "i-admin", items: [
+          "Buyurtmalar ro‘yxati va yangi buyurtmada ovozli signal",
+          "Buyurtma holatini bir bosishda o‘zgartirish",
+          "Mahsulot va kategoriyalarni rasm bilan qo‘shish, tahrirlash va vaqtincha o‘chirish",
+          "Karta raqamlari, ish holati (ochiq/yopiq), minimal buyurtma summasi"
+        ] }
       ]
     },
     {
-      id: "biznes", name: "Biznes", price: 400, hot: true,
-      sub: "O‘sib borayotgan biznes uchun",
-      items: [
-        "+Boshlang‘ichdagi hammasi",
-        "Admin panel: mijozlar, buyurtmalar, yetkazib berish",
-        "Kirim-chiqim hisobi",
-        "Brendingizga mos dizayn",
-        "2 hafta yordam"
+      id: "gold", name: "Gold", tier: "Business", metal: "m-gold", hot: true,
+      who: "Kunlik buyurtmasi ko‘p, yetkazib berish bilan ishlaydigan joylar uchun.",
+      base: "Silver’dagi hammasi, ustiga:",
+      highlights: [
+        "+Silver’dagi hammasi",
+        "Xaritadan aniq manzil va Yandex Go’ga bir bosishda",
+        "Karta to‘lovida chekni tekshirish va tasdiqlash",
+        "Oshxona printeridan avtomatik chek",
+        "Bir nechta filial va statistika",
+        "Uxlamaydigan server va kuzatuv"
+      ],
+      groups: [
+        { title: "Aniq yetkazib berish", icon: "i-map", items: [
+          "Mijoz manzilni xaritadan tanlaydi, qidiradi yoki joylashuvini avtomatik aniqlaydi",
+          "Podyezd, qavat, xonadon, domofon va kuryerga izoh",
+          "Admin paneldan bir bosishda Yandex Go yetkazib berish buyurtmasi (mijoz manzili o‘zi qo‘yiladi)",
+          "Yandex Maps va Navigator orqali yo‘nalish",
+          "Mijozga taxminiy yetkazib berish vaqti ko‘rsatiladi"
+        ] },
+        { title: "To‘lov nazorati", icon: "i-card", items: [
+          "Karta orqali to‘lovda mijozdan chek so‘raladi",
+          "Admin chekni Telegram’da yoki panelda bir bosishda tasdiqlaydi yoki rad etadi",
+          "Mijozga “chek tekshirilmoqda” va “to‘lov tasdiqlandi” xabarlari boradi"
+        ] },
+        { title: "Oshxona", icon: "i-chef", items: [
+          "Yangi buyurtma kelishi bilan oshxona printeridan chek o‘zi chiqadi"
+        ] },
+        { title: "Mijoz qulayliklari", icon: "i-heart", items: [
+          "Buyurtmalar tarixi, holati jonli yangilanadi",
+          "“Qayta buyurtma” tugmasi",
+          "Sevimli taomlar",
+          "Yulduzcha bilan otziv qoldirish",
+          "Savatda qo‘shimcha taklif (masalan, ichimlik)"
+        ] },
+        { title: "Filiallar va boshqaruv", icon: "i-branch", items: [
+          "Bir nechta filial, ularning xaritadagi joyi; mijoz olib ketish uchun filialni tanlaydi",
+          "Telefonda qulay ishlaydigan admin panel",
+          "Statistika: kunlik va oylik tushum, eng ko‘p sotilgan taomlar, o‘rtacha chek"
+        ] },
+        { title: "Ishonchlilik", icon: "i-shield", items: [
+          "Hech qachon “uxlamaydigan” tezkor server",
+          "Bot to‘xtab qolsa, darhol ogohlantirish keladi"
+        ] }
       ]
     },
     {
-      id: "toliq", name: "To‘liq", price: 600,
-      sub: "Telegram’da to‘liq onlayn do‘kon",
-      items: [
-        "+Biznesdagi hammasi",
-        "Telegram Mini App: chiroyli katalog, savat, buyurtma",
-        "To‘lov (karta va naqd) va joylashuv yuborish",
-        "Mijozlarga avtomatik xabar (aksiya, eslatma)",
-        "1 oy yordam va kichik o‘zgartirishlar"
+      id: "brilliant", name: "Brilliant", tier: "Premium", metal: "m-brilliant",
+      who: "Katta restoranlar va filiallar tarmog‘i uchun.",
+      base: "Gold’dagi hammasi, ustiga:",
+      highlights: [
+        "+Gold’dagi hammasi",
+        "Payme / Click orqali onlayn to‘lov",
+        "Rassilka, promokod, bonus va keshbek",
+        "Mijozlar bazasi va xodim rollari",
+        "Kuryer boti va oldindan buyurtma",
+        "TV ekran, shaxsiy domen, doimiy qo‘llab-quvvatlash"
+      ],
+      groups: [
+        { title: "Premium imkoniyatlar", icon: "i-gem", wide: true, items: [
+          "**TV ekran:** zal yoki oshxonadagi televizorda buyurtmalar soni va oshxona navbati",
+          "**Onlayn to‘lov:** Payme va Click orqali ilovaning o‘zida to‘lash",
+          "**Ommaviy xabar:** barcha mijozlarga aksiya va yangiliklarni bot orqali yuborish",
+          "**Promokod va aksiyalar:** chegirmalar, “ikkinchisi sovg‘a” kabi takliflar",
+          "**Bonus va keshbek:** har buyurtmadan ball yig‘ib, keyingisida ishlatish",
+          "**Mijozlar bazasi:** kim, qachon va qancha buyurtma bergani, Excel’ga yuklab olish",
+          "**Xodimlar uchun rollar:** oshxona, kassir va menejer uchun alohida kirish",
+          "**Oldindan buyurtma:** mijoz kerakli vaqtni tanlab buyurtma beradi",
+          "**Kuryer boti:** kuryerga buyurtma yuboriladi, “yetkazildi” tugmasi",
+          "**Shaxsiy dizayn va o‘z domeningiz** (masalan, restoran.uz)",
+          "**Kuchaytirilgan server** va doimiy texnik qo‘llab-quvvatlash"
+        ] }
       ]
     }
   ];
 
+  // Comparison: [feature, silver, gold, brilliant]
+  const COMPARE = [
+    ["Telegram bot va Mini App (uz/ru)", 1, 1, 1],
+    ["Admin panel, menyuni boshqarish", 1, 1, 1],
+    ["Naqd va karta orqali to‘lov", 1, 1, 1],
+    ["Xaritadan manzil va batafsil manzil", 0, 1, 1],
+    ["Yandex Go’ga bir bosishda yuborish", 0, 1, 1],
+    ["Chekni tekshirish va tasdiqlash", 0, 1, 1],
+    ["Oshxona chekining avtomatik chiqishi", 0, 1, 1],
+    ["Bir nechta filial", 0, 1, 1],
+    ["Statistika va hisobotlar", 0, 1, 1],
+    ["Uxlamaydigan server va kuzatuv", 0, 1, 1],
+    ["TV ekran", 0, 0, 1],
+    ["Payme / Click", 0, 0, 1],
+    ["Rassilka, promokod, bonus", 0, 0, 1],
+    ["Mijozlar bazasi, xodim rollari", 0, 0, 1],
+    ["Kuryer boti, oldindan buyurtma", 0, 0, 1],
+    ["Shaxsiy domen va doimiy qo‘llab-quvvatlash", 0, 0, 1]
+  ];
+
+  const GEMS = {
+    silver: '<svg class="gem" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#9aa2ad"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs><circle cx="24" cy="24" r="18" fill="none" stroke="url(#gs)" stroke-width="2.5"/><circle cx="24" cy="24" r="9" fill="url(#gs)"/></svg>',
+    gold: '<svg class="gem" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c1"/><stop offset=".45" stop-color="#e5b84f"/><stop offset="1" stop-color="#b9862b"/></linearGradient></defs><path d="M24 5l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L24 33.7 12.8 39.6l2.1-12.5-9.1-8.9 12.6-1.8z" fill="url(#gg)"/></svg>',
+    brilliant: '<svg class="gem" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a5f3fc"/><stop offset=".35" stop-color="#c4b5fd"/><stop offset=".7" stop-color="#f9a8d4"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs><path d="M14 8h20l9 11-19 22L5 19z" fill="url(#gb)"/><path d="M5 19h38M14 8l10 33M34 8L24 41M19 19l5-11 5 11" fill="none" stroke="#1b1330" stroke-opacity=".35" stroke-width="1.4" stroke-linejoin="round"/></svg>'
+  };
+
   const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const rich = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
   const checks = (items) => '<ul class="checks">' + items.map((t) =>
-    t.startsWith("+") ? '<li class="plus">' + esc(t.slice(1)) + "</li>" : "<li>" + esc(t) + "</li>").join("") + "</ul>";
+    t.startsWith("+") ? '<li class="plus">' + rich(t.slice(1)) + "</li>" : "<li>" + rich(t) + "</li>").join("") + "</ul>";
+  const icon = (id) => '<svg><use href="#' + id + '"/></svg>';
+  const arrow = '<span class="arr">' + icon("i-arrow") + "</span>";
+  const money = (n) => "<sup>$</sup>" + n;
+  const fullName = (p) => p.name + " — " + p.tier;
   const orderUrl = (p) => "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(
-    "Assalomu alaykum! «" + p.name + "» tarifi ($" + p.price + ") bo‘yicha Telegram bot buyurtma qilmoqchiman.");
+    "Assalomu alaykum! «" + fullName(p) + "» tarifi ($" + PRICES[p.id] + ") bo‘yicha Telegram bot buyurtma qilmoqchiman.");
   const logo = '<span class="logo"><span class="logo-mark">U</span><span>theusmon<b>digital</b></span></span>';
 
-  const params = new URLSearchParams(location.search);
-  const posterId = params.get("poster");
+  const posterId = new URLSearchParams(location.search).get("poster");
   const app = document.getElementById("app");
 
   if (posterId) {
-    // Poster mode: one tariff on a 1080×1350 canvas (used to export the PNG images)
+    // ---- Poster: one tariff on a 1080×1350 canvas (exported as PNG) ----
     const i = PLANS.findIndex((p) => p.id === posterId);
     const p = PLANS[i];
     document.body.classList.add("poster-mode");
     app.innerHTML =
-      '<div class="poster' + (p.hot ? " hot" : "") + '">' +
-        '<div class="bg"></div>' +
-        '<svg class="ribbon" viewBox="0 0 900 500" aria-hidden="true"><use href="#ribbon"/></svg>' +
-        '<div class="row">' + logo + '<span class="kicker">Telegram bot xizmati</span></div>' +
+      '<div class="poster' + (p.hot ? " hot" : "") + '"><div class="bg"></div>' +
+        '<div class="row">' + logo + '<span class="kicker">Restoran va kafelar uchun</span></div>' +
         '<div class="meta"><span class="tag ghost">Tarif 0' + (i + 1) + ' / 03</span>' + (p.hot ? '<span class="tag">🔥 Eng ko‘p tanlanadi</span>' : "") + "</div>" +
-        "<h1>" + esc(p.name) + "</h1>" +
-        '<p class="sub">' + esc(p.sub) + "</p>" +
-        '<div class="price"><sup>$</sup>' + p.price + "</div>" +
-        checks(p.items) +
-        '<div class="foot">' +
-          '<span class="cta">Buyurtma berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></span>' +
-          '<span class="handles">Telegram: <span>@' + TG_USERNAME + '</span><br>Instagram: <span>@' + INSTAGRAM + "</span></span>" +
-        "</div>" +
+        '<div class="pname"><span class="metal ' + p.metal + '">' + p.name + '</span><span class="tierp">' + p.tier + "</span></div>" +
+        '<p class="who">' + esc(p.who) + "</p>" +
+        '<div class="price">' + money(PRICES[p.id]) + "</div>" +
+        checks(p.highlights) +
+        '<div class="foot"><span class="cta">Buyurtma berish ' + arrow + '</span>' +
+          '<span class="handles">Telegram: <span>@' + TG_USERNAME + '</span><br>Instagram: <span>@' + INSTAGRAM + "</span></span></div>" +
       "</div>";
   } else {
-    // Page mode: all three tariffs side by side
-    app.innerHTML =
-      '<main class="page">' +
-        '<div class="bg"></div>' +
-        '<div class="wrap">' +
-          '<div class="top"><a href="../">' + logo + '</a><a class="btn btn-ghost" href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">Savol berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a></div>' +
-          '<div class="head"><span class="tag">Tariflar</span><h1>Biznesingizga mos <span>Telegram bot</span></h1><p>Uchta aniq tarif. Narx bir martalik, yashirin to‘lovlar yo‘q.</p></div>' +
-          '<div class="cards">' + PLANS.map((p, i) =>
-            '<article class="card' + (p.hot ? " hot" : "") + '" id="' + p.id + '">' +
-              (p.hot ? '<span class="tag best">Eng ko‘p tanlanadi</span>' : "") +
-              '<span class="num">TARIF 0' + (i + 1) + "</span>" +
-              "<h2>" + esc(p.name) + "</h2>" +
-              '<p class="sub">' + esc(p.sub) + "</p>" +
-              '<div class="price"><sup>$</sup>' + p.price + "</div>" +
-              '<div class="once">bir martalik to‘lov</div>' +
-              "<hr>" + checks(p.items) +
-              '<div class="actions">' +
-                '<a class="btn ' + (p.hot ? "btn-fire" : "btn-ghost") + '" href="' + orderUrl(p) + '" target="_blank" rel="noopener">Buyurtma berish <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>' +
-                '<a class="btn btn-ghost" href="' + p.id + '.png" download="tarif-' + p.id + '.png">Rasmni yuklab olish <span class="arr"><svg><use href="#i-dl"/></svg></span></a>' +
-              "</div>" +
-            "</article>").join("") +
-          "</div>" +
-          '<p class="note">Qaysi tarif mos kelishini bilmayapsizmi? <a href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">Telegram’da yozing</a> — birga tanlaymiz.</p>' +
+    // ---- Page ----
+    const planCard = (p, i) =>
+      '<article class="plan' + (p.hot ? " hot" : "") + '">' +
+        (p.hot ? '<span class="tag best">Eng ko‘p tanlanadi</span>' : "") +
+        GEMS[p.id] +
+        '<div class="name metal ' + p.metal + '">' + p.name + "</div>" +
+        '<div class="tier">' + p.tier + "</div>" +
+        '<p class="who">' + esc(p.who) + "</p>" +
+        '<div class="price">' + money(PRICES[p.id]) + "</div>" +
+        '<div class="once">bir martalik to‘lov</div>' +
+        "<hr>" + checks(p.highlights) +
+        '<div class="actions">' +
+          '<a class="btn ' + (p.hot ? "btn-fire" : "btn-ghost") + '" href="' + orderUrl(p) + '" target="_blank" rel="noopener">Buyurtma berish ' + arrow + "</a>" +
+          '<a class="btn btn-ghost" href="#batafsil" data-tab="' + p.id + '">Batafsil ko‘rish ' + arrow + "</a>" +
         "</div>" +
-      "</main>";
+      "</article>";
+
+    const pane = (p, i) =>
+      '<div class="pane" role="tabpanel" id="pane-' + p.id + '" aria-labelledby="tab-' + p.id + '"' + (i ? " hidden" : "") + ">" +
+        '<div class="pane-head"><div><h3><span class="metal ' + p.metal + '">' + p.name + "</span> — " + p.tier + "</h3><p>" + esc(p.who) + "</p></div>" +
+          '<a class="btn btn-fire" href="' + orderUrl(p) + '" target="_blank" rel="noopener">' + p.name + " — $" + PRICES[p.id] + " " + arrow + "</a></div>" +
+        (p.base ? '<div class="base-note">' + icon("i-plus") + esc(p.base) + "</div>" : "") +
+        '<div class="groups">' + p.groups.map((g) =>
+          '<div class="group' + (g.wide ? " wide" : "") + '"><div class="gh"><span class="gi">' + icon(g.icon) + "</span><h4>" + esc(g.title) + "</h4></div>" + checks(g.items) + "</div>"
+        ).join("") + "</div>" +
+        '<a class="btn btn-ghost" style="margin-top:22px" href="' + p.id + '.png" download="tarif-' + p.id + '.png">' + p.name + " rasmini yuklab olish " + '<span class="arr">' + icon("i-dl") + "</span></a>" +
+      "</div>";
+
+    const cell = (v) => v ? '<td class="y" aria-label="bor">' + icon("i-check") + "</td>" : '<td class="n" aria-label="yo‘q">—</td>';
+
+    app.innerHTML =
+      '<div class="bg"></div>' +
+      '<header class="wrap top"><a href="../" aria-label="Bosh sahifa">' + logo + '</a><a class="btn btn-ghost" href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">Savol berish ' + arrow + "</a></header>" +
+      "<main>" +
+        '<section class="hero"><div class="wrap">' +
+          "<div>" +
+            '<span class="tag">Telegram bot tariflari</span>' +
+            '<h1>Restoran va kafelar uchun <span class="o">Telegram bot</span></h1>' +
+            '<p class="lead">Restoran, kafe va yetkazib berish xizmatlari uchun Telegram bot, Mini App va admin panel — bitta tayyor tizimda.</p>' +
+            '<div class="chips"><span class="chip">' + icon("i-bot") + 'Telegram bot</span><span class="chip">' + icon("i-app") + 'Mini App</span><span class="chip">' + icon("i-admin") + "Admin panel</span></div>" +
+            '<div class="hero-cta"><a class="btn btn-fire" href="#narxlar">Tariflarni ko‘rish ' + arrow + '</a><a class="btn btn-ghost" href="#taqqoslash">Taqqoslash ' + arrow + "</a></div>" +
+          "</div>" +
+          '<div><div class="phone"><div class="phone-in"><img src="../img/resto-miniapp.jpg" width="460" height="977" alt="Resto Telegram Mini App — haqiqiy loyiha"></div></div><p class="phone-cap">Haqiqiy loyiha: Resto Mini App</p></div>' +
+        "</div></section>" +
+
+        '<section id="narxlar" style="padding-top:20px"><div class="wrap">' +
+          '<div style="text-align:center"><span class="tag">Tariflar</span><h2 style="margin-top:18px">Biznesingizga <span class="o">mos tarifni</span> tanlang</h2><p class="lead" style="margin:16px auto 0">Narx bir martalik. Har bir tarif keyingisining asosi — kerak bo‘lganda yuqoriroq tarifga o‘tish mumkin.</p></div>' +
+          '<div class="plans">' + PLANS.map(planCard).join("") + "</div>" +
+        "</div></section>" +
+
+        '<section id="batafsil" style="padding-top:20px"><div class="wrap">' +
+          '<span class="tag">Batafsil</span><h2 style="margin-top:18px">Har bir tarifga <span class="o">nima kiradi</span></h2>' +
+          '<div class="tabs" role="tablist" aria-label="Tariflar">' + PLANS.map((p, i) =>
+            '<button type="button" role="tab" id="tab-' + p.id + '" aria-controls="pane-' + p.id + '" aria-selected="' + (i === 0) + '">' + p.name + "</button>").join("") + "</div>" +
+          PLANS.map(pane).join("") +
+        "</div></section>" +
+
+        '<section id="taqqoslash" style="padding-top:20px"><div class="wrap">' +
+          '<span class="tag">Taqqoslash</span><h2 style="margin-top:18px">Qisqa <span class="o">taqqoslash</span></h2>' +
+          '<div class="table-wrap"><table><thead><tr><th scope="col">Imkoniyat</th>' + PLANS.map((p) =>
+            '<th scope="col"' + (p.hot ? ' class="hot"' : "") + '><span class="metal ' + p.metal + '">' + p.name + "</span></th>").join("") + "</tr></thead><tbody>" +
+            '<tr class="price-row"><td>Narx</td>' + PLANS.map((p) => "<td>$" + PRICES[p.id] + "</td>").join("") + "</tr>" +
+            COMPARE.map((r) => '<tr><th scope="row" style="font-weight:500;text-align:left">' + esc(r[0]) + "</th>" + cell(r[1]) + cell(r[2]) + cell(r[3]) + "</tr>").join("") +
+          "</tbody></table></div>" +
+        "</div></section>" +
+
+        '<section class="final" style="padding-top:20px"><div class="wrap"><div class="box">' +
+          '<span class="tag">Buyurtma</span><h2 style="margin-top:18px">Qaysi tarif <span class="o">sizga mos?</span></h2>' +
+          '<p class="lead" style="margin:16px auto 0">Tarifni tanlang yoki Telegram’da yozing — biznesingizga qarab birga tanlaymiz.</p>' +
+          '<div class="btns">' + PLANS.map((p) => '<a class="btn ' + (p.hot ? "btn-fire" : "btn-ghost") + '" href="' + orderUrl(p) + '" target="_blank" rel="noopener">' + p.name + " — $" + PRICES[p.id] + " " + arrow + "</a>").join("") + "</div>" +
+        "</div></div></section>" +
+      "</main>" +
+      '<footer><div class="wrap"><span>© ' + new Date().getFullYear() + ' theusmondigital</span><span><a href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">@' + TG_USERNAME + '</a><a href="https://instagram.com/' + INSTAGRAM + '" target="_blank" rel="noopener">@' + INSTAGRAM + "</a></span></div></footer>";
+
+    // Tabs
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const select = (id) => tabs.forEach((t) => {
+      const on = t.id === "tab-" + id;
+      t.setAttribute("aria-selected", on);
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    tabs.forEach((t) => t.addEventListener("click", () => select(t.id.slice(4))));
+    document.querySelectorAll("[data-tab]").forEach((a) => a.addEventListener("click", () => select(a.dataset.tab)));
   }
 </script>
 </body>
