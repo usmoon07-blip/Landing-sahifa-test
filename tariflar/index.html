@@ -33,7 +33,7 @@
   body { margin: 0; background: var(--bg); color: var(--text); font-family: "Poppins", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   svg { display: block; }
-  img { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; height: auto; }
 
   /* ---------- Shared ---------- */
   .bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
@@ -82,6 +82,7 @@
   .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
   .phone { position: relative; width: 270px; margin: 0 auto; border-radius: 40px; padding: 10px; background: linear-gradient(160deg, #3a3a3e, #121214); box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 90px -30px var(--glow); transform: rotate(4deg); }
   .phone-in { border-radius: 31px; overflow: hidden; background: #fff; }
+  .phone-in img { width: 100%; height: auto; }
   .phone-cap { text-align: center; color: var(--dim); font-size: 13px; margin-top: 18px; }
 
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; margin-top: 54px; }
