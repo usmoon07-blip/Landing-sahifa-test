@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usmon Intelligence — logo variantlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0a0706; --fire: #ff5a1f; --fire-2: #ffa04a; --muted: #9a8d86; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #050404; color: #fff; font-family: "Poppins", system-ui, sans-serif; }
+  svg { display: block; }
+  .board { width: 1600px; background: var(--ink); }
+  .top { position: relative; display: flex; justify-content: space-between; align-items: flex-end; padding: 60px 70px 46px; border-bottom: 1px solid rgba(255,255,255,.07); overflow: hidden; }
+  .top::before { content: ""; position: absolute; width: 900px; height: 900px; right: -300px; top: -560px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.28), transparent 70%); }
+  .top h1 { position: relative; margin: 0; font-size: 56px; font-weight: 700; letter-spacing: -0.03em; }
+  .top h1 span { color: var(--fire); }
+  .top p { position: relative; margin: 0; color: var(--muted); font-size: 18px; text-align: right; line-height: 1.6; }
+  .row { display: grid; grid-template-columns: 420px 1fr 440px; height: 400px; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .row > div { position: relative; display: grid; place-items: center; border-right: 1px solid rgba(255,255,255,.07); }
+  .row > div:last-child { border-right: 0; }
+  .big { background: radial-gradient(closest-side, rgba(255,90,31,.16), transparent 75%); }
+  .num { position: absolute; top: 24px; left: 26px; width: 60px; height: 60px; border-radius: 16px; display: grid; place-items: center; font-size: 30px; font-weight: 800; background: var(--fire); }
+  .mid { grid-template-rows: 1fr 1fr; padding: 0 !important; }
+  .mid > div { width: 100%; height: 100%; display: grid; place-items: center; }
+  .mid .dk { background: #0f0b09; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .mid .lt { background: #fff; }
+  .lockup { display: flex; align-items: center; gap: 20px; }
+  .word { font-size: 40px; font-weight: 600; letter-spacing: -0.025em; white-space: nowrap; }
+  .lt .word { color: var(--ink); }
+  .word b { font-weight: 600; background: linear-gradient(100deg, var(--fire-2), var(--fire) 60%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .info { align-content: center; justify-items: start !important; padding: 0 44px; gap: 14px; }
+  .info h2 { margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; }
+  .info p { margin: 0; color: #d9d0cb; font-size: 17px; line-height: 1.5; }
+  .chip { display: inline-block; vertical-align: middle; padding: 5px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; background: rgba(255,90,31,.15); color: var(--fire-2); }
+  .sizes { display: flex; align-items: flex-end; gap: 22px; margin-top: 8px; }
+  .sizes div { text-align: center; color: var(--muted); font-size: 12px; }
+  .sizes svg { margin: 0 auto 8px; }
+  .avatar { width: 64px; height: 64px; border-radius: 50%; background: #17110e; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(255,255,255,.1); }
+  .foot { padding: 36px 70px 46px; color: var(--muted); font-size: 18px; }
+  .foot b { color: #fff; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="fire" gradientUnits="userSpaceOnUse" x1="10" y1="8" x2="92" y2="92"><stop offset="0" stop-color="#ffa04a"/><stop offset="1" stop-color="#ff4a12"/></linearGradient>
+    <!-- 1: Ui — U va i nuqtasi -->
+    <symbol id="u1" viewBox="0 0 100 100"><path d="M26 36 V58 A22 22 0 0 0 70 58 V40" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="18" r="8" stroke="none"/></symbol>
+    <!-- 2: Kursor — U va matn kursori (I) -->
+    <symbol id="u2" viewBox="0 0 100 100"><g fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M16 30 V56 A18 18 0 0 0 52 56 V30"/><path d="M78 16 V84"/></g></symbol>
+    <!-- 3: Orb — shar ichida U va g'oya nuqtasi -->
+    <mask id="m3" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><path d="M33 44 V56 A17 17 0 0 0 67 56 V44" fill="none" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="50" cy="32" r="6.5" fill="#000"/></mask>
+    <symbol id="u3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" mask="url(#m3)" stroke="none"/></symbol>
+    <!-- 4: Chip — kvadrat ichida UI -->
+    <mask id="m4" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><g fill="none" stroke="#000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M28 32 V54 A13 13 0 0 0 54 54 V32"/><path d="M72 30 V70"/></g></mask>
+    <symbol id="u4" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="24" mask="url(#m4)" stroke="none"/></symbol>
+    <!-- 5: Uchqun — U va AI uchquni -->
+    <symbol id="u5" viewBox="0 0 100 100"><path d="M22 36 V60 A22 22 0 0 0 66 60 V54" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 4 C73.5 18 77 21.5 91 23 C77 24.5 73.5 28 72 42 C70.5 28 67 24.5 53 23 C67 21.5 70.5 18 72 4 Z" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<div class="board" id="board">
+  <div class="top"><h1>Usmon <span>Intelligence</span> — logolar</h1><p>To‘q fon · olov rang · U + I<br>Tanlash uchun raqamini ayting</p></div>
+</div>
+
+<script>
+  const V = [
+    { id: "u1", name: "Ui", tag: "Tavsiya", idea: "U harfi va i ning nuqtasi bitta belgida. Nuqta — g‘oya, uchqun, “intellekt”. Eng sodda, eng toza va esda qoladigan shakl." },
+    { id: "u2", name: "Kursor", idea: "U va yonida miltillovchi matn kursori — I harfi. Dasturlash va “AI yozmoqda” hissi. Ammo “UI” (user interface) deb ham o‘qiladi." },
+    { id: "u3", name: "Orb", idea: "AI yordamchi shari ichida U va g‘oya nuqtasi. Tabassum qilayotgan yuzga ham o‘xshaydi — do‘stona va avatar uchun ideal." },
+    { id: "u4", name: "Chip", idea: "Yumaloq kvadrat — protsessor yoki ilova ikonkasi. Ichida “UI” aniq o‘qiladi. Eng korporativ va ilova uchun tayyor ko‘rinish." },
+    { id: "u5", name: "Uchqun", idea: "U va AI dunyosining umumiy belgisi — to‘rt qirrali uchqun. Sun’iy intellekt bilan darhol bog‘lanadi." }
+  ];
+  const use = (id, size, paint) => '<svg viewBox="0 0 100 100" width="' + size + '" height="' + size + '"><use href="#' + id + '" fill="' + paint + '" stroke="' + paint + '"/></svg>';
+  const fire = "url(#fire)";
+  const word = '<span class="word">Usmon <b>Intelligence</b></span>';
+  document.getElementById("board").insertAdjacentHTML("beforeend", V.map((v, i) =>
+    '<div class="row">' +
+      '<div class="big"><span class="num">' + (i + 1) + "</span>" + use(v.id, 230, fire) + "</div>" +
+      '<div class="mid"><div class="dk"><div class="lockup">' + use(v.id, 84, fire) + word + '</div></div><div class="lt"><div class="lockup">' + use(v.id, 84, fire) + word + "</div></div></div>" +
+      '<div class="info"><h2>' + v.name + (v.tag ? ' <span class="chip">' + v.tag + "</span>" : "") + "</h2><p>" + v.idea + "</p>" +
+        '<div class="sizes"><div><div class="avatar">' + use(v.id, 38, fire) + "</div>avatar</div><div>" + use(v.id, 64, fire) + "64px</div><div>" + use(v.id, 32, fire) + "32px</div><div>" + use(v.id, 32, "#ffffff") + "oq</div></div>" +
+      "</div>" +
+    "</div>").join("") +
+    '<div class="foot">Yoqqan variant <b>raqamini</b> yozing — to‘liq brend to‘plamini tayyorlab, saytga ham qo‘yaman.</div>');
+</script>
+</body>
+</html>
