@@ -1,6 +1,6 @@
 # Buyurtmalarni Telegram botga ulash
 
-**Hozirgi holat:** forma to'ldirilgach, mijozning Telegram'ida @usmairways bilan chat
+**Hozirgi holat:** forma to'ldirilgach, mijozning Telegram'ida @usmoai bilan chat
 buyurtma matni tayyor holda ochiladi va u "Yuborish" ni bosadi. Hech qanday sozlash kerak emas.
 
 **Aksiya muddati:** `index.html` pastidagi `OFFER_END` qatorida (hozir 31-oktabr 23:59, Toshkent vaqti).
