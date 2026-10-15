@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Sizes include 3 mm bleed on every side. ?size=xl → 900×400 mm desk mat, ?size=sm → 250×210 mm mouse pad. */
+  /* Sizes include 3 mm bleed on every side. ?size=l → 800×300 mm, ?size=xl → 900×400 mm desk mat, ?size=sm → 250×210 mm mouse pad. */
   @page { margin: 0; }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: #0a0706; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -38,6 +38,17 @@
   .xl .line { left: 33mm; bottom: 36mm; width: 120mm; }
   .xl .handles { right: 33mm; bottom: 26mm; font-size: 6mm; }
 
+  /* ---- L desk mat: 806 × 306 mm (800×300 + 3 mm bleed) — big centred brand name ---- */
+  .l { width: 806mm; height: 306mm; }
+  .l .grid { background-size: 26mm 26mm; mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, #000 10%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, #000 10%, transparent 75%); }
+  .l .glow { width: 620mm; height: 620mm; left: 93mm; top: -157mm; background: radial-gradient(closest-side, rgba(255,90,31,.26), rgba(255,90,31,.08) 55%, transparent 75%); }
+  .l .center { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .l .center .lockup { position: static; gap: 6mm; }
+  .l .center .lockup svg { width: 106mm; height: 106mm; filter: drop-shadow(0 0 8mm rgba(255,90,31,.45)); }
+  .l .center .word { font-size: 104mm; }
+  .l .center .tagline { margin-top: 14mm; font-size: 9mm; font-weight: 500; letter-spacing: .42em; text-transform: uppercase; color: #a8988f; white-space: nowrap; }
+  .l .handles { right: 22mm; bottom: 18mm; font-size: 5.2mm; }
+
   /* ---- SM mouse pad: 256 × 216 mm ---- */
   .sm { width: 256mm; height: 216mm; }
   .sm .grid { background-size: 16mm 16mm; mask-image: radial-gradient(ellipse 70% 70% at 50% 42%, #000 20%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 42%, #000 20%, transparent 78%); }
@@ -61,11 +72,16 @@
 <div id="mat"></div>
 
 <script>
-  const size = new URLSearchParams(location.search).get("size") === "sm" ? "sm" : "xl";
+  const size = ({ sm: "sm", l: "l" })[new URLSearchParams(location.search).get("size")] || "xl";
   const mark = '<svg viewBox="0 0 100 100"><use href="#mark"/></svg>';
   const word = '<span class="word">usmo<b>ai</b></span>';
   const TAG = "G‘oyangiz — aqlli yechim";
-  document.getElementById("mat").outerHTML = size === "xl"
+  document.getElementById("mat").outerHTML = size === "l"
+    ? '<div class="mat l" id="mat"><div class="glow"></div><div class="grid"></div>' +
+        '<div class="center"><div class="lockup">' + mark + word + '</div><div class="tagline">' + TAG + "</div></div>" +
+        '<div class="handles">Telegram <span>@usmoai</span> · Instagram <span>@usmo_ai</span></div>' +
+      "</div>"
+    : size === "xl"
     ? '<div class="mat xl" id="mat"><div class="glow soft"></div><div class="glow"></div><div class="grid"></div>' +
         '<div class="bigmark">' + mark + "</div>" +
         '<div class="lockup">' + mark + word + "</div>" +
