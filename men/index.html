@@ -68,16 +68,11 @@
   .svc .ic svg { width: 20px; height: 20px; }
   .svc b { display: block; font-weight: 600; }
   .svc small { color: var(--muted); font-size: 13px; }
-  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .work { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
-  .work .shot { height: 220px; overflow: hidden; background: #fff; }
-  .work .shot img { width: 100%; height: auto; }
-  .work .shot.ph { display: grid; place-items: center; background: radial-gradient(90% 80% at 50% 20%, rgba(255,90,31,.35), transparent 70%), linear-gradient(160deg, #24140e, #0f0907); }
-  .ph-in { text-align: center; padding: 0 12px; }
-  .ph-ic { display: block; font-size: 46px; line-height: 1; margin-bottom: 12px; filter: drop-shadow(0 8px 18px rgba(255,90,31,.5)); }
-  .ph-in b { display: block; font-weight: 700; font-size: 17px; }
-  .ph-in small { color: var(--muted); font-size: 12px; }
-  .work .cap { padding: 12px 14px 14px; }
+  .works { display: grid; grid-template-columns: 1fr; gap: 26px; }
+  .work { width: 100%; max-width: 380px; margin: 0 auto; border-radius: 34px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); padding: 10px 10px 0; box-shadow: 0 30px 60px -30px rgba(255,90,31,.45); }
+  .work .shot { border-radius: 26px; overflow: hidden; background: #000; }
+  .work .shot img { display: block; width: 100%; height: auto; }
+  .work .cap { padding: 14px 8px 16px; text-align: center; }
   .work .cap b { display: block; font-weight: 600; }
   .work .cap small { color: var(--muted); font-size: 12.5px; }
   .cta { margin-top: 40px; padding: 26px 20px; border-radius: 22px; text-align: center; border: 1px solid rgba(255,90,31,.35); background: radial-gradient(90% 100% at 50% 0%, rgba(255,90,31,.22), transparent 70%), var(--surface); }
@@ -102,7 +97,6 @@
   @keyframes pop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
   @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .welcome svg, .welcome h1, .welcome p, .welcome small { animation: none; } }
-  @media (max-width: 380px) { .works { grid-template-columns: 1fr; } .work .shot { height: 260px; } }
 </style>
 </head>
 <body>
@@ -162,7 +156,7 @@
   <h2>Ishlarim</h2>
   <div class="works">
     <div class="work"><div class="shot"><img src="../img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App"></div><div class="cap"><b>Resto</b><small>Restoran · Mini App</small></div></div>
-    <div class="work"><div class="shot ph" data-shot="madi"><div class="ph-in"><span class="ph-ic">🍣</span><b>Madi Sushi</b><small>Bot skrinshoti tez orada</small></div></div><div class="cap"><b>Madi Sushi</b><small>Sushi bar · Telegram bot</small></div></div>
+    <div class="work"><div class="shot"><img src="../img/madi-sushi.jpg" width="600" height="1242" loading="lazy" alt="Madi Sushi Telegram Mini App"></div><div class="cap"><b>Madi Sushi</b><small>Sushi bar · Mini App</small></div></div>
   </div>
 
   <div class="cta">
