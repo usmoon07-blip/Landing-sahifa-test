@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Telegram bot tariflari — theusmondigital</title>
+<title>Telegram bot tariflari — usmoai</title>
 <meta name="description" content="Restoran, kafe va yetkazib berish xizmatlari uchun Telegram bot, Mini App va admin panel. Silver, Gold va Brilliant tariflari.">
 <meta name="theme-color" content="#070504">
+<link rel="icon" href="../brand/usmoai/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../brand/usmoai/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,7 +43,8 @@
   .bg::after { content: ""; position: absolute; width: 900px; height: 900px; right: -360px; top: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.32), transparent 70%); }
   .wrap { position: relative; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
   .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 20px; }
-  .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--fire); font-weight: 800; box-shadow: 0 8px 24px -10px var(--glow); }
+  .logo-mark { width: 36px; height: 36px; display: grid; place-items: center; flex: none; }
+  .logo-mark svg { width: 100%; height: 100%; }
   .logo b { color: var(--fire); font-weight: 600; }
   .tag { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 7px; background: var(--fire); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; box-shadow: 0 8px 26px -10px var(--glow); white-space: nowrap; }
   .tag.ghost { background: rgba(255,90,31,.12); color: var(--fire-2); border: 1px solid rgba(255,90,31,.35); box-shadow: none; }
@@ -169,7 +172,7 @@
   .poster .bg::after { width: 1100px; height: 1100px; right: -420px; top: -460px; }
   .poster .row { position: relative; display: flex; justify-content: space-between; align-items: center; }
   .poster .logo { font-size: 26px; gap: 14px; }
-  .poster .logo-mark { width: 52px; height: 52px; border-radius: 12px; font-size: 24px; }
+  .poster .logo-mark { width: 48px; height: 48px; }
   .poster .kicker { color: var(--muted); font-size: 19px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
   .poster .meta { position: relative; display: flex; gap: 14px; margin-top: 62px; }
   .poster .tag { font-size: 18px; padding: 10px 18px; border-radius: 9px; }
@@ -194,6 +197,8 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <linearGradient id="usmoFire" gradientUnits="userSpaceOnUse" x1="14" y1="8" x2="86" y2="92"><stop offset="0" stop-color="#ffa04a"/><stop offset="1" stop-color="#ff4a12"/></linearGradient>
+    <symbol id="i-usmo" viewBox="0 0 100 100"><g transform="translate(1.25 1.75)"><path d="M26 36 V58 A22 22 0 0 0 70 58 V40" fill="none" stroke="url(#usmoFire)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="18" r="8" fill="url(#usmoFire)"/></g></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".14" stroke="none"/><path d="M7 12.5l3.2 3.2L17 9"/></g></symbol>
@@ -218,7 +223,7 @@
      Narxlarni shu yerda o'zgartiring (dollarda). */
   const PRICES = { silver: 250, gold: 400, brilliant: 600 };
   const TG_USERNAME = "usmairways";
-  const INSTAGRAM = "theusmondigital";
+  const INSTAGRAM = "usmoai";
 
   /* Tariflar mazmuni — "Telegram bot tariflari" PDF faylidan */
   const PLANS = [
@@ -368,7 +373,7 @@
   const fullName = (p) => p.name + " — " + p.tier;
   const orderUrl = (p) => "https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent(
     "Assalomu alaykum! «" + fullName(p) + "» tarifi ($" + PRICES[p.id] + ") bo‘yicha Telegram bot buyurtma qilmoqchiman.");
-  const logo = '<span class="logo"><span class="logo-mark">U</span><span>theusmon<b>digital</b></span></span>';
+  const logo = '<span class="logo"><span class="logo-mark"><svg><use href="#i-usmo"/></svg></span><span>usmo<b>ai</b></span></span>';
 
   const posterId = new URLSearchParams(location.search).get("poster");
   const app = document.getElementById("app");
@@ -462,7 +467,7 @@
           '<div class="btns">' + PLANS.map((p) => '<a class="btn ' + (p.hot ? "btn-fire" : "btn-ghost") + '" href="' + orderUrl(p) + '" target="_blank" rel="noopener">' + p.name + " — $" + PRICES[p.id] + " " + arrow + "</a>").join("") + "</div>" +
         "</div></div></section>" +
       "</main>" +
-      '<footer><div class="wrap"><span>© ' + new Date().getFullYear() + ' theusmondigital</span><span><a href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">@' + TG_USERNAME + '</a><a href="https://instagram.com/' + INSTAGRAM + '" target="_blank" rel="noopener">@' + INSTAGRAM + "</a></span></div></footer>";
+      '<footer><div class="wrap"><span>© ' + new Date().getFullYear() + ' usmoai</span><span><a href="https://t.me/' + TG_USERNAME + '" target="_blank" rel="noopener">@' + TG_USERNAME + '</a><a href="https://instagram.com/' + INSTAGRAM + '" target="_blank" rel="noopener">@' + INSTAGRAM + "</a></span></div></footer>";
 
     // Tabs
     const tabs = Array.from(document.querySelectorAll('[role="tab"]'));

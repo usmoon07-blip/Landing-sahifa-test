@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>usmoai — brend</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0a0706; --fire: #ff5a1f; --fire-2: #ffa04a; --muted: #9a8d86; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #050404; color: #fff; font-family: "Poppins", system-ui, sans-serif; }
+  svg { display: block; }
+  .word { font-weight: 600; letter-spacing: -0.03em; line-height: 1; white-space: nowrap; }
+  .word b { font-weight: 600; background: linear-gradient(100deg, var(--fire-2), var(--fire) 60%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lockup { display: flex; align-items: center; }
+
+  /* ---------- Brand board 1600 × 1600 ---------- */
+  .board { position: relative; width: 1600px; height: 1600px; background: var(--ink); overflow: hidden; }
+  .hero { position: relative; height: 760px; display: grid; place-items: center; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .hero::before { content: ""; position: absolute; width: 1100px; height: 1100px; left: 50%; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%); }
+  .hero .lockup { position: relative; gap: 26px; }
+  .hero .lockup svg { width: 230px; height: 230px; }
+  .hero .word { font-size: 190px; }
+  .tagline { position: relative; margin-top: 30px; text-align: center; font-size: 22px; font-weight: 500; letter-spacing: .42em; text-transform: uppercase; color: var(--muted); }
+  .corner { position: absolute; font-size: 15px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); line-height: 1.9; }
+  .corner.tl { left: 70px; top: 60px; border-left: 3px solid var(--fire); padding-left: 18px; }
+  .corner.tr { right: 70px; top: 60px; text-align: right; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); height: 480px; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .tile { position: relative; display: grid; place-items: center; border-right: 1px solid rgba(255,255,255,.07); }
+  .tile:last-child { border-right: 0; }
+  .tile .cap { position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; font-size: 14px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+  .tile.light { background: #fff; }
+  .tile.orange { background: var(--fire); }
+  .tile.orange .cap { color: rgba(255,255,255,.75); }
+  .avatars { display: flex; gap: 34px; align-items: center; }
+  .av { width: 170px; height: 170px; border-radius: 50%; overflow: hidden; box-shadow: 0 30px 70px -30px rgba(255,90,31,.6); }
+  .av.ig { padding: 6px; background: linear-gradient(45deg, #ffa04a, #ff4a12, #ff2d6f); }
+  .av.ig img, .av img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+  .av-cap { margin-top: 14px; text-align: center; font-size: 15px; color: var(--muted); }
+  .tile .lockup { gap: 10px; }
+  .tile .lockup svg { width: 84px; height: 84px; }
+  .tile .word { font-size: 66px; }
+  .tile.light .word { color: var(--ink); }
+  .tile.orange .word, .tile.orange .word b { color: #fff; background: none; -webkit-text-fill-color: #fff; }
+  .bottom { display: grid; grid-template-columns: 1.3fr 1fr; height: 360px; }
+  .idea { padding: 54px 70px; display: flex; flex-direction: column; justify-content: center; gap: 22px; border-right: 1px solid rgba(255,255,255,.07); }
+  .idea h3, .colors h3 { margin: 0; font-size: 18px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .idea .row { display: flex; align-items: center; gap: 20px; font-size: 22px; color: #e9e2de; }
+  .idea .k { flex: none; width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; font-size: 28px; font-weight: 700; color: var(--fire); border: 1.5px solid rgba(255,90,31,.45); background: rgba(255,90,31,.08); }
+  .idea .row b { color: #fff; font-weight: 600; }
+  .colors { padding: 54px 70px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+  .sw { display: flex; gap: 18px; }
+  .sw div { text-align: center; font-size: 14px; color: var(--muted); }
+  .sw i { display: block; width: 92px; height: 92px; border-radius: 50%; margin-bottom: 12px; border: 1px solid rgba(255,255,255,.12); }
+
+  /* ---------- Export frames ---------- */
+  .export { display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; }
+  .exp-lockup { width: 1800px; height: 560px; display: grid; place-items: center; }
+  .exp-lockup .lockup { gap: 24px; }
+  .exp-lockup svg { width: 250px; height: 250px; }
+  .exp-lockup .word { font-size: 210px; }
+  #exp-dark { background: var(--ink); }
+  #exp-light { background: #fff; }
+  #exp-light .word { color: var(--ink); }
+  #exp-clear { background: transparent; }
+  #exp-post { position: relative; width: 1080px; height: 1080px; background: var(--ink); display: grid; place-items: center; overflow: hidden; }
+  #exp-post::before { content: ""; position: absolute; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.25), transparent 70%); }
+  #exp-post .in { position: relative; text-align: center; }
+  #exp-post svg { width: 300px; height: 300px; margin: 0 auto 40px; }
+  #exp-post .word { font-size: 150px; }
+  #exp-post .tagline { font-size: 22px; margin-top: 34px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="fire" gradientUnits="userSpaceOnUse" x1="14" y1="8" x2="86" y2="92"><stop offset="0" stop-color="#ffa04a"/><stop offset="1" stop-color="#ff4a12"/></linearGradient>
+    <symbol id="mark" viewBox="0 0 100 100"><g transform="translate(1.25 1.75)"><path d="M26 36 V58 A22 22 0 0 0 70 58 V40" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="18" r="8" stroke="none"/></g></symbol>
+  </defs>
+</svg>
+
+
+<div class="board" id="board">
+  <div class="hero">
+    <div class="corner tl">Sun’iy intellekt<br>va dasturlash</div>
+    <div class="corner tr">AI<br>Bots<br>Mini Apps<br>Websites</div>
+    <div>
+      <div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><span class="word">usmo<b>ai</b></span></div>
+      <div class="tagline">G‘oyangiz — aqlli yechim</div>
+    </div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><div><div class="avatars"><div><div class="av"><img src="avatar.png" alt=""></div><div class="av-cap">Telegram</div></div><div><div class="av ig"><img src="avatar.png" alt=""></div><div class="av-cap">Instagram</div></div></div></div><span class="cap">@usmoai</span></div>
+    <div class="tile light"><div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><span class="word">usmo<b>ai</b></span></div><span class="cap">Oq fonda</span></div>
+    <div class="tile orange"><div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="#fff" stroke="#fff"/></svg><span class="word">usmo<b>ai</b></span></div><span class="cap">Bir rangli</span></div>
+  </div>
+  <div class="bottom">
+    <div class="idea">
+      <h3>G‘oya</h3>
+      <div class="row"><span class="k">u</span><span><b>Usmon</b> — shaxsiy brend, “usmo”ning bosh harfi</span></div>
+      <div class="row"><span class="k">•</span><span><b>Nuqta</b> — “ai”dagi i ning nuqtasi: g‘oya va aql uchquni</span></div>
+      <div class="row"><span class="k">ui</span><span>Birga o‘qilganda — <b>u + i</b>: inson va intellekt yonma-yon</span></div>
+    </div>
+    <div class="colors">
+      <h3>Brend ranglari</h3>
+      <div class="sw">
+        <div><i style="background:#ffa04a"></i>#FFA04A</div>
+        <div><i style="background:#ff5a1f"></i>#FF5A1F</div>
+        <div><i style="background:#0a0706"></i>#0A0706</div>
+        <div><i style="background:#ffffff"></i>#FFFFFF</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="export">
+  <div class="exp-lockup" id="exp-dark"><div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><span class="word">usmo<b>ai</b></span></div></div>
+  <div class="exp-lockup" id="exp-light"><div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><span class="word">usmo<b>ai</b></span></div></div>
+  <div class="exp-lockup" id="exp-clear"><div class="lockup"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><span class="word">usmo<b>ai</b></span></div></div>
+  <div id="exp-post"><div class="in"><svg viewBox="0 0 100 100"><use href="#mark" fill="url(#fire)" stroke="url(#fire)"/></svg><div class="word">usmo<b>ai</b></div><div class="tagline">G‘oyangiz — aqlli yechim</div></div></div>
+</div>
+
+</body>
+</html>
