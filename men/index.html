@@ -11,6 +11,7 @@
 <meta name="theme-color" content="#0a0706">
 <link rel="icon" href="../brand/usmoai/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../brand/usmoai/apple-touch-icon.png">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -61,10 +62,6 @@
   /* Sections */
   h2 { margin: 44px 0 16px; font-size: 13px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
   h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .stat { padding: 16px 10px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
-  .stat b { display: block; font-size: 24px; font-weight: 800; color: var(--fire); line-height: 1.1; }
-  .stat span { font-size: 12.5px; color: var(--muted); }
   .services { display: grid; gap: 10px; }
   .svc { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
   .svc .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,90,31,.12); color: var(--fire); }
@@ -75,6 +72,11 @@
   .work { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
   .work .shot { height: 220px; overflow: hidden; background: #fff; }
   .work .shot img { width: 100%; height: auto; }
+  .work .shot.ph { display: grid; place-items: center; background: radial-gradient(90% 80% at 50% 20%, rgba(255,90,31,.35), transparent 70%), linear-gradient(160deg, #24140e, #0f0907); }
+  .ph-in { text-align: center; padding: 0 12px; }
+  .ph-ic { display: block; font-size: 46px; line-height: 1; margin-bottom: 12px; filter: drop-shadow(0 8px 18px rgba(255,90,31,.5)); }
+  .ph-in b { display: block; font-weight: 700; font-size: 17px; }
+  .ph-in small { color: var(--muted); font-size: 12px; }
   .work .cap { padding: 12px 14px 14px; }
   .work .cap b { display: block; font-weight: 600; }
   .work .cap small { color: var(--muted); font-size: 12.5px; }
@@ -88,6 +90,18 @@
   footer .logo svg { width: 22px; height: 22px; }
   footer .logo em { font-style: normal; color: var(--fire); }
   .btn:focus-visible, .lnk:focus-visible, a:focus-visible { outline: 2px solid var(--fire-2); outline-offset: 3px; }
+  /* Welcome splash — shown once per visitor */
+  .welcome { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; text-align: center; cursor: pointer;
+             background: radial-gradient(60% 45% at 50% 45%, rgba(255,90,31,.32), transparent 72%), #0a0706; transition: opacity .6s ease, visibility .6s; }
+  .welcome.hide { opacity: 0; visibility: hidden; }
+  .welcome svg { width: 92px; height: 92px; margin: 0 auto 26px; filter: drop-shadow(0 0 18px rgba(255,90,31,.6)); animation: pop .8s cubic-bezier(.2,.9,.3,1.3) both; }
+  .welcome h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; animation: up .7s .25s both; }
+  .welcome h1 span { color: var(--fire); }
+  .welcome p { margin: 12px 0 0; color: var(--soft); font-size: 18px; animation: up .7s .45s both; }
+  .welcome small { position: absolute; left: 0; right: 0; bottom: 34px; color: var(--dim); font-size: 13px; animation: up .7s 1s both; }
+  @keyframes pop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+  @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .welcome svg, .welcome h1, .welcome p, .welcome small { animation: none; } }
   @media (max-width: 380px) { .works { grid-template-columns: 1fr; } .work .shot { height: 260px; } }
 </style>
 </head>
@@ -106,6 +120,13 @@
     <symbol id="i-ai" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7zm6 12c.3 2.3 1.2 3.2 3.5 3.5-2.3.3-3.2 1.2-3.5 3.5-.3-2.3-1.2-3.2-3.5-3.5 2.3-.3 3.2-1.2 3.5-3.5z"/></symbol>
   </defs>
 </svg>
+
+<div class="welcome" id="welcome" role="dialog" aria-label="Xush kelibsiz" hidden>
+  <div><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#i-usmo"/></svg>
+  <h1>Assalomu alaykum!</h1>
+  <p>Sahifamizga xush kelibsiz!</p></div>
+  <small>Davom etish uchun bosing</small>
+</div>
 
 <div class="bg" aria-hidden="true"></div>
 
@@ -130,13 +151,6 @@
     </a>
   </nav>
 
-  <h2>Men haqimda</h2>
-  <div class="stats">
-    <div class="stat"><b>5+</b><span>yillik tajriba</span></div>
-    <div class="stat"><b>AI</b><span>engineer</span></div>
-    <div class="stat"><b>Top</b><span>brendlar bilan ish</span></div>
-  </div>
-
   <h2>Xizmatlar</h2>
   <div class="services">
     <div class="svc"><span class="ic"><svg><use href="#i-bot"/></svg></span><div><b>Telegram bot</b><small>Buyurtma, katalog, bron va avtomatik xabarlar</small></div></div>
@@ -148,7 +162,7 @@
   <h2>Ishlarim</h2>
   <div class="works">
     <div class="work"><div class="shot"><img src="../img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App"></div><div class="cap"><b>Resto</b><small>Restoran · Mini App</small></div></div>
-    <div class="work"><div class="shot"><img src="../img/barno-miniapp.jpg" width="460" height="994" loading="lazy" alt="Barno Abayas Telegram Mini App"></div><div class="cap"><b>Barno Abayas</b><small>Kiyim do‘koni · Mini App</small></div></div>
+    <div class="work"><div class="shot ph" data-shot="madi"><div class="ph-in"><span class="ph-ic">🍣</span><b>Madi Sushi</b><small>Bot skrinshoti tez orada</small></div></div><div class="cap"><b>Madi Sushi</b><small>Sushi bar · Telegram bot</small></div></div>
   </div>
 
   <div class="cta">
@@ -162,6 +176,24 @@
     <div>© <span id="y">2026</span> Usmon · usmoai</div>
   </footer>
 </main>
-<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // Inside Telegram (Mini App button): tell Telegram the page is ready and open it full height
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if (tg && tg.initData !== undefined) { try { tg.ready(); tg.expand(); tg.setHeaderColor("#0a0706"); tg.setBackgroundColor("#0a0706"); } catch (_) {} }
+
+  // Welcome splash: shown on the first visit only, closes by itself or on tap
+  (function () {
+    const w = document.getElementById("welcome");
+    let seen = false;
+    try { seen = localStorage.getItem("usmoai-welcome") === "1"; } catch (_) {}
+    if (seen) return;
+    w.hidden = false;
+    const close = () => { w.classList.add("hide"); try { localStorage.setItem("usmoai-welcome", "1"); } catch (_) {} };
+    w.addEventListener("click", close);
+    setTimeout(close, 2800);
+  })();
+</script>
 </body>
 </html>
