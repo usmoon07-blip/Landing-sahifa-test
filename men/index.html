@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usmon — usmoai | Telegram bot, Mini App va AI dasturchi</title>
+<meta name="description" content="Usmon (usmoai) — 5+ yillik dasturchi va AI engineer. Telegram bot, Mini App, AI yordamchi va landing saytlar yasayman. Telegram: @usmoai">
+<meta property="og:title" content="Usmon — usmoai">
+<meta property="og:description" content="Telegram bot, Mini App, AI yordamchi va landing saytlar. Bog‘lanish: @usmoai">
+<meta property="og:image" content="../brand/usmoai/avatar/avatar-1-tun.png">
+<meta name="theme-color" content="#0a0706">
+<link rel="icon" href="../brand/usmoai/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../brand/usmoai/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Person", "name": "Usmon", "alternateName": "usmoai",
+  "jobTitle": "Dasturchi va AI engineer",
+  "knowsAbout": ["Telegram bot", "Telegram Mini App", "AI yordamchi", "Landing sayt"],
+  "sameAs": ["https://t.me/usmoai", "https://instagram.com/usmo_ai"] }
+</script>
+<style>
+  :root { --bg: #0a0706; --surface: #140d0a; --surface-2: #1b120e; --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.14);
+          --text: #fff; --soft: #e9e2de; --muted: #a8988f; --dim: #6e605a; --fire: #ff5a1f; --fire-2: #ffa04a; --glow: rgba(255,90,31,.55); }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: "Poppins", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  svg, img { display: block; }
+  .bg { position: fixed; inset: 0; pointer-events: none; }
+  .bg::before { content: ""; position: absolute; width: 900px; height: 900px; left: 50%; top: -420px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255,90,31,.32), rgba(255,90,31,.08) 55%, transparent 75%); }
+  .bg::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 60% 45% at 50% 12%, #000 20%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 60% 45% at 50% 12%, #000 20%, transparent 80%); }
+  main { position: relative; max-width: 560px; margin: 0 auto; padding: 56px 20px 40px; }
+
+  /* Profile */
+  .profile { text-align: center; }
+  .avatar { width: 124px; height: 124px; margin: 0 auto; border-radius: 50%; padding: 4px; background: linear-gradient(140deg, #ffc07a, #ff5a1f 55%, #c73a0a); box-shadow: 0 0 0 6px rgba(255,90,31,.12), 0 20px 60px -15px var(--glow); }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; }
+  .name { margin: 22px 0 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; display: inline-flex; align-items: center; gap: 8px; }
+  .handle { margin-top: 6px; color: var(--muted); font-weight: 500; }
+  .handle b { color: var(--fire); font-weight: 600; }
+  .bio { margin: 16px auto 0; max-width: 40ch; color: var(--soft); font-size: 15.5px; }
+  .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+  .tags span { padding: 6px 12px; border-radius: 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: rgba(255,90,31,.12); color: var(--fire-2); border: 1px solid rgba(255,90,31,.3); }
+
+  /* Buttons */
+  .links { display: grid; gap: 12px; margin-top: 30px; }
+  .lnk { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); transition: transform .2s, border-color .2s, background .2s; }
+  .lnk:hover { transform: translateY(-2px); border-color: rgba(255,90,31,.45); }
+  .lnk .ic { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255,90,31,.12); color: var(--fire); }
+  .lnk .ic svg { width: 22px; height: 22px; }
+  .lnk .t { flex: 1; min-width: 0; }
+  .lnk .t b { display: block; font-weight: 600; font-size: 16px; }
+  .lnk .t small { color: var(--muted); font-size: 13px; }
+  .lnk .go { width: 22px; height: 22px; color: var(--dim); }
+  .lnk.main { background: var(--fire); border-color: transparent; box-shadow: 0 16px 44px -14px var(--glow); }
+  .lnk.main .ic { background: rgba(255,255,255,.2); color: #fff; }
+  .lnk.main .t small, .lnk.main .go { color: rgba(255,255,255,.85); }
+
+  /* Sections */
+  h2 { margin: 44px 0 16px; font-size: 13px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat { padding: 16px 10px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
+  .stat b { display: block; font-size: 24px; font-weight: 800; color: var(--fire); line-height: 1.1; }
+  .stat span { font-size: 12.5px; color: var(--muted); }
+  .services { display: grid; gap: 10px; }
+  .svc { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+  .svc .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,90,31,.12); color: var(--fire); }
+  .svc .ic svg { width: 20px; height: 20px; }
+  .svc b { display: block; font-weight: 600; }
+  .svc small { color: var(--muted); font-size: 13px; }
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .work { border-radius: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+  .work .shot { height: 220px; overflow: hidden; background: #fff; }
+  .work .shot img { width: 100%; height: auto; }
+  .work .cap { padding: 12px 14px 14px; }
+  .work .cap b { display: block; font-weight: 600; }
+  .work .cap small { color: var(--muted); font-size: 12.5px; }
+  .cta { margin-top: 40px; padding: 26px 20px; border-radius: 22px; text-align: center; border: 1px solid rgba(255,90,31,.35); background: radial-gradient(90% 100% at 50% 0%, rgba(255,90,31,.22), transparent 70%), var(--surface); }
+  .cta b { display: block; font-size: 20px; font-weight: 700; }
+  .cta p { margin: 8px 0 18px; color: var(--muted); font-size: 14.5px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--fire); color: #fff; font-weight: 600; box-shadow: 0 14px 40px -12px var(--glow); }
+  .btn svg { width: 18px; height: 18px; }
+  footer { margin-top: 36px; text-align: center; color: var(--dim); font-size: 13px; }
+  footer .logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--soft); font-size: 15px; margin-bottom: 6px; }
+  footer .logo svg { width: 22px; height: 22px; }
+  footer .logo em { font-style: normal; color: var(--fire); }
+  .btn:focus-visible, .lnk:focus-visible, a:focus-visible { outline: 2px solid var(--fire-2); outline-offset: 3px; }
+  @media (max-width: 380px) { .works { grid-template-columns: 1fr; } .work .shot { height: 260px; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="usmoFire" gradientUnits="userSpaceOnUse" x1="14" y1="8" x2="86" y2="92"><stop offset="0" stop-color="#ffa04a"/><stop offset="1" stop-color="#ff4a12"/></linearGradient>
+    <symbol id="i-usmo" viewBox="0 0 100 100"><g transform="translate(1.25 1.75)"><path d="M26 36 V58 A22 22 0 0 0 70 58 V40" fill="none" stroke="url(#usmoFire)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="18" r="8" fill="url(#usmoFire)"/></g></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3l-3.2 15.1c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor"/></g></symbol>
+    <symbol id="i-go" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></g></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="4"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 17h5"/></g></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></g></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7zm6 12c.3 2.3 1.2 3.2 3.5 3.5-2.3.3-3.2 1.2-3.5 3.5-.3-2.3-1.2-3.2-3.5-3.5 2.3-.3 3.2-1.2 3.5-3.5z"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg" aria-hidden="true"></div>
+
+<main>
+  <section class="profile">
+    <div class="avatar"><img src="../brand/usmoai/avatar/avatar-1-tun.png" width="116" height="116" alt="usmoai logosi"></div>
+    <h1 class="name">Usmon</h1>
+    <div class="handle"><b>@usmoai</b> · Dasturchi va AI engineer</div>
+    <p class="bio">Bizneslar uchun Telegram bot, Mini App, AI yordamchi va landing saytlar yasayman. Siz ko‘rgan bot ham men tomonimdan yaratilgan.</p>
+    <div class="tags"><span>Telegram bot</span><span>Mini App</span><span>AI</span><span>Landing</span></div>
+  </section>
+
+  <nav class="links" aria-label="Bog‘lanish">
+    <a class="lnk main" href="https://t.me/usmoai?text=Assalomu%20alaykum!%20Bot%20orqali%20sizni%20topdim." target="_blank" rel="noopener">
+      <span class="ic"><svg><use href="#i-tg"/></svg></span><span class="t"><b>Telegram’da yozish</b><small>Loyihangizni muhokama qilamiz</small></span><svg class="go"><use href="#i-go"/></svg>
+    </a>
+    <a class="lnk" href="https://instagram.com/usmo_ai" target="_blank" rel="noopener">
+      <span class="ic"><svg><use href="#i-ig"/></svg></span><span class="t"><b>Instagram</b><small>@usmo_ai — ishlarim va yangiliklar</small></span><svg class="go"><use href="#i-go"/></svg>
+    </a>
+    <a class="lnk" href="../tariflar/">
+      <span class="ic"><svg><use href="#i-web"/></svg></span><span class="t"><b>Narxlar va tariflar</b><small>Silver · Gold · Brilliant</small></span><svg class="go"><use href="#i-go"/></svg>
+    </a>
+  </nav>
+
+  <h2>Men haqimda</h2>
+  <div class="stats">
+    <div class="stat"><b>5+</b><span>yillik tajriba</span></div>
+    <div class="stat"><b>AI</b><span>engineer</span></div>
+    <div class="stat"><b>Top</b><span>brendlar bilan ish</span></div>
+  </div>
+
+  <h2>Xizmatlar</h2>
+  <div class="services">
+    <div class="svc"><span class="ic"><svg><use href="#i-bot"/></svg></span><div><b>Telegram bot</b><small>Buyurtma, katalog, bron va avtomatik xabarlar</small></div></div>
+    <div class="svc"><span class="ic"><svg><use href="#i-app"/></svg></span><div><b>Telegram Mini App</b><small>Telegram ichidagi to‘liq do‘kon yoki menyu</small></div></div>
+    <div class="svc"><span class="ic"><svg><use href="#i-ai"/></svg></span><div><b>AI yordamchi</b><small>Ovozli suhbat, savdo statistikasi, avtomatik javoblar</small></div></div>
+    <div class="svc"><span class="ic"><svg><use href="#i-web"/></svg></span><div><b>Landing sayt</b><small>Mijozni buyurtmaga olib keladigan sotuvchi sayt</small></div></div>
+  </div>
+
+  <h2>Ishlarim</h2>
+  <div class="works">
+    <div class="work"><div class="shot"><img src="../img/resto-miniapp.jpg" width="460" height="977" loading="lazy" alt="Resto Telegram Mini App"></div><div class="cap"><b>Resto</b><small>Restoran · Mini App</small></div></div>
+    <div class="work"><div class="shot"><img src="../img/barno-miniapp.jpg" width="460" height="994" loading="lazy" alt="Barno Abayas Telegram Mini App"></div><div class="cap"><b>Barno Abayas</b><small>Kiyim do‘koni · Mini App</small></div></div>
+  </div>
+
+  <div class="cta">
+    <b>Sizga ham shunday bot kerakmi?</b>
+    <p>Yozing — biznesingizga mos yechimni birga tanlaymiz.</p>
+    <a class="btn" href="https://t.me/usmoai?text=Assalomu%20alaykum!%20Bot%20orqali%20sizni%20topdim." target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>@usmoai ga yozish</a>
+  </div>
+
+  <footer>
+    <div class="logo"><svg viewBox="0 0 100 100"><use href="#i-usmo"/></svg><span>usmo<em>ai</em></span></div>
+    <div>© <span id="y">2026</span> Usmon · usmoai</div>
+  </footer>
+</main>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
