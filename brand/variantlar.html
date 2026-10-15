@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>theusmondigital — logo variantlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0a0706; --fire: #ff5a1f; --fire-2: #ffa04a; --muted: #9a8d86; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #050404; color: #fff; font-family: "Poppins", system-ui, sans-serif; }
+  svg { display: block; }
+  .board { width: 1600px; background: var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: flex-end; padding: 60px 70px 46px; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .top h1 { margin: 0; font-size: 56px; font-weight: 700; letter-spacing: -0.03em; }
+  .top h1 span { color: var(--fire); }
+  .top p { margin: 0; color: var(--muted); font-size: 18px; letter-spacing: .28em; text-transform: uppercase; }
+  .row { display: grid; grid-template-columns: 460px 1fr 420px; height: 470px; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .row > div { position: relative; display: grid; place-items: center; border-right: 1px solid rgba(255,255,255,.07); }
+  .row > div:last-child { border-right: 0; }
+  .big { background: radial-gradient(closest-side, rgba(255,90,31,.16), transparent 75%); }
+  .big svg { width: 270px; height: 270px; }
+  .badge { position: absolute; top: 26px; left: 28px; width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 26px; font-weight: 700; background: var(--fire); }
+  .light { background: #fff; }
+  .lockup { display: flex; align-items: center; gap: 22px; }
+  .lockup svg { width: 96px; height: 96px; }
+  .word { font-size: 46px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+  .word b { font-weight: 600; background: linear-gradient(100deg, var(--fire-2), var(--fire) 60%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .info { align-content: center; justify-items: start !important; padding: 0 48px; gap: 16px; }
+  .info h2 { margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
+  .info p { margin: 0; color: #d9d0cb; font-size: 18px; line-height: 1.5; }
+  .sizes { display: flex; align-items: flex-end; gap: 22px; margin-top: 10px; }
+  .sizes div { text-align: center; color: var(--muted); font-size: 12px; }
+  .sizes svg { margin: 0 auto 8px; }
+  .foot { display: flex; align-items: center; gap: 22px; padding: 34px 70px; color: var(--muted); font-size: 18px; }
+  .foot svg { width: 56px; height: 56px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="fire" gradientUnits="userSpaceOnUse" x1="10" y1="8" x2="92" y2="92"><stop offset="0" stop-color="#ffa04a"/><stop offset="1" stop-color="#ff4a12"/></linearGradient>
+    <!-- A: Qopqoq — U-kosa + T-qopqoq; yonboshlatsa D -->
+    <symbol id="a" viewBox="0 0 100 100"><g fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M26 34 V52 A24 24 0 0 0 74 52 V34"/><path d="M14 22 H86"/><path d="M50 22 V56"/></g></symbol>
+    <!-- B: tud — bir xil qalinlikdagi kichik harflar -->
+    <symbol id="b" viewBox="0 0 100 100"><g fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M14 28 V58 A12 12 0 0 0 38 58 V42"/><path d="M5 40 H24"/><circle cx="72" cy="58" r="14"/><path d="M86 18 V72"/></g></symbol>
+    <!-- C: Chat-D — D shaklidagi xabar pufagi, ichida "tu" o'yilgan -->
+    <mask id="tuC" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><g fill="none" stroke="#000" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M40 30 V55 A12 12 0 0 0 64 55 V41"/><path d="M31 41 H49"/></g></mask>
+    <symbol id="c" viewBox="0 0 100 100"><path mask="url(#tuC)" d="M16 12 H50 A38 38 0 0 1 50 88 H30 L12 98 V16 A4 4 0 0 1 16 12 Z"/></symbol>
+    <!-- 1-variant (oldingi) -->
+    <mask id="tu1" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><g fill="none" stroke="#000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M42 26 V55 A13 13 0 0 0 68 55 V38"/><path d="M32 39 H52"/></g></mask>
+    <symbol id="v1" viewBox="0 0 100 100"><path mask="url(#tu1)" d="M20 10 H50 A40 40 0 0 1 50 90 H20 A8 8 0 0 1 12 82 V18 A8 8 0 0 1 20 10 Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="board" id="board">
+  <div class="top"><h1>Logo <span>variantlari</span></h1><p>T · U · D</p></div>
+</div>
+
+<script>
+  const V = [
+    { id: "a", letter: "A", name: "Qopqoq", idea: "U — kosa, T — uning qopqog‘i. Yonboshlatib qarasangiz, D paydo bo‘ladi. Eng sodda va eng tez esda qoladigan shakl." },
+    { id: "b", letter: "B", name: "tud", idea: "Uchala harf bir xil qalinlikdagi yumaloq chiziqda. Hech qanday sir yo‘q — o‘qilishi eng oson, zamonaviy va do‘stona." },
+    { id: "c", letter: "C", name: "Chat-D", idea: "D — Telegram’dagi xabar pufagi, ichida “tu” o‘yilgan. Bot va chat xizmatlari bilan darhol bog‘lanadi." }
+  ];
+  // Symbols leave fill/stroke unset so they inherit the paint (solid colour or gradient) from <use>
+  const use = (id, size, paint) => '<svg viewBox="0 0 100 100" width="' + size + '" height="' + size + '"><use href="#' + id + '" fill="' + paint + '" stroke="' + paint + '"/></svg>';
+  const useFire = (id, size) => use(id, size, "url(#fire)");
+  document.getElementById("board").insertAdjacentHTML("beforeend", V.map((v) =>
+    '<div class="row">' +
+      '<div class="big"><span class="badge">' + v.letter + "</span>" + useFire(v.id, 270) + "</div>" +
+      '<div class="light"><div class="lockup">' + useFire(v.id, 96) + '<span class="word">theusmon<b>digital</b></span></div></div>' +
+      '<div class="info"><h2>' + v.letter + " — " + v.name + "</h2><p>" + v.idea + '</p>' +
+        '<div class="sizes"><div>' + useFire(v.id, 64) + "64px</div><div>" + useFire(v.id, 32) + "32px</div><div>" + use(v.id, 32, "#ffffff") + "oq</div></div>" +
+      "</div>" +
+    "</div>").join("") +
+    '<div class="foot">' + useFire("v1", 56) + "<span>Oldingi variant (D-pufak) ham saqlanib qoladi — taqqoslash uchun.</span></div>");
+</script>
+</body>
+</html>
